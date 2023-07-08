@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-07-07T21:05:34.699Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.3.7 Chrome/112.0.5615.204 Electron/24.5.0 Safari/537.36" etag="WR8edkJtCovQdE3jiE9F" version="21.3.7" type="device" pages="11">
+<mxfile host="Electron" modified="2023-07-07T23:38:27.895Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.3.7 Chrome/112.0.5615.204 Electron/24.5.0 Safari/537.36" etag="lKpmBO5mDgStyFr91x3R" version="21.3.7" type="device" pages="11">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="High-Level">
-    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1674" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -8,7 +8,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="IX3f4DRf88G8L1G4UwFi-0" value="Player" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="120" y="425" width="30" height="60" as="geometry" />
+          <mxGeometry x="90" y="225" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="IX3f4DRf88G8L1G4UwFi-1" value="Melee" style="ellipse;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="630" y="220" width="140" height="70" as="geometry" />
@@ -26,7 +26,7 @@
           <mxGeometry x="630" y="460" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="hDs8wehGNOHXCG7UrAyd-0" value="FP Free-form Fighter&amp;nbsp;" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=226;height=30;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="170" y="150" width="740" height="620" as="geometry" />
+          <mxGeometry x="170" y="150" width="730" height="580" as="geometry" />
         </mxCell>
         <mxCell id="dg_oJP-w-HCh0W3eousA-0" value="Jump" style="ellipse;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="330" y="530" width="140" height="70" as="geometry" />
@@ -112,34 +112,34 @@
         <mxCell id="5AXXc0eknUTFpyGmdkh1-3" value="&lt;h1&gt;Secondary Themes:&lt;/h1&gt;&lt;p&gt;Necro-tech&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="437" y="20" width="246" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="rb0HR_P9NQ_zqIekV01X-0" value="Enemy AI" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="rb0HR_P9NQ_zqIekV01X-0" value="Enemy AI" style="ellipse;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="254" y="600" width="130" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="rb0HR_P9NQ_zqIekV01X-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="rb0HR_P9NQ_zqIekV01X-0" target="rpnItabQTlVY_z70fAeC-0">
+        <mxCell id="rb0HR_P9NQ_zqIekV01X-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="rb0HR_P9NQ_zqIekV01X-0" target="rpnItabQTlVY_z70fAeC-0" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="160" y="455" as="sourcePoint" />
             <mxPoint x="240" y="245" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="6g4tFXE-nuy3bSxdbfrV-0" value="Stun checker" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="6g4tFXE-nuy3bSxdbfrV-0" value="Stun checker" style="ellipse;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="480" y="630" width="140" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="YI0RP_9HVaMEzoSHNBHw-0" value="Look" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="YI0RP_9HVaMEzoSHNBHw-0" value="Look" style="ellipse;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="170" y="515" width="140" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="YI0RP_9HVaMEzoSHNBHw-1" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="YI0RP_9HVaMEzoSHNBHw-0" target="rpnItabQTlVY_z70fAeC-0">
+        <mxCell id="YI0RP_9HVaMEzoSHNBHw-1" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="YI0RP_9HVaMEzoSHNBHw-0" target="rpnItabQTlVY_z70fAeC-0" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="290" y="410" as="sourcePoint" />
             <mxPoint x="340" y="360" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="GMCpGL-B2SgxObdQ161o-0" value="Battery System (tentative)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="GMCpGL-B2SgxObdQ161o-0" value="Battery System (tentative)" style="ellipse;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="950" y="485" width="140" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="z_uhZDzqgVjM7r2vrb06-0" value="Energy Shields drain battery (for ultimate move)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="z_uhZDzqgVjM7r2vrb06-0" value="Energy Shields drain battery (for ultimate move)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="520" y="540" width="100" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="cDLpHspqcY21jwWLy63W-0" value="Battery is full at start, and drains with energy-draining moves. Regenerates slowly." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="cDLpHspqcY21jwWLy63W-0" value="Battery is full at start, and drains with energy-draining moves. Regenerates slowly." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="950" y="530" width="140" height="140" as="geometry" />
         </mxCell>
       </root>
@@ -157,13 +157,13 @@
           <mxGeometry x="120" y="530" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="51_yx6GylZVPIpAhu_8C-2" value="Start heavy attack" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="300" y="590" width="140" height="70" as="geometry" />
+          <mxGeometry x="355" y="580" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="51_yx6GylZVPIpAhu_8C-3" value="Start special attack" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="60" y="400" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="51_yx6GylZVPIpAhu_8C-4" value="&amp;lt;&amp;lt;tentative&amp;gt;&amp;gt;&lt;br&gt;attack combo check&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="660" y="570" width="140" height="70" as="geometry" />
+          <mxGeometry x="553" y="560" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="51_yx6GylZVPIpAhu_8C-5" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="51_yx6GylZVPIpAhu_8C-3" target="Jf2jwfFHurTTIkJ0rN-w-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -183,6 +183,12 @@
             <mxPoint x="400" y="500" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="qhqSkjqBSc6jS9LZlKg5-1" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="51_yx6GylZVPIpAhu_8C-4" target="Jf2jwfFHurTTIkJ0rN-w-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="460" as="sourcePoint" />
+            <mxPoint x="450" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
@@ -198,7 +204,7 @@
           <mxGeometry x="553" y="560" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="Gg_FCTvTcFuytf9x6vjA-1" value="&amp;lt;&amp;lt;tentative&amp;gt;&amp;gt;&lt;br&gt;Check energy level" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="90" y="490" width="140" height="70" as="geometry" />
+          <mxGeometry x="70" y="480" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="Gg_FCTvTcFuytf9x6vjA-2" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="Gg_FCTvTcFuytf9x6vjA-1" target="uNocxC7chGYsRhZoeeji-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
