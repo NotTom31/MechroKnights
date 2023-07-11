@@ -9,22 +9,23 @@ public class MoveModule : MonoBehaviour
     private Vector3 heading;
 
     // Stun system isStunned reference
-    StunSystem stunSystem;
+    StunSystem stunSystemRef;
     // jump module isGrounded reference
-    JumpModule jumpModule;
-    [SerializeField] private CharacterController charControl;
-    [SerializeField] private Rigidbody rb;
-
+    [SerializeField] JumpModule jumpModuleRef;
+    [SerializeField] private CharacterController charControlRef;
+    [SerializeField] private Rigidbody rbRef;
+    [SerializeField] private GameObject playerRef;
     private void Awake()
     {
         // get StunSystem reference from GameManager
-        stunSystem = GameManager.serviceLocator.GetStunSystem();
+        stunSystemRef = GameManager.serviceLocator.GetStunSystem();
         // get jump module 
+
     }
     private void FixedUpdate()
     {
         // rb.AddForce(heading);
-        charControl.Move(heading);
+        charControlRef.Move(heading);
     }
     private void Update()
     {
@@ -42,19 +43,22 @@ public class MoveModule : MonoBehaviour
 
         inputHeadingIn3D *= MoveSpeed;
         // multiply heading by stun value if stunned(likely zero). get ref if bool ref is null. if there's none, throw an error in log and continue without multiplying
-        if (stunSystem.IsStunned)
+        if (stunSystemRef.IsStunned)
         {
-            if (stunSystem == null)
-                stunSystem = GameManager.serviceLocator.GetStunSystem();
-            inputHeadingIn3D *= stunSystem.stunScale;
+            if (stunSystemRef == null)
+                stunSystemRef = GameManager.serviceLocator.GetStunSystem();
+            inputHeadingIn3D *= stunSystemRef.stunScale;
         }
         // multiply by air move value if in the air. get ref if bool ref is null. if there's none, throw an error in log and continue without multiplying.
-        if (jumpModule.IsGrounded)
+        if (jumpModuleRef.IsGrounded)
         {
-            if (stunSystem == null)
+            // if (stunSystem == null)
                 // stunSystem = ; // FIX THIS!!
-            inputHeadingIn3D *= jumpModule.AirMoveScale;
+            inputHeadingIn3D *= jumpModuleRef.AirMoveScale;
         }
+
+        playerRef.transform
+        //inputHeadingIn3D
 
         heading = inputHeadingIn3D;
     }
