@@ -22,8 +22,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip menuMusic;
     [SerializeField] AudioClip stage1Music;
 
-    [SerializeField] GameObject test2;
-
     private Dictionary<string, AudioClip> SoundList;
 
     private void Awake()
