@@ -9,32 +9,28 @@ public class MoveModule : MonoBehaviour
     private Vector3 heading;
 
     // Stun system isStunned reference
+    StunSystem stunSystem;
     // jump module isGrounded reference
-    [SerializeField] private CharacterController CharControl;
+    JumpModule jumpModule;
+    [SerializeField] private CharacterController charControl;
     [SerializeField] private Rigidbody rb;
 
-    private void Start()
-    {
-        
-    }
     private void Awake()
     {
         // get StunSystem reference from GameManager
+        stunSystem = GameManager.serviceLocator.GetStunSystem();
         // get jump module 
     }
     private void FixedUpdate()
     {
-        rb.AddForce(heading);
+        // rb.AddForce(heading);
+        charControl.Move(heading);
     }
     private void Update()
     {
        
     }
     private void LateUpdate()
-    {
-        
-    }
-    private void OnDestroy()
     {
         
     }
@@ -46,7 +42,20 @@ public class MoveModule : MonoBehaviour
 
         inputHeadingIn3D *= MoveSpeed;
         // multiply heading by stun value if stunned(likely zero). get ref if bool ref is null. if there's none, throw an error in log and continue without multiplying
+        if (stunSystem.IsStunned)
+        {
+            if (stunSystem == null)
+                stunSystem = GameManager.serviceLocator.GetStunSystem();
+            inputHeadingIn3D *= stunSystem.stunScale;
+        }
         // multiply by air move value if in the air. get ref if bool ref is null. if there's none, throw an error in log and continue without multiplying.
+        if (jumpModule.IsGrounded)
+        {
+            if (stunSystem == null)
+                // stunSystem = ; // FIX THIS!!
+            inputHeadingIn3D *= jumpModule.AirMoveScale;
+        }
+
         heading = inputHeadingIn3D;
     }
     
