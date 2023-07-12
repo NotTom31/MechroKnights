@@ -10,7 +10,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource _musicSource, _effectSource;
 
     [Header("SFX")]
-    //[SerializeField] List<AudioClip> dialogueClips = new List<AudioClip>();
     [SerializeField] AudioClip test;
 
     [Header("MenuSFX")]
@@ -23,6 +22,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip stage1Music;
 
     private Dictionary<string, AudioClip> SoundList;
+
+    public delegate void SoundEvent(string soundName);
+    public static event SoundEvent OnSoundEvent;
 
     private void Awake()
     {
@@ -38,7 +40,7 @@ public class SoundManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject); //if root object is not "dont destroy on load", remove comment
         }
         else
         {
@@ -48,7 +50,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic("stage1Music"); //placeholder
+        PlayMusic("stage1Music"); // Placeholder
     }
 
     public void PlaySound(string name, float volumeScale)
@@ -67,6 +69,19 @@ public class SoundManager : MonoBehaviour
         {
             Debug.LogError("Sound not found: " + name);
         }
+    }
+
+/*    void Update() //testing
+    {
+        if (Input.GetKeyDown(KeyCode.E)) //just for testing
+        {
+            PlaySpecificSound("pew");
+        }
+    }*/
+
+    public void PlaySpecificSound(string soundName)
+    {
+        OnSoundEvent?.Invoke(soundName);
     }
 
     public void PlayMusic(string name)
