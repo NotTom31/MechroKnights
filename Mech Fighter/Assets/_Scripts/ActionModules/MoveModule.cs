@@ -17,10 +17,8 @@ public class MoveModule : MonoBehaviour
     [SerializeField] private GameObject playerRef;
     private void Awake()
     {
-        // get StunSystem reference from GameManager
-        stunSystemRef = GameManager.serviceLocator.GetStunSystem();
-        // get jump module 
-
+        if (GameManager.serviceLocator.GetStunSystem() != null)
+            stunSystemRef = GameManager.serviceLocator.GetStunSystem();
     }
     private void FixedUpdate()
     {
