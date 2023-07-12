@@ -56,8 +56,8 @@ public class MoveModule : MonoBehaviour
                 // stunSystem = ; // FIX THIS!!
             inputHeadingIn3D *= jumpModuleRef.AirMoveScale;
         }
-
-        playerRef.transform
+        
+        //playerRef.transform; // Need to get the player model facing towards the camera direction (in look modules)
         //inputHeadingIn3D
 
         heading = inputHeadingIn3D;
