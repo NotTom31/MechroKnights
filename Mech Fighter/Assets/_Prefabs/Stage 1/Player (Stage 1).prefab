@@ -576,8 +576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2062965548}
   charControlRef: {fileID: 360438505}
-  spherecastOffset: 0
-  jumpHeight: 0
+  spherecastOffset: 0.05
+  jumpHeight: 5
 --- !u!114 &2175489863653156806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,9 +592,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 10.5
   jumpModuleRef: {fileID: 1491206394242058894}
-  charControlRef: {fileID: 0}
-  rbRef: {fileID: 0}
-  playerRef: {fileID: 0}
+  charControlRef: {fileID: 360438505}
+  rbRef: {fileID: 2062965548}
+  playerRef: {fileID: 919132149497141931}
+--- !u!114 &5417662529670725597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149497141931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0735a84a81e3644bb673582a9d08a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransformRef: {fileID: 543450653232152593}
+  playerInputRef: {fileID: 2062965547}
 --- !u!4 &6304830325226161605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6304830325697634879, guid: 81bb9eea30387e442899949a80011e55,
