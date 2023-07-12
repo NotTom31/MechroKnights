@@ -1,18 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LookModule : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Transform playerTransformRef;
+    [SerializeField] private PlayerInput playerInputRef;
+    private bool isUsingMouse = false;
+    private float calculatedRotationalVelocity;
+
+    private void Awake()
+    {
+        
+    }
+    private void Update()
+    {
+        
+    }
+    private void FixedUpdate()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DeviceChangeHandler(InputDevice device, InputDeviceChange ChangeStatus)
     {
         
+    }
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        Vector2 readValue = context.ReadValue<Vector2>();
+        if (playerInputRef.currentControlScheme == "Keyboard")
+        {
+            
+        }
+        else // it's a controller
+        {
+
+        }
     }
 }
