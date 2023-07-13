@@ -1,28 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
 
 public class ServiceLocator
 {
-    public AudioMixer GetAudioMixer()
+    public SoundManager GetSoundManager()
     {
-        return _audioMixer;
+        return _soundManager;
     }
     public StunSystem GetStunSystem()
     {
         return _stunSystem;
     }
 
-    private static AudioMixer _audioMixer;
+    private static SoundManager _soundManager;
     private static StunSystem _stunSystem;
 
-    public void ProvideServices(AudioMixer audioMixer, StunSystem stunSystem)
+    public void ProvideService(SoundManager soundManager)
     {
-        _audioMixer = audioMixer;
+        _soundManager = soundManager;
+    }
+    public void ProvideService(StunSystem stunSystem)
+    {
         _stunSystem = stunSystem;
-
     }
 }
 
