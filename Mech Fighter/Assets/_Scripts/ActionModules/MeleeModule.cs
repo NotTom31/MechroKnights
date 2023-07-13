@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MeleeModule : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // May use these modules for
+    [Header("Module References")]
+    [SerializeField] private JumpModule jumpModuleRef;
+    [SerializeField] private MoveModule moveModuleRef;
+    [SerializeField] private LookModule LookModuleRef;
+    [SerializeField] private Animator animatorRef;
 
-    // Update is called once per frame
-    void Update()
+    [Header("Damage Values")]
+    [SerializeField] [Range(0, 100)] private float lightDamageValue;
+    [SerializeField] [Range(0, 100)] private float heavyDamageValue;
+
+    void OnMeleeLight(InputValue value)
     {
+        // play the light melee animation
         
     }
+    void OnMeleeHeavy(InputValue value)
+    {
+        // play the heavy melee animation
+    }
+    // the damage will be done by the hitboxes fixed to the mech model
+    // give the hit box(es) the damage value
 }
