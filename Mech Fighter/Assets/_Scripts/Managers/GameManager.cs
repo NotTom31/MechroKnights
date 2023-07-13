@@ -48,6 +48,8 @@ public class StateTracker
 }
 public class GameManager : MonoBehaviour
 {
+    [Header("Scene Associations")]
+
     public static GameManager instance;
     public static ServiceLocator serviceLocator;
     private static StateTracker stateTracker;
@@ -73,7 +75,22 @@ public class GameManager : MonoBehaviour
         {
             stateTracker = new StateTracker();
         }
+
+        SceneManager.sceneLoaded += SceneLoaded;
     }
 
+    void SceneLoaded(Scene scene, LoadSceneMode loadMode)
+    {
+        SceneManager.sceneLoaded -= SceneLoaded;
+        //if ()
+
+        /*switch (scene.name) {
+            case loading.name: ;
+                break;
+            case mainMenu.name:;
+                break;
+            default:;
+        }*/
+    }
 
 }
