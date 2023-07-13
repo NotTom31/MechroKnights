@@ -19,11 +19,12 @@ public class MeleeModule : MonoBehaviour
     void OnMeleeLight(InputValue value)
     {
         // play the light melee animation
-        
+        Debug.Log("light melee!");
     }
     void OnMeleeHeavy(InputValue value)
     {
         // play the heavy melee animation
+        Debug.Log("heavy melee!");
     }
     // the damage will be done by the hitboxes fixed to the mech model
     // give the hit box(es) the damage value
