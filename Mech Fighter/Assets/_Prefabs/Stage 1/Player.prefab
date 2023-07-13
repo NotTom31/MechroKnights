@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 345750374}
   - component: {fileID: 345750373}
   - component: {fileID: 345750372}
+  - component: {fileID: 77000681}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -582,11 +583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ababf8c4d2561d54ab8109e78859e562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 0.5
+  MoveSpeed: 0.25
   jumpModuleRef: {fileID: 345750374}
   charControlRef: {fileID: 345750371}
   playerRef: {fileID: 919132149497141931}
-  mainCamera: {fileID: 330585545}
 --- !u!114 &345750372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +601,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransformRef: {fileID: 543450653232152593}
   playerInputRef: {fileID: 345750375}
+--- !u!114 &77000681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2912653069969735048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73dad9ee2ed526e40a3669ee8b1e33bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpModuleRef: {fileID: 345750374}
+  moveModuleRef: {fileID: 345750373}
+  LookModuleRef: {fileID: 345750372}
+  animatorRef: {fileID: 5866666021571959403}
+  lightDamageValue: 4
+  heavyDamageValue: 10
 --- !u!1001 &476456954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -684,6 +702,12 @@ Transform:
 --- !u!1 &919132149497141931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 81bb9eea30387e442899949a80011e55,
+    type: 3}
+  m_PrefabInstance: {fileID: 476456954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5866666021571959403 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 81bb9eea30387e442899949a80011e55,
     type: 3}
   m_PrefabInstance: {fileID: 476456954}
   m_PrefabAsset: {fileID: 0}
