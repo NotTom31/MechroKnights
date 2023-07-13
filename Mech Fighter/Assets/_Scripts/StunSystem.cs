@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class StunSystem : MonoBehaviour
 {
-    [SerializeField] public float stunScale { get; private set; } = 0;
-
+    [SerializeField] public float StunScale { get; private set; } = 0;
     public bool IsStunned { get; private set; } = false;
-    
 
     private void Awake()
     {
-        GameManager.serviceLocator.ProvideServices(GameManager.serviceLocator.GetAudioMixer(), this);
-
+        GameManager.serviceLocator.ProvideService(this);
     }
-    
-    
-
 }

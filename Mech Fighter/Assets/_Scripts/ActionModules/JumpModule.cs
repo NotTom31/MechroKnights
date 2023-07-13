@@ -21,13 +21,14 @@ public class JumpModule : MonoBehaviour
             charControlRef.Move(Physics.gravity);
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    void OnJump(InputValue value)
     {
         /*if (menuManager.IsPaused() || menuManager.IsShop() || menuManager.IsDialogue())
             return;*/
         if (IsGrounded)
         { 
             charControlRef.Move(transform.up * jumpHeight);
+            Debug.Log("Jumped!");
         }
         
         // Anim.SetBool("Is Jumping", true);

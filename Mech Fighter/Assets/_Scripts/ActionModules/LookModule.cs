@@ -27,11 +27,11 @@ public class LookModule : MonoBehaviour
     {
         
     }
-    public void OnLook(InputAction.CallbackContext context)
+    void OnLook(InputValue value)
     {
-        Vector2 readValue = context.ReadValue<Vector2>();
+        Vector2 readValue = value.Get<Vector2>();
         Debug.Log("OnLook Reached!");
-        if (playerInputRef.currentControlScheme == "Keyboard")
+        if (playerInputRef.currentControlScheme == "Keyboard & Mouse")
         {
             
         }
