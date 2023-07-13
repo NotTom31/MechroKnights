@@ -582,10 +582,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ababf8c4d2561d54ab8109e78859e562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10.5
+  MoveSpeed: 0.5
   jumpModuleRef: {fileID: 345750374}
   charControlRef: {fileID: 345750371}
   playerRef: {fileID: 919132149497141931}
+  mainCamera: {fileID: 330585545}
 --- !u!114 &345750372
 MonoBehaviour:
   m_ObjectHideFlags: 0
