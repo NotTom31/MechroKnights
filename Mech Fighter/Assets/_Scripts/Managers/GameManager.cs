@@ -1,7 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+public enum GameState { LOADING, 
+                        MAIN_MENU, 
+                        STAGE_SELECTION, 
+                        PLAYING_ACTIVE, 
+                        PLAYING_RESET, 
+                        VICTORY_RESULTS, 
+                        DEFEAT_RESULTS, 
+                        PAUSED }
 public class ServiceLocator
 {
     public SoundManager GetSoundManager()
@@ -25,12 +34,23 @@ public class ServiceLocator
         _stunSystem = stunSystem;
     }
 }
+public class StateTracker
+{
+    public GameState gameState { get; private set; } = GameState.LOADING;
 
+    public delegate void StateChangeHandler(GameState state);
+    public static event StateChangeHandler OnStateChange;
+    public void SetState(GameState state)
+    {
+        gameState = state;
+        OnStateChange?.Invoke(state);
+    }
+}
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public static ServiceLocator serviceLocator;
-    
+    private static StateTracker stateTracker;
     // need game state tracking
 
     private void Awake()
@@ -48,6 +68,10 @@ public class GameManager : MonoBehaviour
         if (serviceLocator == null)
         {
             serviceLocator = new ServiceLocator();
+        }
+        if (stateTracker == null)
+        {
+            stateTracker = new StateTracker();
         }
     }
 
