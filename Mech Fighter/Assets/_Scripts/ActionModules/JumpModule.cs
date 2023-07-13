@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class JumpModule : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
+    // [SerializeField] private Rigidbody rb;
     [SerializeField] private CharacterController charControlRef;
     [SerializeField] public float AirMoveScale { get; private set; } = 0.5f;
     [SerializeField] private float spherecastOffset;
@@ -14,9 +14,11 @@ public class JumpModule : MonoBehaviour
     public float GroundAngle { get; private set; }
     public Vector3 GroundNormal { get; private set; }
 
-    private void Update()
+    private void FixedUpdate()
     {
         GroundCheck();
+        if (!IsGrounded)
+            charControlRef.Move(Physics.gravity);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -25,9 +27,9 @@ public class JumpModule : MonoBehaviour
             return;*/
         if (IsGrounded)
         { 
-            rb.AddForce(transform.up * jumpHeight, ForceMode.VelocityChange);
-            IsGrounded = false;
+            charControlRef.Move(transform.up * jumpHeight);
         }
+        
         // Anim.SetBool("Is Jumping", true);
     }
     void GroundCheck()

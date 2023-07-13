@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public static ServiceLocator serviceLocator;
     
+    // need game state tracking
 
     private void Awake()
     {

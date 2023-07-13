@@ -30,6 +30,7 @@ public class LookModule : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         Vector2 readValue = context.ReadValue<Vector2>();
+        Debug.Log("OnLook Reached!");
         if (playerInputRef.currentControlScheme == "Keyboard")
         {
             
@@ -39,4 +40,5 @@ public class LookModule : MonoBehaviour
 
         }
     }
+
 }

@@ -13,31 +13,35 @@ public class MoveModule : MonoBehaviour
     // jump module isGrounded reference
     [SerializeField] JumpModule jumpModuleRef;
     [SerializeField] private CharacterController charControlRef;
-    [SerializeField] private Rigidbody rbRef;
+    // [SerializeField] private Rigidbody rbRef;
     [SerializeField] private GameObject playerRef;
+
     private void Awake()
     {
         if (GameManager.serviceLocator.GetStunSystem() != null)
             stunSystemRef = GameManager.serviceLocator.GetStunSystem();
+
     }
     private void FixedUpdate()
     {
         // rb.AddForce(heading);
-        charControlRef.Move(heading);
+        // charControlRef.Move(heading);
     }
     private void Update()
     {
-       
+        charControlRef.Move(heading);
+
     }
     private void LateUpdate()
     {
         
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    void OnMove(InputValue value)
     {
-        Vector2 inputHeading = context.ReadValue<Vector2>();
+        Vector2 inputHeading = value.Get<Vector2>();
         Vector3 inputHeadingIn3D = new Vector3(inputHeading.x, 0, inputHeading.y);
+        Debug.Log("inputheadingin3d: " + inputHeadingIn3D);
 
         inputHeadingIn3D *= MoveSpeed;
         // multiply heading by stun value if stunned(likely zero). get ref if bool ref is null. if there's none, throw an error in log and continue without multiplying
@@ -60,5 +64,5 @@ public class MoveModule : MonoBehaviour
 
         heading = inputHeadingIn3D;
     }
-    
+
 }

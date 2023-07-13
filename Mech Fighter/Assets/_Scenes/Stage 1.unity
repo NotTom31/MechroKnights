@@ -199,10 +199,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 345750375, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 8e9f9f4cb67786245bfe247d16bc59db,
+        type: 3}
     - target: {fileID: 2912653069969735048, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
         type: 3}
       propertyPath: m_Name
-      value: Player (Stage 1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3647933972983450007, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
         type: 3}
@@ -697,7 +702,7 @@ PrefabInstance:
     - target: {fileID: 8425868698474417149, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
       propertyPath: m_Name
-      value: Managers
+      value: Managers (Has GameManager Component)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b86ab689a383594493e3ad9b43f5a82, type: 3}
