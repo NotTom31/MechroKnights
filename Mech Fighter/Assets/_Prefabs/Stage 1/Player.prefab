@@ -247,8 +247,8 @@ MonoBehaviour:
     Value: 0
     m_SpeedMode: 0
     m_MaxSpeed: 300
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_AccelTime: 0.05
+    m_DecelTime: 0.05
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
@@ -271,8 +271,8 @@ MonoBehaviour:
     Value: 0
     m_SpeedMode: 0
     m_MaxSpeed: 300
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_AccelTime: 0.05
+    m_DecelTime: 0.05
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charControlRef: {fileID: 345750371}
   spherecastOffset: 0.05
-  jumpHeight: 5
+  jumpHeight: 50
 --- !u!114 &345750373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0735a84a81e3644bb673582a9d08a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vCam: {fileID: 577337194}
   playerTransformRef: {fileID: 543450653232152593}
   playerInputRef: {fileID: 345750375}
   mainCamera: {fileID: 330585545}

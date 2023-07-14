@@ -68,7 +68,7 @@ public partial class @FirstPersonControls : IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""1af87cba-3145-4bea-a91a-84929080c54f"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=0.1,y=0.1)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -282,7 +282,7 @@ public partial class @FirstPersonControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""249afe9a-137a-4cd0-b762-7fb8c8200e54"",
-                    ""path"": ""<Pointer>/delta"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -815,12 +815,12 @@ public partial class @FirstPersonControls : IInputActionCollection2, IDisposable
             ""bindingGroup"": ""Keyboard & Mouse"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<Keyboard>"",
+                    ""devicePath"": ""<Mouse>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 },
                 {
-                    ""devicePath"": ""<Mouse>"",
+                    ""devicePath"": ""<Keyboard>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }

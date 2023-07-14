@@ -24,9 +24,15 @@ public class MeleeModule : MonoBehaviour
     {
         
     }
-
-    void OnMeleeLight(InputValue value)
+    private void Update()
     {
+        if (animatorRef.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animatorRef.IsInTransition(0))
+            animatorRef.SetBool("Is Melee", false);
+    }
+
+    void OnMeleeLight()
+    {
+        animatorRef.SetBool("Is Melee", true);
         // play the light melee animation
         Debug.Log("light melee!");
     }

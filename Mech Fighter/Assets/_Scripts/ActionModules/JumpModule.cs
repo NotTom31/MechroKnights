@@ -9,7 +9,7 @@ public class JumpModule : MonoBehaviour
     [SerializeField] private CharacterController charControlRef;
     [SerializeField] public float AirMoveScale { get; private set; } = 0.5f;
     [SerializeField] private float spherecastOffset;
-    [SerializeField] private float jumpHeight;
+    [SerializeField] [Range(10, 50)] private float jumpHeight;
     public bool IsGrounded { get; private set; } = false;
     public float GroundAngle { get; private set; }
     public Vector3 GroundNormal { get; private set; }
@@ -18,7 +18,7 @@ public class JumpModule : MonoBehaviour
     {
         GroundCheck();
         if (!IsGrounded)
-            charControlRef.Move(Physics.gravity);
+            charControlRef.Move(Physics.gravity * Time.deltaTime);
     }
 
     void OnJump(InputValue value)

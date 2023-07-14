@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class LookModule : MonoBehaviour
 {
+    [SerializeField] private CinemachineVirtualCamera vCam;
     [SerializeField] private Transform playerTransformRef;
     [SerializeField] private PlayerInput playerInputRef;
     [SerializeField] private Camera mainCamera;
@@ -20,12 +22,9 @@ public class LookModule : MonoBehaviour
         playerTransformRef.rotation = rotation3D;
     }
 
-    private void DeviceChangeHandler(InputDevice device, InputDeviceChange ChangeStatus)
-    {
-        
-    }
     void OnLook(InputValue value)
     {
+        // allow the AI to control its rotation(look target)
         Debug.Log("OnLook Reached!");
         if (playerInputRef.currentControlScheme == "Keyboard & Mouse")
         {

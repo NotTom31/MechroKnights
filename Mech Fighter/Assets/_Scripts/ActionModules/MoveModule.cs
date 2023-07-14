@@ -18,7 +18,7 @@ public class MoveModule : MonoBehaviour
 
     private void Awake()
     {
-            stunSystemRef = GameManager.serviceLocator.GetStunSystem();
+        stunSystemRef = GameManager.serviceLocator.GetStunSystem();
     }
     private void FixedUpdate()
     {
