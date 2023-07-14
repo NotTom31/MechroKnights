@@ -423,7 +423,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Fighter
+      name: 1H@CombatIdle01
       takeName: 1H@CombatIdle01
       internalID: 0
       firstFrame: 0
