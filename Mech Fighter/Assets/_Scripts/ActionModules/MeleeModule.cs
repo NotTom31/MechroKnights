@@ -16,6 +16,15 @@ public class MeleeModule : MonoBehaviour
     [SerializeField] [Range(0, 100)] private float lightDamageValue;
     [SerializeField] [Range(0, 100)] private float heavyDamageValue;
 
+    [Header("Attack Timings")]
+    [SerializeField] private float lightDelay;
+    [SerializeField] private float lightDuration, heavyDelay, heavyDuration;
+
+    private void Awake()
+    {
+        
+    }
+
     void OnMeleeLight(InputValue value)
     {
         // play the light melee animation
