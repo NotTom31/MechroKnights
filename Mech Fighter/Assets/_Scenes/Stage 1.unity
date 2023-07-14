@@ -629,12 +629,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35d5098271c590648a153470b16248ca, type: 3}
---- !u!1 &879058900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4826054260759022628, guid: 35d5098271c590648a153470b16248ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 879058899}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &879058901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5079550704536904674, guid: 35d5098271c590648a153470b16248ca,
@@ -644,6 +638,12 @@ GameObject:
 --- !u!1 &879058902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7272445144417147871, guid: 35d5098271c590648a153470b16248ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 879058899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &879058903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7644232228003589255, guid: 35d5098271c590648a153470b16248ca,
     type: 3}
   m_PrefabInstance: {fileID: 879058899}
   m_PrefabAsset: {fileID: 0}
@@ -812,7 +812,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogueBox
       value: 
-      objectReference: {fileID: 879058900}
+      objectReference: {fileID: 879058903}
     - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
       propertyPath: LoadingScreen
