@@ -13,7 +13,7 @@ public class MoveModule : MonoBehaviour
     // jump module isGrounded reference
     [SerializeField] JumpModule jumpModuleRef;
     [SerializeField] private CharacterController charControlRef;
-    // [SerializeField] private Rigidbody rbRef;
+    [SerializeField] private Animator animatorRef;
     [SerializeField] private GameObject playerRef;
 
     private void Awake()
@@ -49,9 +49,7 @@ public class MoveModule : MonoBehaviour
     {
         Vector2 inputHeading = value.Get<Vector2>();
         Vector3 inputHeadingIn3D = new(inputHeading.x, 0, inputHeading.y);
-        
-
-        Debug.Log("inputheadingin3d: " + inputHeadingIn3D);
+        animatorRef.SetFloat("Input Magnitude", inputHeadingIn3D.magnitude);
 
         inputHeadingIn3D *= MoveSpeed;
         if (stunSystemRef == null)
