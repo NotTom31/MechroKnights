@@ -199,6 +199,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 345750372, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 436854791}
     - target: {fileID: 2912653069969735048, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
         type: 3}
       propertyPath: m_Name
@@ -376,6 +380,12 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!20 &436854791 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 330585545, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 345750367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
