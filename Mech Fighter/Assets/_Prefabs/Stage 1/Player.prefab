@@ -389,12 +389,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3647933972983450007}
-  - component: {fileID: 345750371}
   - component: {fileID: 345750375}
   - component: {fileID: 345750374}
   - component: {fileID: 345750373}
   - component: {fileID: 345750372}
   - component: {fileID: 77000681}
+  - component: {fileID: 2139204553}
+  - component: {fileID: 2139204552}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -420,24 +421,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &345750371
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2912653069969735048}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.7
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.5
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &345750375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,10 +568,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1fb758380c43224ca51a68a4b8b3669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charControlRef: {fileID: 345750371}
+  rb: {fileID: 2139204553}
+  coll: {fileID: 2139204552}
   animatorRef: {fileID: 5866666021571959403}
-  spherecastOffset: 0.05
-  jumpHeight: 50
+  spherecastOffset: 0.01
+  jumpForce: 50
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &345750373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,9 +588,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ababf8c4d2561d54ab8109e78859e562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 0.1
+  moveForce: 20.2
+  maxVelocity: 15
   jumpModuleRef: {fileID: 345750374}
-  charControlRef: {fileID: 345750371}
+  rb: {fileID: 2139204553}
   animatorRef: {fileID: 5866666021571959403}
   playerRef: {fileID: 919132149497141931}
 --- !u!114 &345750372
@@ -644,6 +632,36 @@ MonoBehaviour:
   lightDuration: 0
   heavyDelay: 0
   heavyDuration: 0
+--- !u!54 &2139204553
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2912653069969735048}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &2139204552
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2912653069969735048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1001 &476456954
 PrefabInstance:
   m_ObjectHideFlags: 0
