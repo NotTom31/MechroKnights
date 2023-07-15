@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 316247947}
   - component: {fileID: 316247946}
   - component: {fileID: 316247945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 531191963}
   - component: {fileID: 531191962}
   - component: {fileID: 531191961}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 677690509}
   - component: {fileID: 677690508}
   - component: {fileID: 677690507}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 713534535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: An Actual Whitebox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 1095915862}
   - component: {fileID: 1095915861}
   - component: {fileID: 1095915860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 1726069745}
   - component: {fileID: 1726069744}
   - component: {fileID: 1726069743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,7 +21,6 @@ public class JumpModule : MonoBehaviour
     private void FixedUpdate()
     {
         GroundCheck();
-        animatorRef.SetBool("Is Grounded", IsGrounded);
     }
 
     void OnJump(InputValue value)
@@ -40,6 +39,7 @@ public class JumpModule : MonoBehaviour
     {
         if (Physics.SphereCast(transform.position, coll.radius, Vector3.down, out RaycastHit hit, coll.height / 2 - coll.radius + spherecastOffset))
         {
+            Debug.Log("Spherecast True!");
             IsGrounded = true;
             GroundAngle = Vector3.Angle(Vector3.up, hit.normal);
             GroundNormal = hit.normal;
@@ -52,6 +52,7 @@ public class JumpModule : MonoBehaviour
         }
         else
         {
+            Debug.Log("Spherecast false!");
             IsGrounded = false;
             GroundAngle = 0;
             GroundNormal = Vector3.up;
