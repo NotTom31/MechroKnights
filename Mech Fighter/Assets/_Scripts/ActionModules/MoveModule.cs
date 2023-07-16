@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class MoveModule : MonoBehaviour
 {
-    [SerializeField][Range(0, 100)] private float MoveSpeed;
+    [SerializeField][Range(0, 5)] private float MoveSpeed = 1f;
     private Vector3 heading;
 
     // Stun system isStunned reference
@@ -18,18 +18,26 @@ public class MoveModule : MonoBehaviour
 
     private void Awake()
     {
-        if (GameManager.serviceLocator.GetStunSystem() != null)
             stunSystemRef = GameManager.serviceLocator.GetStunSystem();
-
     }
     private void FixedUpdate()
     {
-        // rb.AddForce(heading);
-        // charControlRef.Move(heading);
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+        forward.y = 0;
+        right.y = 0;
+        forward = forward.normalized;
+        right = right.normalized;
+
+        Vector3 forwardRelativeInput = heading.z * forward;
+        Vector3 rightRelativeInput = heading.x * right;
+        Vector3 cameraRelativeMovement = forwardRelativeInput + rightRelativeInput;
+
+        charControlRef.Move(cameraRelativeMovement);
     }
     private void Update()
     {
-        charControlRef.Move(heading);
+        
 
     }
     private void LateUpdate()
@@ -40,16 +48,18 @@ public class MoveModule : MonoBehaviour
     void OnMove(InputValue value)
     {
         Vector2 inputHeading = value.Get<Vector2>();
-        Vector3 inputHeadingIn3D = new Vector3(inputHeading.x, 0, inputHeading.y);
+        Vector3 inputHeadingIn3D = new(inputHeading.x, 0, inputHeading.y);
+        
+
         Debug.Log("inputheadingin3d: " + inputHeadingIn3D);
 
         inputHeadingIn3D *= MoveSpeed;
+        if (stunSystemRef == null)
+            stunSystemRef = GameManager.serviceLocator.GetStunSystem();
         // multiply heading by stun value if stunned(likely zero). get ref if bool ref is null. if there's none, throw an error in log and continue without multiplying
         if (stunSystemRef.IsStunned)
         {
-            if (stunSystemRef == null)
-                stunSystemRef = GameManager.serviceLocator.GetStunSystem();
-            inputHeadingIn3D *= stunSystemRef.stunScale;
+            inputHeadingIn3D *= stunSystemRef.StunScale;
         }
         // multiply by air move value if in the air. get ref if bool ref is null. if there's none, throw an error in log and continue without multiplying.
         if (jumpModuleRef.IsGrounded)
@@ -58,9 +68,9 @@ public class MoveModule : MonoBehaviour
                 // stunSystem = ; // FIX THIS!!
             inputHeadingIn3D *= jumpModuleRef.AirMoveScale;
         }
+
         
-        //playerRef.transform; // Need to get the player model facing towards the camera direction (in look modules)
-        //inputHeadingIn3D
+
 
         heading = inputHeadingIn3D;
     }

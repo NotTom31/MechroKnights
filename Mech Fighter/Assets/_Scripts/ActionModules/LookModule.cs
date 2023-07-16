@@ -7,31 +7,27 @@ public class LookModule : MonoBehaviour
 {
     [SerializeField] private Transform playerTransformRef;
     [SerializeField] private PlayerInput playerInputRef;
+    [SerializeField] private Camera mainCamera;
     private bool isUsingMouse = false;
     private float calculatedRotationalVelocity;
 
-    private void Awake()
+    private void LateUpdate()
     {
-        
-    }
-    private void Update()
-    {
-        
-    }
-    private void FixedUpdate()
-    {
-        
+        Quaternion rotation3D = mainCamera.transform.rotation;
+        rotation3D.z = 0f;
+        rotation3D.x = 0f;
+        rotation3D.Normalize();
+        playerTransformRef.rotation = rotation3D;
     }
 
     private void DeviceChangeHandler(InputDevice device, InputDeviceChange ChangeStatus)
     {
         
     }
-    public void OnLook(InputAction.CallbackContext context)
+    void OnLook(InputValue value)
     {
-        Vector2 readValue = context.ReadValue<Vector2>();
         Debug.Log("OnLook Reached!");
-        if (playerInputRef.currentControlScheme == "Keyboard")
+        if (playerInputRef.currentControlScheme == "Keyboard & Mouse")
         {
             
         }
