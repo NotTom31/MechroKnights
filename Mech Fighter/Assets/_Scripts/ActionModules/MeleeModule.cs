@@ -24,9 +24,16 @@ public class MeleeModule : MonoBehaviour
     {
         
     }
-
-    void OnMeleeLight(InputValue value)
+    private void Update()
     {
+        
+    }
+
+    void OnMeleeLight()
+    {
+        AnimatorStateInfo stateInfo = animatorRef.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.IsName("CombatIdle") || stateInfo.IsName("Move"))
+            animatorRef.SetTrigger("Melee");
         // play the light melee animation
         Debug.Log("light melee!");
     }
