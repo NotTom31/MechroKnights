@@ -38,12 +38,12 @@ public partial class @FirstPersonControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Block"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""f26c15a5-e5a1-475e-9f29-447ab94a863a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=0.01)"",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""MeleeLight"",

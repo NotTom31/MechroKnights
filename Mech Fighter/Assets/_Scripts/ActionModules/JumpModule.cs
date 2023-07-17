@@ -22,7 +22,14 @@ public class JumpModule : MonoBehaviour
     {
         GroundCheck();
     }
-
+    public void OnJump()
+    {
+        if (IsGrounded)
+        {
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        }
+        animatorRef.SetBool("Is Jumping", true);
+    }
     void OnJump(InputValue value)
     {
         /*if (menuManager.IsPaused() || menuManager.IsShop() || menuManager.IsDialogue())

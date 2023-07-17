@@ -7,7 +7,6 @@ public class MechState : MonoBehaviour
     [SerializeField] public float HP { get; private set; }
     [SerializeField] public float Energy { get; private set; }
     [SerializeField] public int MechIndex { get; private set; }
-
     [SerializeField][Range(0, 1)] private float energyRegenPercent;
 
     // Start is called before the first frame update
