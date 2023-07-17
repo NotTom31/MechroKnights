@@ -14,6 +14,18 @@ public enum AIState
     Blocking
 }
 
+public enum AIMovement
+{
+    Forward,
+    Backward,
+    Left,
+    Right,
+    ForwardLeft,
+    ForwardRight,
+    BackLeft,
+    BackRight
+}
+
 public class AICharacter : MonoBehaviour
 {
     [SerializeField] GameObject player;
@@ -70,6 +82,7 @@ public class AICharacter : MonoBehaviour
 
     private void Update()
     {
+        LookAt();
         distToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
         isJumping = stateStack.Contains(AIState.Jumping);
@@ -84,7 +97,6 @@ public class AICharacter : MonoBehaviour
         }
 
         Brain();
-
         // Reset the decision timer after making a decision.
         decisionTimer = Random.Range(decisionCooldownLow, decisionCooldownHigh);
         Debug.Log(decisionTimer);
@@ -137,9 +149,13 @@ public class AICharacter : MonoBehaviour
         {
             stateStack.Push(AIState.Blocking);
         }
-        else if (randomValue < 0.7f && ShouldMelee())
+        else if (randomValue < 0.6f && ShouldMelee())
         {
             stateStack.Push(AIState.Melee);
+        }
+        else if (randomValue < 0.8f)
+        {
+            stateStack.Push(AIState.Idle);
         }
         else if (ShouldShoot())
         {
@@ -155,7 +171,7 @@ public class AICharacter : MonoBehaviour
         switch (state)
         {
             case AIState.Chasing:
-                Move();
+                Move(AIMovement.Forward);
                 break;
             case AIState.Jumping:
                 Jump();
@@ -174,20 +190,17 @@ public class AICharacter : MonoBehaviour
         }
     }
 
-    private void Move() //edit to vary the movement, sometimes it should retreat, sometimes not
+    private void Move(AIMovement direction) //edit to vary the movement, sometimes it should retreat, strafe, or some combination
     {
-        Debug.Log("Moving");
-        movement = player.transform.position - transform.position;
-        moveModuleRef.OnMove(movement);
-    }
-
-    private void Retreat()
-    {
-
-    }
-
-    private void Strafe()
-    {
+        navMeshAgent.SetDestination(player.transform.position);
+        switch (direction)
+        {
+            case AIMovement.Forward:
+                movement = transform.position - player.transform.position;
+                movement.Normalize();
+                moveModuleRef.OnMove(movement);
+                break;
+        }
 
     }
 
@@ -205,7 +218,7 @@ public class AICharacter : MonoBehaviour
         if (distToPlayer > meleeRange)
         {
             Debug.Log("Moving in to Melee");
-            movement = player.transform.position - transform.position;
+            //movement = player.transform.position - transform.position;
             moveModuleRef.OnMove(movement); //move towards player to melee
         }
         else
@@ -230,6 +243,11 @@ public class AICharacter : MonoBehaviour
         isBlocking = true;
     }
 
+    private void LookAt()
+    {
+        lookModuleRef.OnLook(player);
+    }
+
     private bool ShouldChase()
     {
         return distToPlayer > chooseChaseDist;
@@ -237,6 +255,8 @@ public class AICharacter : MonoBehaviour
 
     private bool ShouldJump()
     {
+        if (isJumping)
+            return false;
         return distToPlayer < chooseJumpDist;
     }
 
