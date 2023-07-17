@@ -28,8 +28,7 @@ public class MeleeModule : MonoBehaviour
     {
         
     }
-
-    void OnMeleeLight()
+    public void OnMeleeLight()
     {
         AnimatorStateInfo stateInfo = animatorRef.GetCurrentAnimatorStateInfo(0);
         if (stateInfo.IsName("CombatIdle") || stateInfo.IsName("Move"))
@@ -37,7 +36,7 @@ public class MeleeModule : MonoBehaviour
         // play the light melee animation
         Debug.Log("light melee!");
     }
-    void OnMeleeHeavy(InputValue value)
+    public void OnMeleeHeavy()
     {
         // play the heavy melee animation
         Debug.Log("heavy melee!");
