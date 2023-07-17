@@ -19,18 +19,20 @@ public class AICharacter : MonoBehaviour
     [SerializeField] GameObject player;
     private NavMeshAgent navMeshAgent;
 
-    public float chaseDistanceThreshold = 20f; //if ai is outside this area, ai should move towards player 100% of the time 
-    public float jumpDistanceThreshold = 5f;
-    public float blockDistanceThreshold = 1.5f;
-    public float meleeDistanceThreshold = 1f;
-    public float shootDistanceThreshold = 10f;
+    public float chooseChaseDist = 40f;
+    public float chooseJumpDist = 30f;
+    public float chooseBlockDist = 30f;
+    public float chooseMeleeDist = 15f;
+    public float chooseShootDist = 25f;
+    public float chooseRetreatDist = 10f;
+    public float meleeRange = 2f;
 
     private JumpModule jumpModuleRef;
     private MoveModule moveModuleRef;
     private LookModule lookModuleRef;
     private MeleeModule meleeModuleRef;
     private BlockModule blockModuleRef;
-    //[SerializeField] private MechState mechStateRef;
+    private MechState mechStateRef;
     private Animator animatorRef;
 
     private float distToPlayer;
@@ -38,12 +40,19 @@ public class AICharacter : MonoBehaviour
     private bool isJumping;
     private bool isBlocking;
     private bool isMelee;
+    private bool isShooting;
     private bool isTakeDamage;
     //private bool isStunned;
     private float blockDuration;
 
     private Stack<AIState> stateStack = new Stack<AIState>();
     private List<AIState> excludedStates = new List<AIState>();
+
+    public float decisionCooldownHigh = 5f;
+    public float decisionCooldownLow = 1f;
+    private float decisionTimer = 0f;
+
+    public float chaseContinuationProbability = 0.2f; // The probability of continuing to chase when within range.
 
     private void Start()
     {
@@ -53,17 +62,54 @@ public class AICharacter : MonoBehaviour
         lookModuleRef = GetComponent<LookModule>();
         meleeModuleRef = GetComponent<MeleeModule>();
         blockModuleRef = GetComponent<BlockModule>();
+        mechStateRef = GetComponent<MechState>();
         animatorRef = GetComponent<Animator>();
 
         stateStack.Push(AIState.Chasing);
     }
 
-    private float timeSinceLastStateChange;
-    public float stateChangeInterval = 3f; 
-
     private void Update()
     {
+        distToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        isJumping = stateStack.Contains(AIState.Jumping);
+        isBlocking = stateStack.Contains(AIState.Blocking);
+        isMelee = stateStack.Contains(AIState.Melee);
+
+        // Add a cooldown before making the next decision.
+        if (decisionTimer > 0f)
+        {
+            decisionTimer -= Time.deltaTime;
+            return;
+        }
+
         Brain();
+
+        // Reset the decision timer after making a decision.
+        decisionTimer = Random.Range(decisionCooldownLow, decisionCooldownHigh);
+        Debug.Log(decisionTimer);
+
+        // After executing the action, remove the state from the stack.
+        if (stateStack.Count > 0)
+        {
+            AIState currentState = stateStack.Peek();
+            if (currentState == AIState.Jumping && !isJumping)
+            {
+                stateStack.Pop();
+            }
+            else if (currentState == AIState.Blocking && !isBlocking)
+            {
+                stateStack.Pop();
+            }
+            else if (currentState == AIState.Melee && !isMelee)
+            {
+                stateStack.Pop();
+            }
+            else if (currentState == AIState.Shooting && !isShooting)
+            {
+                stateStack.Pop();
+            }
+        }
     }
 
     private void Brain()
@@ -71,32 +117,36 @@ public class AICharacter : MonoBehaviour
         AIState currentState = stateStack.Peek();
         Debug.Log(currentState);
 
-        if (!isJumping && ShouldChase() && !IsStateExcluded(AIState.Chasing, AIState.Blocking, AIState.Melee, AIState.Shooting))
+        // The AI will always chase if it is outside the chase distance threshold or based on a random chance.
+        if ((ShouldChase() || Random.value < chaseContinuationProbability) && !IsStateExcluded(AIState.Chasing, AIState.Blocking, AIState.Melee, AIState.Shooting))
         {
             ClearStateStack();
             stateStack.Push(AIState.Chasing);
             return;
         }
 
-        if (!isJumping)
+        // Randomly decide which action to take based on probabilities.
+        float randomValue = Random.value;
+        //Debug.Log(randomValue);
+
+        if (randomValue < 0.2f && !isJumping && ShouldJump())
         {
-            if (ShouldBlock() && !IsStateExcluded(AIState.Blocking, AIState.Melee, AIState.Shooting))
-            {
-                stateStack.Push(AIState.Blocking);
-            }
-
-            if (ShouldMelee() && !IsStateExcluded(AIState.Melee, AIState.Blocking, AIState.Shooting))
-            {
-                stateStack.Push(AIState.Melee);
-            }
-
-            if (ShouldShoot() && !IsStateExcluded(AIState.Shooting, AIState.Blocking, AIState.Melee))
-            {
-                stateStack.Push(AIState.Shooting);
-            }
+            stateStack.Push(AIState.Jumping);
+        }
+        else if (randomValue < 0.4f && !isBlocking && ShouldBlock()) //add a hp and battery check, maybe block more when low health
+        {
+            stateStack.Push(AIState.Blocking);
+        }
+        else if (randomValue < 0.7f && ShouldMelee())
+        {
+            stateStack.Push(AIState.Melee);
+        }
+        else if (ShouldShoot())
+        {
+            stateStack.Push(AIState.Shooting);
         }
 
-        // Execute the action for the current state.
+        currentState = stateStack.Peek();
         ExecuteStateAction(currentState);
     }
 
@@ -124,57 +174,90 @@ public class AICharacter : MonoBehaviour
         }
     }
 
-    private void Move()
+    private void Move() //edit to vary the movement, sometimes it should retreat, sometimes not
     {
-        movement = player.transform.position - transform.position; //not sure about this
+        Debug.Log("Moving");
+        movement = player.transform.position - transform.position;
         moveModuleRef.OnMove(movement);
+    }
+
+    private void Retreat()
+    {
+
+    }
+
+    private void Strafe()
+    {
+
     }
 
     private void Jump()
     {
+        Debug.Log("Jumping");
         jumpModuleRef.OnJump();
         isJumping = true;
     }
 
     private void Melee()
     {
-        //shwing
+
+        // Move towards the player until within the melee distance threshold.
+        if (distToPlayer > meleeRange)
+        {
+            Debug.Log("Moving in to Melee");
+            movement = player.transform.position - transform.position;
+            moveModuleRef.OnMove(movement); //move towards player to melee
+        }
+        else
+        {
+            Debug.Log("Do Melee attack");
+            //do attack, maybe have a chance of 2nd attack
+        }
+
+        isMelee = false;
     }
 
     private void Shoot()
     {
-        //pew
+        Debug.Log("Shooting");
+        isShooting = false;
     }
 
     private void Block(float blockDuration)
     {
+        Debug.Log("Blocking");
         blockModuleRef.OnBlock(blockDuration);
         isBlocking = true;
     }
 
     private bool ShouldChase()
     {
-        return distToPlayer > chaseDistanceThreshold;
+        return distToPlayer > chooseChaseDist;
     }
 
     private bool ShouldJump()
     {
-        return distToPlayer < jumpDistanceThreshold;
+        return distToPlayer < chooseJumpDist;
     }
 
     private bool ShouldBlock()
     {
-        return distToPlayer < blockDistanceThreshold && !isBlocking && !isMelee && !isJumping;
+        return distToPlayer < chooseBlockDist && !isBlocking && !isMelee && !isJumping;
     }
 
     private bool ShouldMelee()
     {
-        return distToPlayer < meleeDistanceThreshold;
+        return distToPlayer < chooseMeleeDist;
     }
 
     private bool ShouldShoot()
     {
-        return distToPlayer < shootDistanceThreshold;
+        return distToPlayer < chooseShootDist;
+    }
+
+    private bool ShouldRetreat()
+    {
+        return distToPlayer < chooseRetreatDist;
     }
 
     private bool IsStateExcluded(params AIState[] states)
