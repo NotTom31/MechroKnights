@@ -444,9 +444,10 @@ GameObject:
   - component: {fileID: 77000681}
   - component: {fileID: 392887747}
   - component: {fileID: 392887748}
-  m_Layer: 0
+  - component: {fileID: 819580020}
+  m_Layer: 2
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -755,6 +756,23 @@ MonoBehaviour:
   blockVolume: {fileID: 1809689835}
   animatorRef: {fileID: 5866666021571959403}
   energyCostPercent: 0.03
+--- !u!114 &819580020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2912653069969735048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e773667ef2368ce498fb970d8bb87689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 2454379120962250430, guid: 5c2d6fc2ec86e3944aacf6f298d4e19b,
+    type: 3}
+  fakeCamera: {fileID: 0}
+  projectilePool: {fileID: 0}
+  projectileOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &476456954
 PrefabInstance:
   m_ObjectHideFlags: 0
