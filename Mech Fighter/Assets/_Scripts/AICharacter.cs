@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using Pathfinding;
 
 public enum AIState
 {
@@ -20,16 +21,17 @@ public enum AIMovement
     Backward,
     Left,
     Right,
-    ForwardLeft,
-    ForwardRight,
-    BackLeft,
-    BackRight
+    Idle
 }
 
 public class AICharacter : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    private NavMeshAgent navMeshAgent;
+    [SerializeField] private GameObject leftNav;
+    [SerializeField] private GameObject rightNav;
+    [SerializeField] private GameObject backNav;
+    //private NavMeshAgent navMeshAgent;
+    [SerializeField] AIDestinationSetter aIDestinationSetter;
 
     public float chooseChaseDist = 40f;
     public float chooseJumpDist = 30f;
@@ -46,6 +48,7 @@ public class AICharacter : MonoBehaviour
     private BlockModule blockModuleRef;
     private MechState mechStateRef;
     private Animator animatorRef;
+    private Rigidbody rb;
 
     private float distToPlayer;
     private Vector2 movement;
@@ -60,7 +63,7 @@ public class AICharacter : MonoBehaviour
     private Stack<AIState> stateStack = new Stack<AIState>();
     private List<AIState> excludedStates = new List<AIState>();
 
-    public float decisionCooldownHigh = 5f;
+    public float decisionCooldownHigh = 3f;
     public float decisionCooldownLow = 1f;
     private float decisionTimer = 0f;
 
@@ -68,7 +71,7 @@ public class AICharacter : MonoBehaviour
 
     private void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        //navMeshAgent = GetComponent<NavMeshAgent>();
         jumpModuleRef = GetComponent<JumpModule>();
         moveModuleRef = GetComponent<MoveModule>();
         lookModuleRef = GetComponent<LookModule>();
@@ -76,6 +79,7 @@ public class AICharacter : MonoBehaviour
         blockModuleRef = GetComponent<BlockModule>();
         mechStateRef = GetComponent<MechState>();
         animatorRef = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
 
         stateStack.Push(AIState.Chasing);
     }
@@ -97,10 +101,21 @@ public class AICharacter : MonoBehaviour
         }
 
         Brain();
-        Move(AIMovement.Forward);
+        float randomValue = Random.value;
+        if (randomValue < 0.3f)
+            Move(AIMovement.Forward);
+        else if (randomValue < 0.5f)
+            Move(AIMovement.Left);
+        else if (randomValue < 0.7f)
+            Move(AIMovement.Right);
+        else if (randomValue < 0.8f)
+            Move(AIMovement.Backward);
+        else
+            Move(AIMovement.Idle);
+
         // Reset the decision timer after making a decision.
         decisionTimer = Random.Range(decisionCooldownLow, decisionCooldownHigh);
-        Debug.Log(decisionTimer);
+        //Debug.Log(decisionTimer);
 
         // After executing the action, remove the state from the stack.
         if (stateStack.Count > 0)
@@ -127,8 +142,9 @@ public class AICharacter : MonoBehaviour
 
     private void Brain()
     {
+        //Debug.Log(stateStack);
         AIState currentState = stateStack.Peek();
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
 
         // The AI will always chase if it is outside the chase distance threshold or based on a random chance.
         if ((ShouldChase() || Random.value < chaseContinuationProbability) && !IsStateExcluded(AIState.Chasing, AIState.Blocking, AIState.Melee, AIState.Shooting))
@@ -193,13 +209,37 @@ public class AICharacter : MonoBehaviour
 
     private void Move(AIMovement direction) //edit to vary the movement, sometimes it should retreat, strafe, or some combination
     {
-        //navMeshAgent.SetDestination(player.transform.position);
+        
         switch (direction)
         {
             case AIMovement.Forward:
-                movement = transform.position - player.transform.position;
+                //navMeshAgent.SetDestination(player.transform.position);
+                /*movement = transform.position - player.transform.position;
                 movement.Normalize();
-                moveModuleRef.OnMove(movement);
+                moveModuleRef.OnMove(movement);*/
+                aIDestinationSetter.target = player.transform;
+                moveModuleRef.OnMove(rb.velocity.normalized);
+                break;
+            case AIMovement.Left:
+                //navMeshAgent.SetDestination(leftNav.transform.position);
+                aIDestinationSetter.target = leftNav.transform;
+                moveModuleRef.OnMove(rb.velocity.normalized);
+                break;
+            case AIMovement.Right:
+                //navMeshAgent.SetDestination(rightNav.transform.position);
+                aIDestinationSetter.target = rightNav.transform;
+                moveModuleRef.OnMove(rb.velocity.normalized);
+                break;
+            case AIMovement.Backward:
+                //navMeshAgent.SetDestination(backNav.transform.position);
+                aIDestinationSetter.target = backNav.transform;
+                moveModuleRef.OnMove(rb.velocity.normalized);
+                break;
+            case AIMovement.Idle:
+                //navMeshAgent.SetDestination(transform.position); //might be bad
+                aIDestinationSetter.target = null;
+                rb.velocity.Equals(Vector3.zero);
+                moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
         }
 
@@ -207,7 +247,7 @@ public class AICharacter : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("Jumping");
+        //Debug.Log("Jumping");
         jumpModuleRef.OnJump();
         isJumping = true;
     }
@@ -218,13 +258,14 @@ public class AICharacter : MonoBehaviour
         // Move towards the player until within the melee distance threshold.
         if (distToPlayer > meleeRange)
         {
-            Debug.Log("Moving in to Melee");
-            //movement = player.transform.position - transform.position;
+            Move(AIMovement.Forward);
             moveModuleRef.OnMove(movement); //move towards player to melee
         }
         else
         {
             Debug.Log("Do Melee attack");
+            Move(AIMovement.Idle);
+            meleeModuleRef.OnMeleeLight();
             //do attack, maybe have a chance of 2nd attack
         }
 
@@ -233,13 +274,13 @@ public class AICharacter : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("Shooting");
+        //Debug.Log("Shooting");
         isShooting = false;
     }
 
     private void Block(float blockDuration)
     {
-        Debug.Log("Blocking");
+        //Debug.Log("Blocking");
         blockModuleRef.OnBlock(blockDuration);
         isBlocking = true;
     }

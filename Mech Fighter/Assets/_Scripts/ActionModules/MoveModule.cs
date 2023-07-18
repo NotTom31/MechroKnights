@@ -57,18 +57,18 @@ public class MoveModule : MonoBehaviour
         }
     }
    
-    public void OnMove(Vector2 inputHeading)
+    public void OnMove(Vector3 inputHeading)
     {
-        Vector3 inputHeadingIn3D = new(inputHeading.x, 0, inputHeading.y);
+        Vector3 inputHeadingIn3D = inputHeading;
         animatorRef.SetFloat("Input Magnitude", inputHeadingIn3D.magnitude);
 
-        inputHeadingIn3D *= moveForce;
-        if (stunSystemRef == null)
+        //inputHeadingIn3D *= moveForce;
+/*        if (stunSystemRef == null)
             stunSystemRef = GameManager.serviceLocator.GetStunSystem();
         if (stunSystemRef.IsStunned)
         {
             inputHeadingIn3D *= stunSystemRef.StunScale;
-        }
+        }*/
         if (!jumpModuleRef.IsGrounded)
         {
             inputHeadingIn3D *= jumpModuleRef.AirMoveScale;
