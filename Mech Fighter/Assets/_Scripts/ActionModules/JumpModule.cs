@@ -10,7 +10,7 @@ public class JumpModule : MonoBehaviour
     [SerializeField] private Animator animatorRef;
     [SerializeField] public float AirMoveScale { get; private set; } = 0.5f;
     [SerializeField] private float spherecastOffset;
-    [SerializeField] [Range(10, 50)] private float jumpForce;
+    [SerializeField] [Range(0, 20)] private float jumpForce;
     public LayerMask groundMask;
 
     public bool IsGrounded { get; private set; } = false;
