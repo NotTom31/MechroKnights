@@ -296,6 +296,10 @@ PrefabInstance:
       propertyPath: projectilePool
       value: 
       objectReference: {fileID: 559590260}
+    - target: {fileID: 819580020, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
+      propertyPath: projectileOffset.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2912653069969735048, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
         type: 3}
       propertyPath: m_Name
@@ -770,6 +774,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1369886808}
+    - target: {fileID: 2872618076634021113, guid: e1baaee52aab6f0448a630ee66a4ba92,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2961338771162606748, guid: e1baaee52aab6f0448a630ee66a4ba92,
         type: 3}
       propertyPath: m_Name

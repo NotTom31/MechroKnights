@@ -97,6 +97,7 @@ public class AICharacter : MonoBehaviour
         }
 
         Brain();
+        Move(AIMovement.Forward);
         // Reset the decision timer after making a decision.
         decisionTimer = Random.Range(decisionCooldownLow, decisionCooldownHigh);
         Debug.Log(decisionTimer);
@@ -192,7 +193,7 @@ public class AICharacter : MonoBehaviour
 
     private void Move(AIMovement direction) //edit to vary the movement, sometimes it should retreat, strafe, or some combination
     {
-        navMeshAgent.SetDestination(player.transform.position);
+        //navMeshAgent.SetDestination(player.transform.position);
         switch (direction)
         {
             case AIMovement.Forward:
