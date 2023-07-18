@@ -177,10 +177,10 @@ MonoBehaviour:
   _musicSource: {fileID: 1142384493861514451}
   _effectSource: {fileID: 1142384495198520022}
   test: {fileID: 0}
-  menuNext: {fileID: 0}
-  menuBack: {fileID: 0}
-  menuPause: {fileID: 0}
-  menuMusic: {fileID: 0}
+  menuNext: {fileID: 8300000, guid: 262088baf18ca204bb15f67a3efb7fba, type: 3}
+  menuBack: {fileID: 8300000, guid: 90b1776793d7be84c9d8cc3b64a75a54, type: 3}
+  menuPause: {fileID: 8300000, guid: 0319b62e87bf9c74493aba7750ba4555, type: 3}
+  menuMusic: {fileID: 8300000, guid: 01d1eae6c8b0dcd4f99098e2b55ccbe5, type: 3}
   stage1Music: {fileID: 0}
 --- !u!1 &1142384495198520023
 GameObject:
