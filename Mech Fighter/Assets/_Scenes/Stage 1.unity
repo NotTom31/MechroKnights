@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8162517b6ec2309499f99e303b29f146, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.5238657, g: 0.5617042, b: 0.47704506, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 166507357}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -123,6 +123,68 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 9e54ba430e926594692c8f1b8a02e541, type: 2}
+--- !u!850595691 &166507357
+LightingSettings:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 4
+  m_GIWorkflowMode: 1
+  m_EnableBakedLightmaps: 1
+  m_EnableRealtimeLightmaps: 0
+  m_RealtimeEnvironmentLighting: 1
+  m_BounceScale: 1
+  m_AlbedoBoost: 1
+  m_IndirectOutputScale: 1
+  m_UsingShadowmask: 1
+  m_BakeBackend: 1
+  m_LightmapMaxSize: 1024
+  m_BakeResolution: 40
+  m_Padding: 2
+  m_LightmapCompression: 3
+  m_AO: 0
+  m_AOMaxDistance: 1
+  m_CompAOExponent: 1
+  m_CompAOExponentDirect: 0
+  m_ExtractAO: 0
+  m_MixedBakeMode: 2
+  m_LightmapsBakeMode: 1
+  m_FilterMode: 1
+  m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
+  m_ExportTrainingData: 0
+  m_TrainingDataDestination: TrainingData
+  m_RealtimeResolution: 2
+  m_ForceWhiteAlbedo: 0
+  m_ForceUpdates: 0
+  m_FinalGather: 0
+  m_FinalGatherRayCount: 256
+  m_FinalGatherFiltering: 1
+  m_PVRCulling: 1
+  m_PVRSampling: 1
+  m_PVRDirectSampleCount: 32
+  m_PVRSampleCount: 512
+  m_PVREnvironmentSampleCount: 256
+  m_PVREnvironmentReferencePointCount: 2048
+  m_LightProbeSampleCountMultiplier: 4
+  m_PVRBounces: 2
+  m_PVRMinBounces: 1
+  m_PVREnvironmentMIS: 1
+  m_PVRFilteringMode: 1
+  m_PVRDenoiserTypeDirect: 1
+  m_PVRDenoiserTypeIndirect: 1
+  m_PVRDenoiserTypeAO: 1
+  m_PVRFilterTypeDirect: 0
+  m_PVRFilterTypeIndirect: 0
+  m_PVRFilterTypeAO: 0
+  m_PVRFilteringGaussRadiusDirect: 1
+  m_PVRFilteringGaussRadiusIndirect: 5
+  m_PVRFilteringGaussRadiusAO: 2
+  m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+  m_PVRFilteringAtrousPositionSigmaIndirect: 2
+  m_PVRFilteringAtrousPositionSigmaAO: 1
+  m_PVRTiledBaking: 0
 --- !u!1001 &182845741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -326,7 +388,7 @@ PrefabInstance:
     - target: {fileID: 3647933972983450007, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3647933972983450007, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
         type: 3}
@@ -741,11 +803,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7128301058996416322, guid: 31c7e7da87d3dc5448fc1bd0060ea0e9,
-        type: 3}
-      propertyPath: data.dataString
-      value: UEsDBBQAAAgIAACAn+tveskHaQIAACgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMlyozAQ/RWXzuMUxnib2wx2nDkkccUzlQsXGTVGZSFRWuKt/O8jCTCYnIzf69f9eoErolyVkGoh15KSV0EA/Rwg94x+DFryBU54L/iWXqCJ+aRE5y4I+5gPrKmw+MjJlChAS5r+4nvmggMLGk4zIYsV2UMslFYWzjBTYCkptFNzC10H6FQLzvXvxf0ObvYpBa5BtlHD0dMimI2j+XS8GgbTnmY4fZotokW4sNzM6w1PGS5KIK6PNk3UVIuqMtx2WEe4blLBGFW1PaTPpW8/xqUytjkbQCi27XpjLj4Hus+1/RN2xe9ZpkDX9iQ+L6m0U6uyot+iGmWB1aHy9YWZcXXCydR7qpK+fuOHI09nUhQvTd1R4GronKaHD3xOsdKdWXfh5aNxw4+YHfCOwWcO/E2spTCcWFJL46RGQbjspLr3FueQHtq4ymsPNOX37Y7a7d5896eY0WLnkKeoArZM+HkvnAak3cwfa9hfi6ozWdSZ+KfgL953z6omnqlU2lJ1Qe7c7YSRLhSt/MxcM0bHQnLwcO25BI6ZPm9sGt1fYY/rlO0xz9i9QHXxmmvei57Ew218EPSojTjel6VycXwFlb8bzSiH1rQj3uycYsF5dWHdmTSyrZEZTjuyvaHk8bRQNpnPpmmIR/PddJ5F0RBH4WRBwnE02+F5QMbI3x7ltk/MNpXRejx2a92ZcHtozYdlsJa49OdOJD6u6aUQnZlTnoltKgH4+2MKBdJWsa8lWRFqJ7QFrSn3C0fXBDGRHoAk90SJb3V10hInbZYElfRLaIckKPafkwQ5+H7LGwlfFI6ueJPshm7/AVBLAwQUAAAICAAAgJ/rYBkz9m0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UpqphblZslGioUWSmUWaiYluoomRqWWKkbGJeVKihUGKsVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAgJ/rb3rJB2kCAAAoBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAgJ/rYBkz9m0AAAB4AAAACQAkAAAAAAAAAAAAAAC2AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAG4DAAAAAA==
-      objectReference: {fileID: 0}
     - target: {fileID: 7782239879749522773, guid: 31c7e7da87d3dc5448fc1bd0060ea0e9,
         type: 3}
       propertyPath: m_Name
@@ -909,17 +966,17 @@ PrefabInstance:
     - target: {fileID: 2096668721344478114, guid: 019047df692ed9d489085fa3145bd930,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.882964
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2096668721344478114, guid: 019047df692ed9d489085fa3145bd930,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.53
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2096668721344478114, guid: 019047df692ed9d489085fa3145bd930,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.24342915
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2096668721344478114, guid: 019047df692ed9d489085fa3145bd930,
         type: 3}
