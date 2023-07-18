@@ -16,14 +16,14 @@ public class FireModule : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        spawnpoint.transform.position = projectileOffset;
         if (gameObject.GetComponent<PlayerInput>() == null && gameObject.GetComponentInChildren<PlayerInput>() == null)
             isAIControl = true;
     }
     // Update is called once per frame
     void Update()
     {
-        if (spawnpoint.transform.position != projectileOffset)
-            spawnpoint.transform.position = projectileOffset;
+
     }
     public void OnFire()
     {
