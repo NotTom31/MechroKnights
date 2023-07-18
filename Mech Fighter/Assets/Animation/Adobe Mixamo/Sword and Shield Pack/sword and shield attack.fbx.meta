@@ -1,37 +1,15 @@
 fileFormatVersion: 2
-guid: 0c74654000a3caf4998d164fbed2bacd
+guid: f20edb340169dac498fc6d86c01976a0
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cockpit
-    second: {fileID: 2100000, guid: dfc7cf4b10813eb4fa16108690ef3465, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Cockpit_1001_AlbedoTransparency
-    second: {fileID: 2800000, guid: 51e6809b0cdd43343a0ab077cb0eac40, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Cockpit_1001_Emission
-    second: {fileID: 2800000, guid: a03a90cb6c3566a4d8f9be045c101327, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Cockpit_1001_MetallicSmoothness
-    second: {fileID: 2800000, guid: 9d62a65181e4ca64db8645cb97054721, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Cockpit_1001_Normal
-    second: {fileID: 2800000, guid: 58d66ddbc9ab86841b093bc23a146d7e, type: 3}
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects: {}
   materials:
     materialImportMode: 2
-    materialName: 1
+    materialName: 0
     materialSearch: 1
     materialLocation: 1
   animations:
