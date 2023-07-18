@@ -10,12 +10,13 @@ public class JumpModule : MonoBehaviour
     [SerializeField] private Animator animatorRef;
     [SerializeField] public float AirMoveScale { get; private set; } = 0.5f;
     [SerializeField] private float spherecastOffset;
-    [SerializeField] [Range(10, 50)] private float jumpForce;
+    [SerializeField] [Range(0, 20)] private float jumpForce;
     public LayerMask groundMask;
 
     public bool IsGrounded { get; private set; } = false;
     public float GroundAngle { get; private set; }
     public Vector3 GroundNormal { get; private set; }
+    private bool isJumping = false;
 
 
     private void FixedUpdate()
@@ -24,8 +25,9 @@ public class JumpModule : MonoBehaviour
     }
     public void OnJump()
     {
-        if (IsGrounded)
+        if (IsGrounded && !isJumping)
         {
+            isJumping = true;
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
         animatorRef.SetBool("Is Jumping", true);
@@ -34,11 +36,10 @@ public class JumpModule : MonoBehaviour
     {
         /*if (menuManager.IsPaused() || menuManager.IsShop() || menuManager.IsDialogue())
             return;*/
-        Debug.Log("Jump method reached!");
-        if (IsGrounded)
-        { 
+        if (IsGrounded && !isJumping)
+        {
+            isJumping = true;
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("Jumped!");
         }
         animatorRef.SetBool("Is Jumping", true);
     }
@@ -54,6 +55,7 @@ public class JumpModule : MonoBehaviour
             {
                 GroundAngle = Vector3.Angle(Vector3.up, helpHit.normal);
             }
+            isJumping = false;
             animatorRef.SetBool("Is Jumping", false);
         }
         else

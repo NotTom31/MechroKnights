@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class FireModule : MonoBehaviour
 {
+    [SerializeField] private GameObject spawnpoint;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject fakeCamera;
     [SerializeField] private Transform projectilePool;
@@ -15,34 +16,32 @@ public class FireModule : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        spawnpoint.transform.position = projectileOffset;
         if (gameObject.GetComponent<PlayerInput>() == null && gameObject.GetComponentInChildren<PlayerInput>() == null)
             isAIControl = true;
     }
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void OnFire()
     {
         RaycastHit hitInfo;
-        Vector3 offsetPosition;
         Vector3 rotationVector;
         Quaternion rotationResult = new();
 
         if (!isAIControl)
         {
             Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo);
-            offsetPosition = Camera.main.transform.position + projectileOffset;
         }
         else
         {
             Physics.Raycast(fakeCamera.transform.position, fakeCamera.transform.forward, out hitInfo);
-            offsetPosition = fakeCamera.transform.position + projectileOffset;
         }
 
-        rotationVector = hitInfo.point - offsetPosition;
+        rotationVector = hitInfo.point - spawnpoint.transform.position;
         rotationResult.SetLookRotation(rotationVector);
-        Instantiate(projectilePrefab, offsetPosition, rotationResult, projectilePool);
+        Instantiate(projectilePrefab, spawnpoint.transform.position, rotationResult, projectilePool);
     }
 }

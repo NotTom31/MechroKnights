@@ -16,6 +16,7 @@ public class LookModule : MonoBehaviour
     {
         if (gameObject.GetComponent<PlayerInput>() == null && gameObject.GetComponentInChildren<PlayerInput>() == null)
             isAIControl = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void LateUpdate()
