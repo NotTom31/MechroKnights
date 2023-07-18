@@ -28,7 +28,6 @@ public class MoveModule : MonoBehaviour
     {
         Vector3 forward;
         Vector3 right;
-
         if (!isAiControl)
         {
             forward = Camera.main.transform.forward;
