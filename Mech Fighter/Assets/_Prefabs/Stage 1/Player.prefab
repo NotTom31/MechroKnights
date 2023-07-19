@@ -747,6 +747,7 @@ MonoBehaviour:
   maxEnergy: 1
   MechIndex: 0
   energyRegenPercent: 0.01
+  playerInputRef: {fileID: 0}
 --- !u!114 &392887748
 MonoBehaviour:
   m_ObjectHideFlags: 0
