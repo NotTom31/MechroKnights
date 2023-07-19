@@ -46,6 +46,7 @@ public class AICharacter : MonoBehaviour
     private LookModule lookModuleRef;
     private MeleeModule meleeModuleRef;
     private BlockModule blockModuleRef;
+    private FireModule fireModuleRef;
     private MechState mechStateRef;
     private Animator animatorRef;
     private Rigidbody rb;
@@ -77,6 +78,7 @@ public class AICharacter : MonoBehaviour
         lookModuleRef = GetComponent<LookModule>();
         meleeModuleRef = GetComponent<MeleeModule>();
         blockModuleRef = GetComponent<BlockModule>();
+        fireModuleRef = GetComponent<FireModule>();
         mechStateRef = GetComponent<MechState>();
         animatorRef = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -93,6 +95,9 @@ public class AICharacter : MonoBehaviour
         isBlocking = stateStack.Contains(AIState.Blocking);
         isMelee = stateStack.Contains(AIState.Melee);
 
+        moveModuleRef.OnMove(rb.velocity.normalized); //I think this might be wrong
+        //Debug.Log(rb.velocity);
+
         // Add a cooldown before making the next decision.
         if (decisionTimer > 0f)
         {
@@ -104,11 +109,11 @@ public class AICharacter : MonoBehaviour
         float randomValue = Random.value;
         if (randomValue < 0.3f)
             Move(AIMovement.Forward);
-        else if (randomValue < 0.5f)
+        else if (randomValue < 0.5f && !isBlocking && !isMelee)
             Move(AIMovement.Left);
-        else if (randomValue < 0.7f)
+        else if (randomValue < 0.7f && !isBlocking && !isMelee)
             Move(AIMovement.Right);
-        else if (randomValue < 0.8f)
+        else if (randomValue < 0.8f && !isBlocking && !isMelee)
             Move(AIMovement.Backward);
         else
             Move(AIMovement.Idle);
@@ -218,28 +223,28 @@ public class AICharacter : MonoBehaviour
                 movement.Normalize();
                 moveModuleRef.OnMove(movement);*/
                 aIDestinationSetter.target = player.transform;
-                moveModuleRef.OnMove(rb.velocity.normalized);
+                //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Left:
                 //navMeshAgent.SetDestination(leftNav.transform.position);
                 aIDestinationSetter.target = leftNav.transform;
-                moveModuleRef.OnMove(rb.velocity.normalized);
+                //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Right:
                 //navMeshAgent.SetDestination(rightNav.transform.position);
                 aIDestinationSetter.target = rightNav.transform;
-                moveModuleRef.OnMove(rb.velocity.normalized);
+                //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Backward:
                 //navMeshAgent.SetDestination(backNav.transform.position);
                 aIDestinationSetter.target = backNav.transform;
-                moveModuleRef.OnMove(rb.velocity.normalized);
+                //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Idle:
                 //navMeshAgent.SetDestination(transform.position); //might be bad
                 aIDestinationSetter.target = null;
                 rb.velocity.Equals(Vector3.zero);
-                moveModuleRef.OnMove(rb.velocity.normalized);
+                //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
         }
 
@@ -274,13 +279,14 @@ public class AICharacter : MonoBehaviour
 
     private void Shoot()
     {
-        //Debug.Log("Shooting");
+        Debug.Log("Shooting");
+        fireModuleRef.OnFire();
         isShooting = false;
     }
 
     private void Block(float blockDuration)
     {
-        //Debug.Log("Blocking");
+        Debug.Log("Blocking");
         blockModuleRef.OnBlock(blockDuration);
         isBlocking = true;
     }

@@ -266,6 +266,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000977cb8a031be45818571991efbffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &276990114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6126284773919469380, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 345750367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &313714521
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,12 +793,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 345750367}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1369886833 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3647933972983450007, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
-    type: 3}
-  m_PrefabInstance: {fileID: 345750367}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1620982118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -879,11 +879,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemies (Stage 1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5505117393281800232, guid: e1baaee52aab6f0448a630ee66a4ba92,
+    - target: {fileID: 5505117393881444152, guid: e1baaee52aab6f0448a630ee66a4ba92,
         type: 3}
-      propertyPath: playerTransformRef
+      propertyPath: projectilePool
       value: 
-      objectReference: {fileID: 1369886833}
+      objectReference: {fileID: 559590260}
     - target: {fileID: 6328332608996815877, guid: e1baaee52aab6f0448a630ee66a4ba92,
         type: 3}
       propertyPath: m_RootOrder
@@ -943,7 +943,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1369886808}
+      objectReference: {fileID: 276990114}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1baaee52aab6f0448a630ee66a4ba92, type: 3}
 --- !u!114 &1861156968 stripped
