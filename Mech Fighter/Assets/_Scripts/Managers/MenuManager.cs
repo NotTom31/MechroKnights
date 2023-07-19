@@ -14,12 +14,14 @@ public class MenuManager : MonoBehaviour
     public GameObject controlsMenu;
     public GameObject charSelectMenu;
     public GameObject notAvalable;
-    //public GameObject fadeOut;
+    public GameObject fadeOut;
 
     [Header("In Game Menu")]
     public GameObject pauseMenu;
     public GameObject HUD;
     public GameObject dialogueBox;
+    public GameObject ready;
+    public GameObject go;
 
     [Header("Loading Screen")]
     public GameObject LoadingScreen;
@@ -38,6 +40,11 @@ public class MenuManager : MonoBehaviour
         SoundManager.Instance.PlaySound("menuBack", 1.0f);
     }
 
+    public void MenuStart()
+    {
+        SoundManager.Instance.PlaySound("gameStart", 1.0f);
+    }
+
     public bool IsPaused()
     {
         return isPaused;
@@ -52,6 +59,7 @@ public class MenuManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Start")
         {
+            fadeOut.SetActive(false);
             BackToMainMenu();
         }
         else
@@ -62,6 +70,26 @@ public class MenuManager : MonoBehaviour
     public void StartOfScene()
     {
         InGameSwitch("HUD");
+        StartCoroutine(ReadyToFight());
+    }
+
+    private IEnumerator ReadyToFight()
+    {
+        SoundManager.Instance.StopMusic();
+        Time.timeScale = 0;
+        ready.SetActive(true);
+        int startAudio = Random.Range(0, 1);
+        if(startAudio == 0)
+            SoundManager.Instance.PlaySound("getReady", 1.0f);
+        else
+            SoundManager.Instance.PlaySound("getReady2", 1.0f);
+        yield return new WaitForSecondsRealtime(2.0f);
+        ready.SetActive(false);
+        go.SetActive(true);
+        yield return new WaitForSecondsRealtime(2.0f);
+        go.SetActive(false);
+        Time.timeScale = 1;
+        SoundManager.Instance.PlayMusic("stage1Music");
     }
 
     public void Pause()
@@ -185,13 +213,14 @@ public class MenuManager : MonoBehaviour
     private IEnumerator NewGameFade(string SceneName)
     {
 
-        //fadeOut.SetActive(true);
+        fadeOut.SetActive(true);
         LoadingScreen.SetActive(true);
-        //fadeOut.GetComponent<Animator>().Play("MenuFade");
+        fadeOut.GetComponent<Animator>().Play("MenuFade");
         LoadingBarFill.fillAmount = 0;
-        yield return new WaitForSeconds(0.5f);
-        SoundManager.Instance.PlayMusic("hubMusic");
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneName); //does not change the game state, need to fix
+        SoundManager.Instance.StopMusic();
+        yield return new WaitForSeconds(1.0f);
+        
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneName);
         while (!operation.isDone)
         {
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f);

@@ -53,6 +53,8 @@ public class AICharacter : MonoBehaviour
 
     private float distToPlayer;
     private Vector2 movement;
+    private bool isMove;
+    float speed;
     private bool isJumping;
     private bool isBlocking;
     private bool isMelee;
@@ -80,7 +82,7 @@ public class AICharacter : MonoBehaviour
         blockModuleRef = GetComponent<BlockModule>();
         fireModuleRef = GetComponent<FireModule>();
         mechStateRef = GetComponent<MechState>();
-        animatorRef = GetComponent<Animator>();
+        animatorRef = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
 
         stateStack.Push(AIState.Chasing);
@@ -95,8 +97,14 @@ public class AICharacter : MonoBehaviour
         isBlocking = stateStack.Contains(AIState.Blocking);
         isMelee = stateStack.Contains(AIState.Melee);
 
+        speed = Vector3.Magnitude(rb.velocity.normalized);
         moveModuleRef.OnMove(rb.velocity.normalized); //I think this might be wrong
-        //Debug.Log(rb.velocity);
+        Debug.Log(speed + "Speed");
+
+        if (isMove)
+            animatorRef.SetFloat("Input Magnitude", 1); //this is a really dumb hotfix
+        else
+            animatorRef.SetFloat("Input Magnitude", 0);
 
         // Add a cooldown before making the next decision.
         if (decisionTimer > 0f)
@@ -222,25 +230,30 @@ public class AICharacter : MonoBehaviour
                 /*movement = transform.position - player.transform.position;
                 movement.Normalize();
                 moveModuleRef.OnMove(movement);*/
+                isMove = true;
                 aIDestinationSetter.target = player.transform;
                 //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Left:
+                isMove = true;
                 //navMeshAgent.SetDestination(leftNav.transform.position);
                 aIDestinationSetter.target = leftNav.transform;
                 //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Right:
+                isMove = true;
                 //navMeshAgent.SetDestination(rightNav.transform.position);
                 aIDestinationSetter.target = rightNav.transform;
                 //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Backward:
+                isMove = true;
                 //navMeshAgent.SetDestination(backNav.transform.position);
                 aIDestinationSetter.target = backNav.transform;
                 //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Idle:
+                isMove = true;
                 //navMeshAgent.SetDestination(transform.position); //might be bad
                 aIDestinationSetter.target = null;
                 rb.velocity.Equals(Vector3.zero);
@@ -263,6 +276,7 @@ public class AICharacter : MonoBehaviour
         // Move towards the player until within the melee distance threshold.
         if (distToPlayer > meleeRange)
         {
+            isMove = true;
             Move(AIMovement.Forward);
             moveModuleRef.OnMove(movement); //move towards player to melee
         }

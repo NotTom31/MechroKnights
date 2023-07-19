@@ -177,11 +177,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 1142384493861514451}
   _effectSource: {fileID: 1142384495198520022}
-  test: {fileID: 0}
-  menuNext: {fileID: 0}
-  menuBack: {fileID: 0}
-  menuPause: {fileID: 0}
+  alarm1: {fileID: 8300000, guid: e2a5f5c7d1e292345b7f2b79bebf5da1, type: 3}
+  bigHit: {fileID: 8300000, guid: 1e94baf09be72b34ca817b3564198157, type: 3}
+  enemyExplosion: {fileID: 8300000, guid: 4b3d977dc9998d24fa7f441960839244, type: 3}
+  explosion: {fileID: 8300000, guid: 77aca980dff8555459309a54d8835e14, type: 3}
+  explosion2: {fileID: 8300000, guid: dd9af30a21de3c9488c14db0e7603324, type: 3}
+  getReady: {fileID: 8300000, guid: 3eee5ac3c3fe4134ba386ad3e2684956, type: 3}
+  getReady2: {fileID: 8300000, guid: e2732dcdb188ebf459db770b3ce07d37, type: 3}
+  hit1: {fileID: 8300000, guid: a4b8a31b4241e8b4b851aa463a1e58e2, type: 3}
+  hit2: {fileID: 8300000, guid: 39115206dca4fa749a63765536d84efe, type: 3}
+  startingBell: {fileID: 8300000, guid: 0d43859be5e01ee4282af0136948e517, type: 3}
+  stun: {fileID: 8300000, guid: 43a1f0f805503cd47a432a66d42f8490, type: 3}
+  reeling: {fileID: 0}
+  heavyCannon: {fileID: 8300000, guid: 4a3238445aeeebd4eac0b1c037a55ca0, type: 3}
+  heavyCannon2: {fileID: 8300000, guid: 2d776a39867d0dc43a52e75e2e338221, type: 3}
+  midCannon: {fileID: 8300000, guid: 2c2a61c98166f1648a75a6f09afc556a, type: 3}
+  impactATemp: {fileID: 8300000, guid: ac0de3fb81acb0e4c8425fa4557382a1, type: 3}
+  impactBTemp: {fileID: 8300000, guid: e1f7d3ca826643f49824742a16536992, type: 3}
+  impactCTemp: {fileID: 8300000, guid: 4435a88262af73942a536104fa570a6c, type: 3}
+  impactDTemp: {fileID: 8300000, guid: 5b71f9a48fdc7164dae07dd6daa33551, type: 3}
+  reelingATemp: {fileID: 8300000, guid: b929bef0f1d676b44acb6d22fce634c8, type: 3}
+  explosionTemp: {fileID: 8300000, guid: c2c8ad981835c40488cf070d0f1a34e9, type: 3}
+  heavyDamageTemp: {fileID: 8300000, guid: c24e611d11b9526418b01d284f1e9e39, type: 3}
+  menuNext: {fileID: 8300000, guid: 3f25088d5983dfc498480d5bf5d37d05, type: 3}
+  menuSelection: {fileID: 8300000, guid: 87a91a96dfd1ea549b048a9fba55a376, type: 3}
+  gameStart: {fileID: 8300000, guid: bbac36a7043922645af44d25b2461379, type: 3}
+  menuBack: {fileID: 8300000, guid: 3f25088d5983dfc498480d5bf5d37d05, type: 3}
+  menuPause: {fileID: 8300000, guid: 3f25088d5983dfc498480d5bf5d37d05, type: 3}
   menuMusic: {fileID: 0}
+  characterSelect: {fileID: 0}
   stage1Music: {fileID: 0}
 --- !u!1 &1142384495198520023
 GameObject:

@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 9e54ba430e926594692c8f1b8a02e541, type: 2}
+--- !u!1 &154785353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2269871451675185099, guid: 35d5098271c590648a153470b16248ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 879058899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &166507357
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -763,6 +769,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35d5098271c590648a153470b16248ca, type: 3}
+--- !u!1 &879058900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1857657270477900033, guid: 35d5098271c590648a153470b16248ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 879058899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &879058901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5079550704536904674, guid: 35d5098271c590648a153470b16248ca,
@@ -786,12 +798,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6924734396308983536, guid: 35d5098271c590648a153470b16248ca,
     type: 3}
   m_PrefabInstance: {fileID: 879058899}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1369886808 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2912653069969735048, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
-    type: 3}
-  m_PrefabInstance: {fileID: 345750367}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1139883044
 GameObject:
@@ -907,6 +913,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1369886808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2912653069969735048, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 345750367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1620982118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1150,9 +1162,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
+      propertyPath: go
+      value: 
+      objectReference: {fileID: 879058900}
+    - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
       propertyPath: HUD
       value: 
       objectReference: {fileID: 879058901}
+    - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: ready
+      value: 
+      objectReference: {fileID: 154785353}
     - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
       propertyPath: pauseMenu
