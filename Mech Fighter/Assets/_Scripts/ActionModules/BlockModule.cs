@@ -39,7 +39,7 @@ public class BlockModule : MonoBehaviour
         }
         if(blockVolume.enabled == true)
         {
-            OnEnergyChange?.Invoke(-energyCostPercent * Time.deltaTime, mechStateRef.MechIndex);
+            OnEnergyChange?.Invoke(-energyCostPercent * Time.deltaTime, mechStateRef.GetMechIndex());
         }
     }
     private void SetBlock(bool boolValue)

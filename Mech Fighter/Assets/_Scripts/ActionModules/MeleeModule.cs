@@ -11,6 +11,7 @@ public class MeleeModule : MonoBehaviour
     [SerializeField] private MoveModule moveModuleRef;
     [SerializeField] private LookModule LookModuleRef;
     [SerializeField] private Animator animatorRef;
+    [SerializeField] private Collider weaponColl;
 
     [Header("Damage Values")]
     [SerializeField] [Range(0, 100)] private float lightDamageValue;
@@ -19,26 +20,50 @@ public class MeleeModule : MonoBehaviour
     [Header("Attack Timings")]
     [SerializeField] private float lightDelay;
     [SerializeField] private float lightDuration, heavyDelay, heavyDuration;
+    private float currentDamage = 0f;
+    private float durationleft = 0f;
+
+    
 
     private void Awake()
     {
-        
+        weaponColl.enabled = false;
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        
+        if (durationleft > 0)
+            durationleft -= Time.deltaTime;
+        if (durationleft <= 0 && weaponColl.enabled)
+            weaponColl.enabled = false;
+
+    }
+    public float GetDamage()
+    {
+        durationleft = 0f;
+        return currentDamage;
     }
     public void OnMeleeLight()
     {
         AnimatorStateInfo stateInfo = animatorRef.GetCurrentAnimatorStateInfo(0);
         if (stateInfo.IsName("CombatIdle") || stateInfo.IsName("Move"))
+        {
+            currentDamage = lightDamageValue;
+            durationleft = lightDuration;
+            weaponColl.enabled = true;
             animatorRef.SetTrigger("Melee");
-        // play the light melee animation
+        }
         Debug.Log("light melee!");
     }
     public void OnMeleeHeavy()
     {
-        // play the heavy melee animation
+        AnimatorStateInfo stateInfo = animatorRef.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.IsName("CombatIdle") || stateInfo.IsName("Move"))
+        {
+            currentDamage = heavyDamageValue;
+            durationleft = heavyDuration;
+            weaponColl.enabled = true;
+            animatorRef.SetTrigger("Melee 2");
+        }
         Debug.Log("heavy melee!");
     }
     // the damage will be done by the hitboxes fixed to the mech model
