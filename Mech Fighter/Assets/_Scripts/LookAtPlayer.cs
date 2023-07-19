@@ -8,6 +8,11 @@ public class LookAtPlayer : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.LookAt(cam);
+        Quaternion rotation3D = new Quaternion();
+        rotation3D.SetLookRotation(cam.position);
+        rotation3D.z = 0f;
+        rotation3D.x = 0f;
+        rotation3D.Normalize();
+        transform.rotation = rotation3D;
     }
 }
