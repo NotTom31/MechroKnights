@@ -50,7 +50,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic("stage1Music"); // Placeholder
+        PlayMusic("menuMusic"); // Placeholder
     }
 
     public void PlaySound(string name, float volumeScale)

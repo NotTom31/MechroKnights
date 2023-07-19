@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject creditsMenu;
     public GameObject controlsMenu;
+    public GameObject charSelectMenu;
+    public GameObject notAvalable;
     //public GameObject fadeOut;
 
     [Header("In Game Menu")]
@@ -220,6 +222,24 @@ public class MenuManager : MonoBehaviour
         MenuSwitch("Settings");
     }
 
+    public void OpenCharSelect()
+    {
+        MenuSwitch("CharSelect");
+    }
+
+    public void NotAvalable()
+    {
+        StartCoroutine(NoSaveData());
+        Debug.Log("We don't have a save system to load from yet!");
+    }
+
+    private IEnumerator NoSaveData()
+    {
+        notAvalable.SetActive(true);
+        yield return new WaitForSecondsRealtime(1.5f);
+        notAvalable.SetActive(false);
+    }
+
     private void MenuSwitch(string ui)
     {
         switch (ui)
@@ -230,6 +250,7 @@ public class MenuManager : MonoBehaviour
                 mainMenu.SetActive(false);
                 settingsMenu.SetActive(false);
                 LoadingScreen.SetActive(false);
+                charSelectMenu.SetActive(false);
                 break;
             case "Credits":
                 controlsMenu.SetActive(false);
@@ -237,6 +258,7 @@ public class MenuManager : MonoBehaviour
                 mainMenu.SetActive(false);
                 settingsMenu.SetActive(false);
                 LoadingScreen.SetActive(false);
+                charSelectMenu.SetActive(false);
                 break;
             case "Main Menu":
                 controlsMenu.SetActive(false);
@@ -244,6 +266,7 @@ public class MenuManager : MonoBehaviour
                 mainMenu.SetActive(true);
                 settingsMenu.SetActive(false);
                 LoadingScreen.SetActive(false);
+                charSelectMenu.SetActive(false);
                 break;
             case "Settings":
                 controlsMenu.SetActive(false);
@@ -251,6 +274,15 @@ public class MenuManager : MonoBehaviour
                 mainMenu.SetActive(false);
                 settingsMenu.SetActive(true);
                 LoadingScreen.SetActive(false);
+                charSelectMenu.SetActive(false);
+                break;
+            case "CharSelect":
+                controlsMenu.SetActive(false);
+                creditsMenu.SetActive(false);
+                mainMenu.SetActive(false);
+                settingsMenu.SetActive(false);
+                LoadingScreen.SetActive(false);
+                charSelectMenu.SetActive(true);
                 break;
             default:
                 break;
