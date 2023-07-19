@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 8662994708103265848}
   - component: {fileID: 3207179956963155156}
   m_Layer: 7
-  m_Name: Bullet
-  m_TagString: Player
+  m_Name: Enemy Bullet
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   force: 100
   lifeTime: 5
   damage: 1
-  canHurtPlayer: 0
+  canHurtPlayer: 1
 --- !u!54 &3207179956963155156
 Rigidbody:
   m_ObjectHideFlags: 0

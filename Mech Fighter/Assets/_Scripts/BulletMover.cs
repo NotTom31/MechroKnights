@@ -7,6 +7,7 @@ public class BulletMover : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] [Range(0f, 200f)] private float force = 100f;
     [SerializeField] [Range(0f, 10f)] private float lifeTime = 5f;
+    [SerializeField] private float damage = 1f;
     [SerializeField] private bool canHurtPlayer = false;
     private float remainingLifeTime;
 
@@ -36,7 +37,14 @@ public class BulletMover : MonoBehaviour
         //delete self
         Destroy(this.gameObject);
     }
-
+    public float GetDamage()
+    {
+        return damage;
+    }
+    public bool CanHurtPlayer()
+    {
+        return canHurtPlayer;
+    }
     private void OnDestroy()
     {
         rb = null;
