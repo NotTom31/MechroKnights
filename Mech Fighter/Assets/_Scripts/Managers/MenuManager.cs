@@ -28,6 +28,7 @@ public class MenuManager : MonoBehaviour
     public Image LoadingBarFill;
 
     private bool isPaused = false;
+    private bool canPause = true;
     private bool isDialogue = false;
 
     public void MenuNext()
@@ -75,25 +76,30 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator ReadyToFight()
     {
+        canPause = false;
         SoundManager.Instance.StopMusic();
         Time.timeScale = 0;
         ready.SetActive(true);
-        int startAudio = Random.Range(0, 1);
+        int startAudio = Random.Range(0, 2);
+        Debug.Log(startAudio);
         if(startAudio == 0)
             SoundManager.Instance.PlaySound("getReady", 1.0f);
         else
             SoundManager.Instance.PlaySound("getReady2", 1.0f);
-        yield return new WaitForSecondsRealtime(2.0f);
+        yield return new WaitForSecondsRealtime(3.0f);
         ready.SetActive(false);
         go.SetActive(true);
-        yield return new WaitForSecondsRealtime(2.0f);
+        yield return new WaitForSecondsRealtime(1.0f);
         go.SetActive(false);
         Time.timeScale = 1;
         SoundManager.Instance.PlayMusic("stage1Music");
+        canPause = true;
     }
 
     public void Pause()
     {
+        if (!canPause)
+            return;
         SoundManager.Instance.PlaySound("menuPause", 1.0f);
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
