@@ -11,6 +11,8 @@ public enum GameState { LOADING,
                         VICTORY_RESULTS, 
                         DEFEAT_RESULTS, 
                         PAUSED }
+
+
 public class ServiceLocator
 {
     public SoundManager GetSoundManager()
@@ -34,26 +36,17 @@ public class ServiceLocator
         _stunSystem = stunSystem;
     }
 }
-public class StateTracker
-{
-    public GameState gameState { get; private set; } = GameState.LOADING;
 
-    public delegate void StateChangeHandler(GameState state);
-    public static event StateChangeHandler OnStateChange;
-    public void SetState(GameState state)
-    {
-        gameState = state;
-        OnStateChange?.Invoke(state);
-    }
-}
 public class GameManager : MonoBehaviour
 {
     [Header("Scene Associations")]
 
     public static GameManager instance;
     public static ServiceLocator serviceLocator;
-    private static StateTracker stateTracker;
-    // need game state tracking
+
+    public GameState gameState { get; private set; } = GameState.LOADING;
+    public delegate void StateChangeHandler(GameState state);
+    public static event StateChangeHandler OnStateChange;
 
     private void Awake()
     {
@@ -71,26 +64,42 @@ public class GameManager : MonoBehaviour
         {
             serviceLocator = new ServiceLocator();
         }
-        if (stateTracker == null)
-        {
-            stateTracker = new StateTracker();
-        }
 
         SceneManager.sceneLoaded += SceneLoaded;
+
+    }
+    private void Update()
+    {
+        
     }
 
     void SceneLoaded(Scene scene, LoadSceneMode loadMode)
     {
         SceneManager.sceneLoaded -= SceneLoaded;
-        //if ()
-
-        /*switch (scene.name) {
-            case loading.name: ;
-                break;
-            case mainMenu.name:;
-                break;
-            default:;
-        }*/
+        if (scene.buildIndex == 0)
+            SetState(GameState.MAIN_MENU);
+        else if (scene.buildIndex == 1)
+        {
+            MechState.OnHPChange += HPChangeHandler;
+            SetState(GameState.PLAYING_ACTIVE);
+        }
     }
-
+    void HPChangeHandler(float change, int mechIndex)
+    {
+        if (change > 0)
+            return;
+        if (mechIndex == 0) // if it's the player
+        {
+            SetState(GameState.VICTORY_RESULTS);
+        }
+        else
+        {
+            SetState(GameState.DEFEAT_RESULTS);
+        }
+    }
+    public void SetState(GameState state)
+    {
+        gameState = state;
+        OnStateChange?.Invoke(state);
+    }
 }
