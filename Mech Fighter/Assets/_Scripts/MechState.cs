@@ -51,7 +51,14 @@ public class MechState : MonoBehaviour
         switch (state)
         {
         case GameState.VICTORY_RESULTS:
-            
+            ToggleInput();
+            break;
+        case GameState.DEFEAT_RESULTS:
+            ToggleInput();
+            break;
+        case GameState.PLAYING_RESET:
+            Energy = maxEnergy;
+            HP = maxHP;
             break;
         }
             
