@@ -811,13 +811,13 @@ MonoBehaviour:
   moveModuleRef: {fileID: 5505117393281800233}
   LookModuleRef: {fileID: 5505117393281800232}
   animatorRef: {fileID: 1668044013632864357}
-  weaponColl: {fileID: 0}
+  weaponColl: {fileID: 2022955031}
   lightDamageValue: 4
   heavyDamageValue: 10
   lightDelay: 0
-  lightDuration: 0
+  lightDuration: 1.5
   heavyDelay: 0
-  heavyDuration: 0
+  heavyDuration: 2.7
 --- !u!114 &5505117393301773967
 MonoBehaviour:
   m_ObjectHideFlags: 0
