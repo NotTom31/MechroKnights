@@ -22,6 +22,8 @@ public class MenuManager : MonoBehaviour
     public GameObject dialogueBox;
     public GameObject ready;
     public GameObject go;
+    public GameObject youWin;
+    public GameObject youLose;
 
     [Header("Loading Screen")]
     public GameObject LoadingScreen;
@@ -153,6 +155,32 @@ public class MenuManager : MonoBehaviour
         //dialogue.Click();
     }
 
+    public void OpenYouWin()
+    {
+        StartCoroutine(YouWin());
+    }
+
+    private IEnumerator YouWin()
+    {
+        InGameSwitch("YouWin");
+        yield return new WaitForSeconds(1.0f);
+        InGameSwitch("HUD");
+        SendToMainMenu("Start");
+    }
+
+    public void OpenYouLose()
+    {
+        StartCoroutine(YouLose());
+    }
+
+    private IEnumerator YouLose()
+    {
+        InGameSwitch("YouLose");
+        yield return new WaitForSeconds(1.0f);
+        InGameSwitch("HUD");
+        SendToMainMenu("Start");
+    }
+
     public void InGameSwitch(string ui)
     {
         switch (ui)
@@ -162,15 +190,33 @@ public class MenuManager : MonoBehaviour
                 pauseMenu.SetActive(false);
                 dialogueBox.SetActive(false);
                 LoadingScreen.SetActive(false);
+                youWin.SetActive(false);
+                youLose.SetActive(false);
                 break;
             case "Pause":
                 HUD.SetActive(false);
                 pauseMenu.SetActive(true);
+                youWin.SetActive(false);
+                youLose.SetActive(false);
                 break;
             case "Dialogue":
                 HUD.SetActive(true);
                 pauseMenu.SetActive(false);
                 dialogueBox.SetActive(true);
+                break;
+            case "YouWin":
+                HUD.SetActive(true);
+                pauseMenu.SetActive(false);
+                dialogueBox.SetActive(true);
+                youWin.SetActive(true);
+                youLose.SetActive(false);
+                break;
+            case "YouLose":
+                HUD.SetActive(true);
+                pauseMenu.SetActive(false);
+                dialogueBox.SetActive(true);
+                youWin.SetActive(false);
+                youLose.SetActive(true);
                 break;
             default:
                 break;
