@@ -95,6 +95,9 @@ public class MechState : MonoBehaviour
     {
         return MechIndex;
     }
+
+    public delegate void HitBoxCollisionHandler(int mechIndex);
+    public static event HitBoxCollisionHandler OnHitBoxHit;
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger Entered!");
@@ -114,11 +117,13 @@ public class MechState : MonoBehaviour
         if (otherBullet != null && otherMeleeModule == null && !gameObject.CompareTag(otherTag))
         {
             Debug.Log("Other collider is a bullet!");
+            OnHitBoxHit?.Invoke(MechIndex);
             Damage(otherBullet.GetDamage());
         }
         else if (!gameObject.CompareTag(otherTag))
         {
             Debug.Log("Other collider is a melee!");
+            OnHitBoxHit?.Invoke(MechIndex);
             Damage(otherMeleeModule.GetDamage());
         }
     }
