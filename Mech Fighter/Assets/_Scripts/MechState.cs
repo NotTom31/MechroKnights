@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MechState : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class MechState : MonoBehaviour
     [SerializeField] private float maxEnergy = 1;
     [SerializeField] private int MechIndex;
     [SerializeField] [Range(0, 1)] private float energyRegenPercent;
+
+    [SerializeField] private PlayerInput playerInputRef;
+    private bool isAIControl = false;
 
     public delegate void EnergyChangeHandler(float energy, int mechIndex);
     public static event EnergyChangeHandler OnEnergyChange;
@@ -26,7 +30,11 @@ public class MechState : MonoBehaviour
     private void Awake()
     {
         BlockModule.OnEnergyChange += ChangeEnergy;
+        GameManager.OnStateChange += StateChangeHandler;
         // subscribe to fire module energy change event
+
+        if (playerInputRef == null)
+            isAIControl = true;
 
         Energy = maxEnergy;
         HP = maxHP;
@@ -38,6 +46,23 @@ public class MechState : MonoBehaviour
         ChangeEnergy(energyRegenPercent * Time.deltaTime * maxEnergy, MechIndex);
     }
 
+    private void StateChangeHandler(GameState state)
+    {
+        switch (state)
+        {
+        case GameState.VICTORY_RESULTS:
+            ToggleInput();
+            break;
+        case GameState.DEFEAT_RESULTS:
+            ToggleInput();
+            break;
+        case GameState.PLAYING_RESET:
+            Energy = maxEnergy;
+            HP = maxHP;
+            break;
+        }
+            
+    }
     private void ChangeEnergy(float change, int index)
     {
         if (index != MechIndex)
@@ -51,6 +76,20 @@ public class MechState : MonoBehaviour
         HP -= damageValue;
         Debug.Log(gameObject.name + " has " + HP + "HP left!");
         OnHPChange?.Invoke(HP, MechIndex);
+    }
+    private void ToggleInput()
+    {
+        if (isAIControl)
+        {
+            ; // toggle AI control
+        }
+        else
+        {
+            if (playerInputRef.inputIsActive)
+                playerInputRef.DeactivateInput();
+            else
+                playerInputRef.ActivateInput();
+        }
     }
     public int GetMechIndex()
     {
