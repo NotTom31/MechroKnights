@@ -370,6 +370,10 @@ PrefabInstance:
       propertyPath: projectilePool
       value: 
       objectReference: {fileID: 559590260}
+    - target: {fileID: 1369886821, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
+      propertyPath: menuManager
+      value: 
+      objectReference: {fileID: 204686636}
     - target: {fileID: 2912653069969735048, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
         type: 3}
       propertyPath: m_Name
@@ -783,19 +787,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 345750367}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1369886821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &1369886833 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3647933972983450007, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 345750367}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369886808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e1050ddb8afd742b3abea6e1dc8dd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuManager: {fileID: 204686636}
 --- !u!1001 &1620982118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -882,6 +879,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemies (Stage 1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5505117393281800232, guid: e1baaee52aab6f0448a630ee66a4ba92,
+        type: 3}
+      propertyPath: playerTransformRef
+      value: 
+      objectReference: {fileID: 1369886833}
     - target: {fileID: 6328332608996815877, guid: e1baaee52aab6f0448a630ee66a4ba92,
         type: 3}
       propertyPath: m_RootOrder
@@ -937,6 +939,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9135001559660980959, guid: e1baaee52aab6f0448a630ee66a4ba92,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1369886808}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1baaee52aab6f0448a630ee66a4ba92, type: 3}
 --- !u!114 &1861156968 stripped

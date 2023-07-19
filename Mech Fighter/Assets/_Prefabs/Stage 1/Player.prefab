@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 392887747}
   - component: {fileID: 392887748}
   - component: {fileID: 819580020}
+  - component: {fileID: 1369886821}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -775,6 +776,19 @@ MonoBehaviour:
   fakeCamera: {fileID: 0}
   projectilePool: {fileID: 0}
   projectileOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &1369886821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2912653069969735048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e1050ddb8afd742b3abea6e1dc8dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuManager: {fileID: 0}
 --- !u!1 &4668364801497432057
 GameObject:
   m_ObjectHideFlags: 0
