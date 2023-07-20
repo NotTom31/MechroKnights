@@ -509,6 +509,39 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &503416744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4347776333184973097, guid: e1baaee52aab6f0448a630ee66a4ba92,
+    type: 3}
+  m_PrefabInstance: {fileID: 1697342144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &503416750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503416744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0622fba4d080f4f8d18798a0c7accd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthImageRef: {fileID: 517102570}
+  energyImageRef: {fileID: 0}
+  mechStateRef: {fileID: 1392309853}
+--- !u!114 &517102570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4688896857229924016, guid: e1baaee52aab6f0448a630ee66a4ba92,
+    type: 3}
+  m_PrefabInstance: {fileID: 1697342144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &559590260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2096668721344478114, guid: 019047df692ed9d489085fa3145bd930,
@@ -763,6 +796,18 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1697342144}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1392309853 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5505117393301773967, guid: e1baaee52aab6f0448a630ee66a4ba92,
+    type: 3}
+  m_PrefabInstance: {fileID: 1697342144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cae959780e4484f8446b51ecbac23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1620982118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -848,6 +893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemies (Stage 1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688896857229924016, guid: e1baaee52aab6f0448a630ee66a4ba92,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5505117393881444152, guid: e1baaee52aab6f0448a630ee66a4ba92,
         type: 3}
