@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.serviceLocator.ProvideService(MenuManager);
+        GameManager.serviceLocator.ProvideService(this);
     }
 
     public void MenuNext()

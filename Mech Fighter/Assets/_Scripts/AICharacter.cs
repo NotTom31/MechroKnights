@@ -33,12 +33,12 @@ public class AICharacter : MonoBehaviour
     //private NavMeshAgent navMeshAgent;
     [SerializeField] AIDestinationSetter aIDestinationSetter;
 
-    public float chooseChaseDist = 40f;
-    public float chooseJumpDist = 30f;
-    public float chooseBlockDist = 30f;
-    public float chooseMeleeDist = 15f;
-    public float chooseShootDist = 25f;
-    public float chooseRetreatDist = 10f;
+    public float chooseChaseDist = 400f;
+    public float chooseJumpDist = 300f;
+    public float chooseBlockDist = 300f;
+    public float chooseMeleeDist = 150f;
+    public float chooseShootDist = 205f;
+    public float chooseRetreatDist = 50f;
     public float meleeRange = 2f;
 
     private JumpModule jumpModuleRef;
@@ -66,8 +66,8 @@ public class AICharacter : MonoBehaviour
     private Stack<AIState> stateStack = new Stack<AIState>();
     private List<AIState> excludedStates = new List<AIState>();
 
-    public float decisionCooldownHigh = 3f;
-    public float decisionCooldownLow = 1f;
+    public float decisionCooldownHigh = 1.5f;
+    public float decisionCooldownLow = 0.5f;
     private float decisionTimer = 0f;
 
     public float chaseContinuationProbability = 0.2f; // The probability of continuing to chase when within range.
@@ -97,9 +97,9 @@ public class AICharacter : MonoBehaviour
         isBlocking = stateStack.Contains(AIState.Blocking);
         isMelee = stateStack.Contains(AIState.Melee);
 
-        speed = Vector3.Magnitude(rb.velocity.normalized);
-        moveModuleRef.OnMove(rb.velocity.normalized); //I think this might be wrong
-        Debug.Log(speed + "Speed");
+        //speed = Vector3.Magnitude(rb.velocity.normalized);
+        //moveModuleRef.OnMove(rb.velocity.normalized); //I think this might be wrong
+        //Debug.Log(speed + "Speed");
 
         if (isMove)
             animatorRef.SetFloat("Input Magnitude", 1); //this is a really dumb hotfix
@@ -112,14 +112,14 @@ public class AICharacter : MonoBehaviour
             decisionTimer -= Time.deltaTime;
             return;
         }
-
+        
         Brain();
         float randomValue = Random.value;
-        if (randomValue < 0.3f)
+        if (randomValue < 0.4f)
             Move(AIMovement.Forward);
         else if (randomValue < 0.5f && !isBlocking && !isMelee)
             Move(AIMovement.Left);
-        else if (randomValue < 0.7f && !isBlocking && !isMelee)
+        else if (randomValue < 0.6f && !isBlocking && !isMelee)
             Move(AIMovement.Right);
         else if (randomValue < 0.8f && !isBlocking && !isMelee)
             Move(AIMovement.Backward);
@@ -159,13 +159,14 @@ public class AICharacter : MonoBehaviour
         AIState currentState = stateStack.Peek();
         //Debug.Log(currentState);
 
-        // The AI will always chase if it is outside the chase distance threshold or based on a random chance.
-        if ((ShouldChase() || Random.value < chaseContinuationProbability) && !IsStateExcluded(AIState.Chasing, AIState.Blocking, AIState.Melee, AIState.Shooting))
+/*        // The AI will always chase if it is outside the chase distance threshold or based on a random chance.
+        if ((ShouldChase() && Random.value < chaseContinuationProbability) && !IsStateExcluded(AIState.Chasing, AIState.Blocking, AIState.Melee, AIState.Shooting))
         {
+            
             ClearStateStack();
             stateStack.Push(AIState.Chasing);
             return;
-        }
+        }*/
 
         // Randomly decide which action to take based on probabilities.
         float randomValue = Random.value;
@@ -183,7 +184,7 @@ public class AICharacter : MonoBehaviour
         {
             stateStack.Push(AIState.Melee);
         }
-        else if (randomValue < 0.8f)
+        else if (randomValue < 0.9f)
         {
             stateStack.Push(AIState.Idle);
         }
@@ -213,7 +214,7 @@ public class AICharacter : MonoBehaviour
                 Shoot();
                 break;
             case AIState.Blocking:
-                Block(blockDuration);
+                Block();
                 break;
             case AIState.Idle:
                 break;
@@ -267,8 +268,9 @@ public class AICharacter : MonoBehaviour
     {
         //Debug.Log("Jumping");
         jumpModuleRef.OnJump();
+        Debug.Log("here i am");
         decisionTimer = 0;
-        isJumping = true;
+        //isJumping = true;
     }
 
     private void Melee()
@@ -293,21 +295,21 @@ public class AICharacter : MonoBehaviour
             //do attack, maybe have a chance of 2nd attack
         }
 
-        isMelee = false;
+        //isMelee = false;
     }
 
     private void Shoot()
     {
         Debug.Log("Shooting");
         fireModuleRef.OnFire();
-        isShooting = false;
+        //isShooting = false;
     }
 
-    private void Block(float blockDuration)
+    private void Block()
     {
-        Debug.Log("Blocking");
+        float blockDuration = Random.Range(0, 3); Debug.Log("Blocking");
         blockModuleRef.OnBlock(blockDuration);
-        isBlocking = true;
+        //isBlocking = true;
     }
 
     private void LookAt()
