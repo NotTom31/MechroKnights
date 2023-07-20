@@ -7,8 +7,10 @@ public class BlockModule : MonoBehaviour
 {
     [SerializeField] private MechState mechStateRef;
     [SerializeField] private Collider blockVolume;
+    [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Animator animatorRef;
     [SerializeField] [Range(0, 1)] private float energyCostPercent;
+    public bool IsBlocking { get; private set; }
     private bool isAIControl = false;
     private float blockTime = 0;
     
@@ -47,11 +49,15 @@ public class BlockModule : MonoBehaviour
         if (mechStateRef.Energy <= 0f)
         { 
             blockVolume.enabled = false;
+            meshRenderer.enabled = false;
+            IsBlocking = false;
             animatorRef.SetBool("Is Block", false);
             return;
         }
 
         blockVolume.enabled = boolValue;
+        meshRenderer.enabled = boolValue;
+        IsBlocking = boolValue;
         animatorRef.SetBool("Is Block", boolValue);
     }
     public void OnBlock(float timeSeconds)

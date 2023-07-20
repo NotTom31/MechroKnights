@@ -33,13 +33,13 @@ public class AICharacter : MonoBehaviour
     //private NavMeshAgent navMeshAgent;
     [SerializeField] AIDestinationSetter aIDestinationSetter;
 
-    public float chooseChaseDist = 40f;
-    public float chooseJumpDist = 30f;
-    public float chooseBlockDist = 30f;
-    public float chooseMeleeDist = 15f;
-    public float chooseShootDist = 25f;
-    public float chooseRetreatDist = 10f;
-    public float meleeRange = 2f;
+    public float chooseChaseDist = 400f;
+    public float chooseJumpDist = 300f;
+    public float chooseBlockDist = 500f;
+    public float chooseMeleeDist = 500f;
+    public float chooseShootDist = 505f;
+    public float chooseRetreatDist = 50f;
+    public float meleeRange = 20f;
 
     private JumpModule jumpModuleRef;
     private MoveModule moveModuleRef;
@@ -53,6 +53,8 @@ public class AICharacter : MonoBehaviour
 
     private float distToPlayer;
     private Vector2 movement;
+    private bool isMove;
+    float speed;
     private bool isJumping;
     private bool isBlocking;
     private bool isMelee;
@@ -64,11 +66,11 @@ public class AICharacter : MonoBehaviour
     private Stack<AIState> stateStack = new Stack<AIState>();
     private List<AIState> excludedStates = new List<AIState>();
 
-    public float decisionCooldownHigh = 3f;
-    public float decisionCooldownLow = 1f;
+    public float decisionCooldownHigh = 1.2f;
+    public float decisionCooldownLow = 0.5f;
     private float decisionTimer = 0f;
 
-    public float chaseContinuationProbability = 0.2f; // The probability of continuing to chase when within range.
+    //public float chaseContinuationProbability = 0.2f; // The probability of continuing to chase when within range.
 
     private void Start()
     {
@@ -80,7 +82,7 @@ public class AICharacter : MonoBehaviour
         blockModuleRef = GetComponent<BlockModule>();
         fireModuleRef = GetComponent<FireModule>();
         mechStateRef = GetComponent<MechState>();
-        animatorRef = GetComponent<Animator>();
+        animatorRef = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
 
         stateStack.Push(AIState.Chasing);
@@ -95,8 +97,14 @@ public class AICharacter : MonoBehaviour
         isBlocking = stateStack.Contains(AIState.Blocking);
         isMelee = stateStack.Contains(AIState.Melee);
 
-        moveModuleRef.OnMove(rb.velocity.normalized); //I think this might be wrong
-        //Debug.Log(rb.velocity);
+        //speed = Vector3.Magnitude(rb.velocity.normalized);
+        //moveModuleRef.OnMove(rb.velocity.normalized); //I think this might be wrong
+        //Debug.Log(speed + "Speed");
+
+        if (isMove)
+            animatorRef.SetFloat("Input Magnitude", 1); //this is a really dumb hotfix
+        else
+            animatorRef.SetFloat("Input Magnitude", 0);
 
         // Add a cooldown before making the next decision.
         if (decisionTimer > 0f)
@@ -104,14 +112,14 @@ public class AICharacter : MonoBehaviour
             decisionTimer -= Time.deltaTime;
             return;
         }
-
+        
         Brain();
         float randomValue = Random.value;
-        if (randomValue < 0.3f)
+        if (randomValue < 0.4f)
             Move(AIMovement.Forward);
         else if (randomValue < 0.5f && !isBlocking && !isMelee)
             Move(AIMovement.Left);
-        else if (randomValue < 0.7f && !isBlocking && !isMelee)
+        else if (randomValue < 0.6f && !isBlocking && !isMelee)
             Move(AIMovement.Right);
         else if (randomValue < 0.8f && !isBlocking && !isMelee)
             Move(AIMovement.Backward);
@@ -151,13 +159,14 @@ public class AICharacter : MonoBehaviour
         AIState currentState = stateStack.Peek();
         //Debug.Log(currentState);
 
-        // The AI will always chase if it is outside the chase distance threshold or based on a random chance.
-        if ((ShouldChase() || Random.value < chaseContinuationProbability) && !IsStateExcluded(AIState.Chasing, AIState.Blocking, AIState.Melee, AIState.Shooting))
+/*        // The AI will always chase if it is outside the chase distance threshold or based on a random chance.
+        if ((ShouldChase() && Random.value < chaseContinuationProbability) && !IsStateExcluded(AIState.Chasing, AIState.Blocking, AIState.Melee, AIState.Shooting))
         {
+            
             ClearStateStack();
             stateStack.Push(AIState.Chasing);
             return;
-        }
+        }*/
 
         // Randomly decide which action to take based on probabilities.
         float randomValue = Random.value;
@@ -171,13 +180,9 @@ public class AICharacter : MonoBehaviour
         {
             stateStack.Push(AIState.Blocking);
         }
-        else if (randomValue < 0.6f && ShouldMelee())
+        else if (randomValue < 0.7f && ShouldMelee())
         {
             stateStack.Push(AIState.Melee);
-        }
-        else if (randomValue < 0.8f)
-        {
-            stateStack.Push(AIState.Idle);
         }
         else if (ShouldShoot())
         {
@@ -205,7 +210,7 @@ public class AICharacter : MonoBehaviour
                 Shoot();
                 break;
             case AIState.Blocking:
-                Block(blockDuration);
+                Block();
                 break;
             case AIState.Idle:
                 break;
@@ -222,25 +227,30 @@ public class AICharacter : MonoBehaviour
                 /*movement = transform.position - player.transform.position;
                 movement.Normalize();
                 moveModuleRef.OnMove(movement);*/
+                isMove = true;
                 aIDestinationSetter.target = player.transform;
                 //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Left:
+                isMove = true;
                 //navMeshAgent.SetDestination(leftNav.transform.position);
                 aIDestinationSetter.target = leftNav.transform;
                 //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Right:
+                isMove = true;
                 //navMeshAgent.SetDestination(rightNav.transform.position);
                 aIDestinationSetter.target = rightNav.transform;
                 //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Backward:
+                isMove = true;
                 //navMeshAgent.SetDestination(backNav.transform.position);
                 aIDestinationSetter.target = backNav.transform;
                 //moveModuleRef.OnMove(rb.velocity.normalized);
                 break;
             case AIMovement.Idle:
+                isMove = true;
                 //navMeshAgent.SetDestination(transform.position); //might be bad
                 aIDestinationSetter.target = null;
                 rb.velocity.Equals(Vector3.zero);
@@ -254,41 +264,62 @@ public class AICharacter : MonoBehaviour
     {
         //Debug.Log("Jumping");
         jumpModuleRef.OnJump();
-        isJumping = true;
+        Debug.Log("here i am");
+        decisionTimer = 0;
+        //isJumping = true;
     }
 
     private void Melee()
     {
+        Debug.Log("Do Melee attack");
+        Move(AIMovement.Idle);
+        StartCoroutine(Swing());
+            
+        //do attack, maybe have a chance of 2nd attack
+        
 
-        // Move towards the player until within the melee distance threshold.
-        if (distToPlayer > meleeRange)
-        {
-            Move(AIMovement.Forward);
-            moveModuleRef.OnMove(movement); //move towards player to melee
-        }
-        else
-        {
-            Debug.Log("Do Melee attack");
-            Move(AIMovement.Idle);
-            meleeModuleRef.OnMeleeLight();
-            //do attack, maybe have a chance of 2nd attack
-        }
+        //isMelee = false;
+    }
 
-        isMelee = false;
+    private IEnumerator Swing()
+    {
+        int attackType = Random.Range(0, 2);
+        int attackAmount = Random.Range(4, 9);
+
+        for (int i = 0; i < attackAmount; i++)
+        {
+            if (attackType == 0)
+                meleeModuleRef.OnMeleeLight();
+            else
+                meleeModuleRef.OnMeleeHeavy();
+            attackType = Random.Range(0, 2);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     private void Shoot()
     {
         Debug.Log("Shooting");
+        StartCoroutine(Fire());
         fireModuleRef.OnFire();
-        isShooting = false;
+        //isShooting = false;
     }
 
-    private void Block(float blockDuration)
+    private IEnumerator Fire()
     {
-        Debug.Log("Blocking");
+        int attackAmount = Random.Range(7, 11);
+        for (int i = 0; i < attackAmount; i++)
+        {
+            fireModuleRef.OnFire();
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    private void Block()
+    {
+        float blockDuration = Random.Range(1, 4); Debug.Log("Blocking");
         blockModuleRef.OnBlock(blockDuration);
-        isBlocking = true;
+        //isBlocking = true;
     }
 
     private void LookAt()

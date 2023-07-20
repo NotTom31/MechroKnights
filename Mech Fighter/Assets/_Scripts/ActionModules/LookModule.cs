@@ -38,6 +38,6 @@ public class LookModule : MonoBehaviour
     }
     void OnLook(InputValue value)
     {
-        Debug.Log("OnLook Reached!");
+        //Debug.Log("OnLook Reached!");
     }
 }

@@ -34,10 +34,16 @@ public class FireModule : MonoBehaviour
         if (!isAIControl)
         {
             Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo);
+            int startAudio = Random.Range(0, 2);
+            if (startAudio == 0)
+                SoundManager.Instance.PlaySound("heavyCannon", 0.5f);
+            else
+                SoundManager.Instance.PlaySound("heavyCannon2", 0.5f);
         }
         else
         {
             Physics.Raycast(fakeCamera.transform.position, fakeCamera.transform.forward, out hitInfo);
+            SoundManager.Instance.PlayEnemySound("midCannon", 0.7f);
         }
 
         rotationVector = hitInfo.point - spawnpoint.transform.position;

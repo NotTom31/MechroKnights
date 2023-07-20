@@ -126,7 +126,7 @@ public partial class @FirstPersonControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7a239609-2ad4-47f1-82a8-9e32aa184ed6"",
-                    ""path"": ""<Keyboard>/v"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",

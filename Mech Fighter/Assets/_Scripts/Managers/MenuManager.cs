@@ -14,19 +14,29 @@ public class MenuManager : MonoBehaviour
     public GameObject controlsMenu;
     public GameObject charSelectMenu;
     public GameObject notAvalable;
-    //public GameObject fadeOut;
+    public GameObject fadeOut;
 
     [Header("In Game Menu")]
     public GameObject pauseMenu;
     public GameObject HUD;
     public GameObject dialogueBox;
+    public GameObject ready;
+    public GameObject go;
+    public GameObject youWin;
+    public GameObject youLose;
 
     [Header("Loading Screen")]
     public GameObject LoadingScreen;
     public Image LoadingBarFill;
 
     private bool isPaused = false;
+    private bool canPause = true;
     private bool isDialogue = false;
+
+    private void Awake()
+    {
+        GameManager.serviceLocator.ProvideService(this);
+    }
 
     public void MenuNext()
     {
@@ -36,6 +46,16 @@ public class MenuManager : MonoBehaviour
     public void MenuBack()
     {
         SoundManager.Instance.PlaySound("menuBack", 1.0f);
+    }
+
+    public void MenuStart()
+    {
+        SoundManager.Instance.PlaySound("gameStart", 1.0f);
+    }
+
+    public void MenuHover()
+    {
+        SoundManager.Instance.PlaySound("menuSelection", 1.0f);
     }
 
     public bool IsPaused()
@@ -52,6 +72,7 @@ public class MenuManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Start")
         {
+            fadeOut.SetActive(false);
             BackToMainMenu();
         }
         else
@@ -62,10 +83,35 @@ public class MenuManager : MonoBehaviour
     public void StartOfScene()
     {
         InGameSwitch("HUD");
+        StartCoroutine(ReadyToFight());
+    }
+
+    private IEnumerator ReadyToFight()
+    {
+        canPause = false;
+        SoundManager.Instance.StopMusic();
+        Time.timeScale = 0;
+        ready.SetActive(true);
+        int startAudio = Random.Range(0, 2);
+        Debug.Log(startAudio);
+        if(startAudio == 0)
+            SoundManager.Instance.PlaySound("getReady", 1.0f);
+        else
+            SoundManager.Instance.PlaySound("getReady2", 1.0f);
+        yield return new WaitForSecondsRealtime(3.0f);
+        ready.SetActive(false);
+        go.SetActive(true);
+        yield return new WaitForSecondsRealtime(1.0f);
+        go.SetActive(false);
+        Time.timeScale = 1;
+        SoundManager.Instance.PlayMusic("stage1Music");
+        canPause = true;
     }
 
     public void Pause()
     {
+        if (!canPause)
+            return;
         SoundManager.Instance.PlaySound("menuPause", 1.0f);
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
@@ -119,6 +165,38 @@ public class MenuManager : MonoBehaviour
         //dialogue.Click();
     }
 
+    public void OpenYouWin()
+    {
+        StartCoroutine(YouWin());
+    }
+
+    private IEnumerator YouWin()
+    {
+        Time.timeScale = 0;
+        InGameSwitch("YouWin");
+        yield return new WaitForSecondsRealtime(4.0f);
+        InGameSwitch("HUD");
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
+        SendToMainMenu("Start");
+    }
+
+    public void OpenYouLose()
+    {
+        StartCoroutine(YouLose());
+    }
+
+    private IEnumerator YouLose()
+    {
+        Time.timeScale = 0;
+        InGameSwitch("YouLose");
+        yield return new WaitForSecondsRealtime(4.0f);
+        InGameSwitch("HUD");
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
+        SendToMainMenu("Start");
+    }
+
     public void InGameSwitch(string ui)
     {
         switch (ui)
@@ -128,15 +206,33 @@ public class MenuManager : MonoBehaviour
                 pauseMenu.SetActive(false);
                 dialogueBox.SetActive(false);
                 LoadingScreen.SetActive(false);
+                youWin.SetActive(false);
+                youLose.SetActive(false);
                 break;
             case "Pause":
                 HUD.SetActive(false);
                 pauseMenu.SetActive(true);
+                youWin.SetActive(false);
+                youLose.SetActive(false);
                 break;
             case "Dialogue":
                 HUD.SetActive(true);
                 pauseMenu.SetActive(false);
                 dialogueBox.SetActive(true);
+                break;
+            case "YouWin":
+                HUD.SetActive(true);
+                pauseMenu.SetActive(false);
+                dialogueBox.SetActive(true);
+                youWin.SetActive(true);
+                youLose.SetActive(false);
+                break;
+            case "YouLose":
+                HUD.SetActive(true);
+                pauseMenu.SetActive(false);
+                dialogueBox.SetActive(true);
+                youWin.SetActive(false);
+                youLose.SetActive(true);
                 break;
             default:
                 break;
@@ -171,6 +267,7 @@ public class MenuManager : MonoBehaviour
         SoundManager.Instance.PlayMusic("menuMusic");
         //GameManager.Instance.SetGameState(GameState.MAIN_MENU);
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
         //GameManager.Instance.ChangeScene(SceneName);
         MoveToScene(SceneName);
     }
@@ -185,13 +282,14 @@ public class MenuManager : MonoBehaviour
     private IEnumerator NewGameFade(string SceneName)
     {
 
-        //fadeOut.SetActive(true);
+        fadeOut.SetActive(true);
         LoadingScreen.SetActive(true);
-        //fadeOut.GetComponent<Animator>().Play("MenuFade");
+        fadeOut.GetComponent<Animator>().Play("MenuFade");
         LoadingBarFill.fillAmount = 0;
-        yield return new WaitForSeconds(0.5f);
-        SoundManager.Instance.PlayMusic("hubMusic");
-        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneName); //does not change the game state, need to fix
+        SoundManager.Instance.StopMusic();
+        yield return new WaitForSeconds(1.0f);
+        
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneName);
         while (!operation.isDone)
         {
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
@@ -224,7 +322,14 @@ public class MenuManager : MonoBehaviour
 
     public void OpenCharSelect()
     {
+        SoundManager.Instance.PlayMusic("characterSelect");
         MenuSwitch("CharSelect");
+    }
+
+    public void CloseCharSelect()
+    {
+        SoundManager.Instance.PlayMusic("menuMusic");
+        MenuSwitch("Main Menu");
     }
 
     public void NotAvalable()
