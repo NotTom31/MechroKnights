@@ -720,16 +720,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 725672647}
-    - target: {fileID: 2316656460750607559, guid: b2de643de6b5f444ab722b0d502680b5,
-        type: 3}
-      propertyPath: m_text
-      value: "Arius Ulibarri - Programmer\nThomas Mezzie - Programmer\nbryanv7 -
-        Mech Models\nCdplaya - Audio\n\n--------------------------------------------------------------------------------------------------------------------------\n\nAssets
-        Used:\nFuture Earth Font: https://www.dafont.com/future-earth.font\r\nTrees:
-        https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208\r\n\rCastle:
-        https://www.artstation.com/marketplace/p/K5BVO/medieval-voxel-assets\nSkybox:
-        https://assetstore.unity.com/packages/2d/textures-materials/sky/free-stylized-skybox-212257"
-      objectReference: {fileID: 0}
     - target: {fileID: 2514004333325098191, guid: b2de643de6b5f444ab722b0d502680b5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -910,6 +900,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 725672647}
+    - target: {fileID: 7040717910386572386, guid: b2de643de6b5f444ab722b0d502680b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8198721461900516731, guid: b2de643de6b5f444ab722b0d502680b5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

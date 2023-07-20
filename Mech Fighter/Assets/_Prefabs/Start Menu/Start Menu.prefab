@@ -4087,7 +4087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1901738590980514813
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4498,12 +4498,34 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Arius Ulibarri - Programmer\nThomas Mezzie - Programmer\nbryanv7 - Mech
-    Models\nCd - Audio\n\n--------------------------------------------------------------------------------------------------------------------------\n\nAssets
-    Used:\nFuture Earth Font: https://www.dafont.com/future-earth.font\r\nTrees:
-    https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208\r\n\rCastle:
-    https://www.artstation.com/marketplace/p/K5BVO/medieval-voxel-assets\nSkybox:
-    https://assetstore.unity.com/packages/2d/textures-materials/sky/free-stylized-skybox-212257"
+  m_text: 'Arius Ulibarri - Programmer
+
+    Thomas Mezzie - Programmer
+
+    bryanv7
+    - Mech Models
+
+    Cdplaya - Audio
+
+
+    ------------------------------------------------------------------------------------------------------------------------
+
+    Assets
+    Used:
+
+
+    Future Earth Font by V. Sarela: https://www.dafont.com/future-earth.font
+
+    Free
+    Trees by Ada_King
+
+    Medieval Voxel Assets by Felix Strefter
+
+    Skybox by
+    Yuki2022: Free Stylized Skybox
+
+    By Kevin Iglesias: Giant Animations FREE,
+    Basic Motions FREE, Melee Warrior Animations FREE '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77595e61446398e45bcd28687cb1f472, type: 2}
   m_sharedMaterial: {fileID: -2032120207881398061, guid: 77595e61446398e45bcd28687cb1f472,
@@ -4531,7 +4553,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.55
+  m_fontSize: 39.25
   m_fontSizeBase: 50.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4567,7 +4589,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -664.33203}
+  m_margin: {x: -60.874817, y: 7.6081543, z: -60.862366, w: -37.37784}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

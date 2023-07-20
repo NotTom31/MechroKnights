@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += SceneLoaded;
-
     }
     private void Update()
     {
@@ -85,12 +84,22 @@ public class GameManager : MonoBehaviour
     void SceneLoaded(Scene scene, LoadSceneMode loadMode)
     {
         SceneManager.sceneLoaded -= SceneLoaded;
+        SceneManager.sceneUnloaded += SceneUnloaded;
         if (scene.buildIndex == 0)
             SetState(GameState.MAIN_MENU);
         else if (scene.buildIndex == 1)
         {
             MechState.OnHPChange += HPChangeHandler;
             SetState(GameState.PLAYING_ACTIVE);
+        }
+    }
+    void SceneUnloaded(Scene scene)
+    {
+        SceneManager.sceneUnloaded -= SceneUnloaded;
+        SceneManager.sceneLoaded += SceneLoaded;
+        if (scene.buildIndex == 1)
+        {
+            MechState.OnHPChange -= HPChangeHandler;
         }
     }
     void HPChangeHandler(float change, int mechIndex)
@@ -113,4 +122,6 @@ public class GameManager : MonoBehaviour
         gameState = state;
         OnStateChange?.Invoke(state);
     }
+
+    
 }
