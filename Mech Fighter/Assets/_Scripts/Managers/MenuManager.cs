@@ -48,6 +48,11 @@ public class MenuManager : MonoBehaviour
         SoundManager.Instance.PlaySound("gameStart", 1.0f);
     }
 
+    public void MenuHover()
+    {
+        SoundManager.Instance.PlaySound("menuSelection", 1.0f);
+    }
+
     public bool IsPaused()
     {
         return isPaused;
@@ -305,7 +310,14 @@ public class MenuManager : MonoBehaviour
 
     public void OpenCharSelect()
     {
+        SoundManager.Instance.PlayMusic("characterSelect");
         MenuSwitch("CharSelect");
+    }
+
+    public void CloseCharSelect()
+    {
+        SoundManager.Instance.PlayMusic("menuMusic");
+        MenuSwitch("Main Menu");
     }
 
     public void NotAvalable()

@@ -267,6 +267,7 @@ public class AICharacter : MonoBehaviour
     {
         //Debug.Log("Jumping");
         jumpModuleRef.OnJump();
+        decisionTimer = 0;
         isJumping = true;
     }
 
@@ -284,7 +285,11 @@ public class AICharacter : MonoBehaviour
         {
             Debug.Log("Do Melee attack");
             Move(AIMovement.Idle);
-            meleeModuleRef.OnMeleeLight();
+            int attackType = Random.Range(0, 2);
+            if (attackType == 0)
+                meleeModuleRef.OnMeleeLight();
+            else
+                meleeModuleRef.OnMeleeHeavy();
             //do attack, maybe have a chance of 2nd attack
         }
 

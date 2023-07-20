@@ -22,11 +22,13 @@ public class MeleeModule : MonoBehaviour
     [SerializeField] private float lightDuration, heavyDelay, heavyDuration;
     private float currentDamage = 0f;
     private float durationleft = 0f;
+    private bool isAiControl = false;
 
-    
 
     private void Awake()
     {
+        if (gameObject.GetComponent<PlayerInput>() == null && gameObject.GetComponentInChildren<PlayerInput>() == null)
+            isAiControl = true;
         weaponColl.enabled = false;
     }
     private void FixedUpdate()
@@ -44,6 +46,14 @@ public class MeleeModule : MonoBehaviour
     }
     public void OnMeleeLight()
     {
+        if (isAiControl)
+        {
+            SoundManager.Instance.PlayEnemySound("swing");
+        }
+        else
+        {
+            SoundManager.Instance.PlaySound("swing");
+        }
         AnimatorStateInfo stateInfo = animatorRef.GetCurrentAnimatorStateInfo(0);
         if (stateInfo.IsName("CombatIdle") || stateInfo.IsName("Move"))
         {
@@ -56,6 +66,14 @@ public class MeleeModule : MonoBehaviour
     }
     public void OnMeleeHeavy()
     {
+        if (isAiControl)
+        {
+            SoundManager.Instance.PlayEnemySound("reelingATemp");
+        }
+        else
+        {
+            SoundManager.Instance.PlaySound("swing");
+        }
         AnimatorStateInfo stateInfo = animatorRef.GetCurrentAnimatorStateInfo(0);
         if (stateInfo.IsName("CombatIdle") || stateInfo.IsName("Move"))
         {

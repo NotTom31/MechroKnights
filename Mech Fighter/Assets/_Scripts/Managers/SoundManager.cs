@@ -7,7 +7,9 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    [SerializeField] private AudioSource _musicSource, _effectSource;
+    [SerializeField] private AudioSource _musicSource, _effectSource, _enemySource;
+
+    
 
     [Header("SFX")]
     [SerializeField] AudioClip alarm1;
@@ -31,6 +33,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip reelingATemp;
     [SerializeField] AudioClip explosionTemp;
     [SerializeField] AudioClip heavyDamageTemp;
+    [SerializeField] AudioClip swing;
 
 
 
@@ -83,8 +86,9 @@ public class SoundManager : MonoBehaviour
             {"impactDTemp", impactDTemp },
             {"reelingATemp", reelingATemp },
             {"explosionTemp", explosionTemp },
-            {"heavyDamageTemp", heavyDamageTemp }
-    };
+            {"heavyDamageTemp", heavyDamageTemp },
+            {"swing", swing }
+        };
 
         if (Instance == null)
         {
@@ -95,11 +99,27 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        MechState.OnHitBoxHit += PlayHitboxSound;
+    }
+
+    public void PlayHitboxSound(int index, bool isBullet)
+    {
+        Debug.Log("Play a sound!");
+        if (index == 0 && isBullet)
+            PlaySound("explosion");//player hit by bullet
+        else if (index == 0 && !isBullet)
+            PlaySound("hit1");//player hit by sword
+        else if (index == 1 && isBullet)
+            PlayEnemySound("enemyExplosion");//ai hit by bullet
+        else if (index == 1 && !isBullet)
+            PlayEnemySound("hit2");//ai hit by sword
+
     }
 
     private void Start()
     {
-        PlayMusic("menuMusic"); // Placeholder
+        //PlayMusic("menuMusic"); // Placeholder
     }
 
     public void PlaySound(string name, float volumeScale)
@@ -113,6 +133,42 @@ public class SoundManager : MonoBehaviour
         {
             AudioClip sound = SoundList[name];
             _effectSource.PlayOneShot(sound, volumeScale);
+        }
+        else
+        {
+            Debug.LogError("Sound not found: " + name);
+        }
+    }
+
+    public void PlayEnemySound(string name)
+    {
+        if (_effectSource == null)
+        {
+            Debug.LogError("Effect source is not assigned.");
+            return;
+        }
+        if (SoundList.ContainsKey(name))
+        {
+            AudioClip sound = SoundList[name];
+            _enemySource.PlayOneShot(sound);
+        }
+        else
+        {
+            Debug.LogError("Sound not found: " + name);
+        }
+    }
+
+    public void PlayEnemySound(string name, float volumeScale)
+    {
+        if (_effectSource == null)
+        {
+            Debug.LogError("Effect source is not assigned.");
+            return;
+        }
+        if (SoundList.ContainsKey(name))
+        {
+            AudioClip sound = SoundList[name];
+            _enemySource.PlayOneShot(sound);
         }
         else
         {

@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 1142384493861514451}
   _effectSource: {fileID: 1142384495198520022}
+  _enemySource: {fileID: 0}
   alarm1: {fileID: 8300000, guid: e2a5f5c7d1e292345b7f2b79bebf5da1, type: 3}
   bigHit: {fileID: 8300000, guid: 1e94baf09be72b34ca817b3564198157, type: 3}
   enemyExplosion: {fileID: 8300000, guid: 4b3d977dc9998d24fa7f441960839244, type: 3}
@@ -188,7 +189,6 @@ MonoBehaviour:
   hit2: {fileID: 8300000, guid: 39115206dca4fa749a63765536d84efe, type: 3}
   startingBell: {fileID: 8300000, guid: 0d43859be5e01ee4282af0136948e517, type: 3}
   stun: {fileID: 8300000, guid: 43a1f0f805503cd47a432a66d42f8490, type: 3}
-  reeling: {fileID: 0}
   heavyCannon: {fileID: 8300000, guid: 4a3238445aeeebd4eac0b1c037a55ca0, type: 3}
   heavyCannon2: {fileID: 8300000, guid: 2d776a39867d0dc43a52e75e2e338221, type: 3}
   midCannon: {fileID: 8300000, guid: 2c2a61c98166f1648a75a6f09afc556a, type: 3}
@@ -199,13 +199,14 @@ MonoBehaviour:
   reelingATemp: {fileID: 8300000, guid: b929bef0f1d676b44acb6d22fce634c8, type: 3}
   explosionTemp: {fileID: 8300000, guid: c2c8ad981835c40488cf070d0f1a34e9, type: 3}
   heavyDamageTemp: {fileID: 8300000, guid: c24e611d11b9526418b01d284f1e9e39, type: 3}
+  swing: {fileID: 8300000, guid: 7ab61c5bb0c0bbf42bbad8c8b220f124, type: 3}
   menuNext: {fileID: 8300000, guid: 3f25088d5983dfc498480d5bf5d37d05, type: 3}
   menuSelection: {fileID: 8300000, guid: 87a91a96dfd1ea549b048a9fba55a376, type: 3}
   gameStart: {fileID: 8300000, guid: bbac36a7043922645af44d25b2461379, type: 3}
   menuBack: {fileID: 8300000, guid: 3f25088d5983dfc498480d5bf5d37d05, type: 3}
   menuPause: {fileID: 8300000, guid: 3f25088d5983dfc498480d5bf5d37d05, type: 3}
-  menuMusic: {fileID: 0}
-  characterSelect: {fileID: 0}
+  menuMusic: {fileID: 8300000, guid: 1f82676c49f8aef4a98503c64ae234fc, type: 3}
+  characterSelect: {fileID: 8300000, guid: 0403cf636e381244faeb307727169e9e, type: 3}
   stage1Music: {fileID: 0}
 --- !u!1 &1142384495198520023
 GameObject:
