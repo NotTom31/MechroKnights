@@ -515,6 +515,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2096668720787247318}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &591296163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3024870922163429305, guid: 35d5098271c590648a153470b16248ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 879058899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &595606742 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9188759526803530875, guid: 35d5098271c590648a153470b16248ca,
@@ -751,6 +757,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 345750367}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1392309850 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8239890989307443381, guid: e1baaee52aab6f0448a630ee66a4ba92,
+    type: 3}
+  m_PrefabInstance: {fileID: 1697342144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1620982118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -909,6 +921,12 @@ PrefabInstance:
       objectReference: {fileID: 276990114}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1baaee52aab6f0448a630ee66a4ba92, type: 3}
+--- !u!1 &1719772924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 325823187479187113, guid: 35d5098271c590648a153470b16248ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 879058899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1861156968 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1404247143, guid: 8b86ab689a383594493e3ad9b43f5a82,
@@ -1083,6 +1101,16 @@ PrefabInstance:
       objectReference: {fileID: 820372591}
     - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
+      propertyPath: youWin
+      value: 
+      objectReference: {fileID: 1719772924}
+    - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: youLose
+      value: 
+      objectReference: {fileID: 591296163}
+    - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 879058902}
@@ -1161,5 +1189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers (Has GameManager Component)
       objectReference: {fileID: 0}
+    - target: {fileID: 8877758516027546630, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: _enemySource
+      value: 
+      objectReference: {fileID: 1392309850}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b86ab689a383594493e3ad9b43f5a82, type: 3}
