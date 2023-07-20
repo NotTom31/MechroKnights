@@ -589,6 +589,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 2875604571201398289, guid: 35d5098271c590648a153470b16248ca,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 204686636}
+>>>>>>> Stashed changes
     - target: {fileID: 4854660763762126586, guid: 35d5098271c590648a153470b16248ca,
         type: 3}
       propertyPath: m_Name
@@ -719,6 +727,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8246916442787634793, guid: 35d5098271c590648a153470b16248ca,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 204686636}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35d5098271c590648a153470b16248ca, type: 3}
 --- !u!1 &879058901 stripped
@@ -742,6 +755,18 @@ GameObject:
 --- !u!1 &964464640 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6924734396308983536, guid: 35d5098271c590648a153470b16248ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 879058899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1199700813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 325823187479187113, guid: 35d5098271c590648a153470b16248ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 879058899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1206193690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3024870922163429305, guid: 35d5098271c590648a153470b16248ca,
     type: 3}
   m_PrefabInstance: {fileID: 879058899}
   m_PrefabAsset: {fileID: 0}
@@ -1091,6 +1116,16 @@ PrefabInstance:
       propertyPath: ready
       value: 
       objectReference: {fileID: 820372591}
+    - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: youWin
+      value: 
+      objectReference: {fileID: 1199700813}
+    - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: youLose
+      value: 
+      objectReference: {fileID: 1206193690}
     - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
       propertyPath: pauseMenu
