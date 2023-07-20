@@ -33,6 +33,11 @@ public class MenuManager : MonoBehaviour
     private bool canPause = true;
     private bool isDialogue = false;
 
+    private void Awake()
+    {
+        GameManager.serviceLocator.ProvideService(MenuManager);
+    }
+
     public void MenuNext()
     {
         SoundManager.Instance.PlaySound("menuNext", 1.0f);
@@ -167,9 +172,11 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator YouWin()
     {
+        Time.timeScale = 0;
         InGameSwitch("YouWin");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSecondsRealtime(1.0f);
         InGameSwitch("HUD");
+        Time.timeScale = 1;
         SendToMainMenu("Start");
     }
 
@@ -180,9 +187,11 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator YouLose()
     {
+        Time.timeScale = 0;
         InGameSwitch("YouLose");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSecondsRealtime(1.0f);
         InGameSwitch("HUD");
+        Time.timeScale = 1;
         SendToMainMenu("Start");
     }
 
