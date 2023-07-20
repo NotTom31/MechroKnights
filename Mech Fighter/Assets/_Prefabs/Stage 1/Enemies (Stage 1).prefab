@@ -598,11 +598,7 @@ GameObject:
   - component: {fileID: 5505117393881444152}
   - component: {fileID: 8239890989307443381}
   - component: {fileID: 1697342147}
-<<<<<<< Updated upstream
   - component: {fileID: 3685825144344432951}
-=======
-  - component: {fileID: 7940646860010396105}
->>>>>>> Stashed changes
   m_Layer: 2
   m_Name: Enemy
   m_TagString: Enemy
@@ -890,7 +886,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -944,11 +940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisAudioSource: {fileID: 8239890989307443381}
   thisSoundName: 
-<<<<<<< Updated upstream
 --- !u!114 &3685825144344432951
-=======
---- !u!114 &7940646860010396105
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
