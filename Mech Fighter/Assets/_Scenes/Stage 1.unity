@@ -308,26 +308,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 330585546, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 330585546, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.00035095215
-      objectReference: {fileID: 0}
     - target: {fileID: 345750373, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
       propertyPath: stunSystemRef
       value: 
       objectReference: {fileID: 1861156968}
-    - target: {fileID: 577337193, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 577337193, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.00035095215
-      objectReference: {fileID: 0}
     - target: {fileID: 819580020, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
       propertyPath: projectilePool
       value: 
