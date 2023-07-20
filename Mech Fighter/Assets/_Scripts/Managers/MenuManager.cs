@@ -174,7 +174,7 @@ public class MenuManager : MonoBehaviour
     {
         Time.timeScale = 0;
         InGameSwitch("YouWin");
-        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitForSecondsRealtime(4.0f);
         InGameSwitch("HUD");
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.None;
@@ -190,7 +190,7 @@ public class MenuManager : MonoBehaviour
     {
         Time.timeScale = 0;
         InGameSwitch("YouLose");
-        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitForSecondsRealtime(4.0f);
         InGameSwitch("HUD");
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.None;

@@ -35,11 +35,11 @@ public class AICharacter : MonoBehaviour
 
     public float chooseChaseDist = 400f;
     public float chooseJumpDist = 300f;
-    public float chooseBlockDist = 300f;
-    public float chooseMeleeDist = 150f;
-    public float chooseShootDist = 205f;
+    public float chooseBlockDist = 500f;
+    public float chooseMeleeDist = 500f;
+    public float chooseShootDist = 505f;
     public float chooseRetreatDist = 50f;
-    public float meleeRange = 2f;
+    public float meleeRange = 20f;
 
     private JumpModule jumpModuleRef;
     private MoveModule moveModuleRef;
@@ -66,11 +66,11 @@ public class AICharacter : MonoBehaviour
     private Stack<AIState> stateStack = new Stack<AIState>();
     private List<AIState> excludedStates = new List<AIState>();
 
-    public float decisionCooldownHigh = 1.5f;
+    public float decisionCooldownHigh = 1.2f;
     public float decisionCooldownLow = 0.5f;
     private float decisionTimer = 0f;
 
-    public float chaseContinuationProbability = 0.2f; // The probability of continuing to chase when within range.
+    //public float chaseContinuationProbability = 0.2f; // The probability of continuing to chase when within range.
 
     private void Start()
     {
@@ -180,13 +180,9 @@ public class AICharacter : MonoBehaviour
         {
             stateStack.Push(AIState.Blocking);
         }
-        else if (randomValue < 0.6f && ShouldMelee())
+        else if (randomValue < 0.7f && ShouldMelee())
         {
             stateStack.Push(AIState.Melee);
-        }
-        else if (randomValue < 0.9f)
-        {
-            stateStack.Push(AIState.Idle);
         }
         else if (ShouldShoot())
         {
@@ -275,39 +271,53 @@ public class AICharacter : MonoBehaviour
 
     private void Melee()
     {
+        Debug.Log("Do Melee attack");
+        Move(AIMovement.Idle);
+        StartCoroutine(Swing());
+            
+        //do attack, maybe have a chance of 2nd attack
+        
 
-        // Move towards the player until within the melee distance threshold.
-        if (distToPlayer > meleeRange)
+        //isMelee = false;
+    }
+
+    private IEnumerator Swing()
+    {
+        int attackType = Random.Range(0, 2);
+        int attackAmount = Random.Range(4, 9);
+
+        for (int i = 0; i < attackAmount; i++)
         {
-            isMove = true;
-            Move(AIMovement.Forward);
-            moveModuleRef.OnMove(movement); //move towards player to melee
-        }
-        else
-        {
-            Debug.Log("Do Melee attack");
-            Move(AIMovement.Idle);
-            int attackType = Random.Range(0, 2);
             if (attackType == 0)
                 meleeModuleRef.OnMeleeLight();
             else
                 meleeModuleRef.OnMeleeHeavy();
-            //do attack, maybe have a chance of 2nd attack
+            attackType = Random.Range(0, 2);
+            yield return new WaitForSeconds(0.1f);
         }
-
-        //isMelee = false;
     }
 
     private void Shoot()
     {
         Debug.Log("Shooting");
+        StartCoroutine(Fire());
         fireModuleRef.OnFire();
         //isShooting = false;
     }
 
+    private IEnumerator Fire()
+    {
+        int attackAmount = Random.Range(7, 11);
+        for (int i = 0; i < attackAmount; i++)
+        {
+            fireModuleRef.OnFire();
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
     private void Block()
     {
-        float blockDuration = Random.Range(0, 3); Debug.Log("Blocking");
+        float blockDuration = Random.Range(1, 4); Debug.Log("Blocking");
         blockModuleRef.OnBlock(blockDuration);
         //isBlocking = true;
     }
