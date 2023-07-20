@@ -177,6 +177,7 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.0f);
         InGameSwitch("HUD");
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
         SendToMainMenu("Start");
     }
 
@@ -192,6 +193,7 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.0f);
         InGameSwitch("HUD");
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
         SendToMainMenu("Start");
     }
 
@@ -265,6 +267,7 @@ public class MenuManager : MonoBehaviour
         SoundManager.Instance.PlayMusic("menuMusic");
         //GameManager.Instance.SetGameState(GameState.MAIN_MENU);
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
         //GameManager.Instance.ChangeScene(SceneName);
         MoveToScene(SceneName);
     }
