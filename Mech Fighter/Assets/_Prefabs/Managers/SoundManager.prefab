@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 1142384493861514451}
   _effectSource: {fileID: 1142384495198520022}
-  _enemySource: {fileID: 0}
+  _enemySource: {fileID: 1142384495198520022}
   alarm1: {fileID: 8300000, guid: e2a5f5c7d1e292345b7f2b79bebf5da1, type: 3}
   bigHit: {fileID: 8300000, guid: 1e94baf09be72b34ca817b3564198157, type: 3}
   enemyExplosion: {fileID: 8300000, guid: 4b3d977dc9998d24fa7f441960839244, type: 3}
@@ -207,7 +207,7 @@ MonoBehaviour:
   menuPause: {fileID: 8300000, guid: 3f25088d5983dfc498480d5bf5d37d05, type: 3}
   menuMusic: {fileID: 8300000, guid: 1f82676c49f8aef4a98503c64ae234fc, type: 3}
   characterSelect: {fileID: 8300000, guid: 0403cf636e381244faeb307727169e9e, type: 3}
-  stage1Music: {fileID: 0}
+  stage1Music: {fileID: 8300000, guid: b1c77d82f19997d4d8280a4af9d86ded, type: 3}
 --- !u!1 &1142384495198520023
 GameObject:
   m_ObjectHideFlags: 0

@@ -103,6 +103,11 @@ public class SoundManager : MonoBehaviour
         MechState.OnHitBoxHit += PlayHitboxSound;
     }
 
+/*    public void SetEnemySource()
+    {
+        _enemySource = _effectSource;
+    }*/
+
     public void PlayHitboxSound(int index, bool isBullet)
     {
         Debug.Log("Play a sound!");
@@ -153,7 +158,7 @@ public class SoundManager : MonoBehaviour
         if (SoundList.ContainsKey(name))
         {
             AudioClip sound = SoundList[name];
-            _enemySource.PlayOneShot(sound);
+            _effectSource.PlayOneShot(sound); //hotfix should be enemy
         }
         else
         {
@@ -171,7 +176,7 @@ public class SoundManager : MonoBehaviour
         if (SoundList.ContainsKey(name))
         {
             AudioClip sound = SoundList[name];
-            _enemySource.PlayOneShot(sound);
+            _effectSource.PlayOneShot(sound); //hotfit
         }
         else
         {
