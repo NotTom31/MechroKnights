@@ -17,10 +17,14 @@ public class MechState : MonoBehaviour
     private bool isAIControl = false;
 
     public delegate void EnergyChangeHandler(float energy, int mechIndex);
+    public delegate void UIEnergyChangeHandler(float energy, float energyMax, int mechIndex);
     public static event EnergyChangeHandler OnEnergyChange;
+    public static event UIEnergyChangeHandler OnUIEnergyChange;
 
     public delegate void HPChangeHandler(float HP, int mechIndex);
     public static event HPChangeHandler OnHPChange;
+    public delegate void UIHPChangeHandler(float HP, float maxHP, int mechIndex);
+    public static event UIHPChangeHandler OnUIHPChange;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +74,7 @@ public class MechState : MonoBehaviour
             return;
         Energy += change;
         OnEnergyChange?.Invoke(Energy, MechIndex);
+        OnUIEnergyChange?.Invoke(Energy, maxEnergy, MechIndex);
     }
 
     private void Damage(float damageValue)
@@ -78,6 +83,7 @@ public class MechState : MonoBehaviour
         {
             HP -= damageValue;
             OnHPChange?.Invoke(HP, MechIndex);
+            OnUIHPChange?.Invoke(HP, maxHP, MechIndex);
         }
         Debug.Log(gameObject.name + " has " + HP + "HP left!");
     }
