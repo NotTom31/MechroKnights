@@ -23,9 +23,14 @@ public class ServiceLocator
     {
         return _stunSystem;
     }
+    public MenuManager GetMenuManager()
+    {
+        return _menuManager;
+    }
 
     private static SoundManager _soundManager;
     private static StunSystem _stunSystem;
+    private static MenuManager _menuManager;
 
     public void ProvideService(SoundManager soundManager)
     {
@@ -34,6 +39,10 @@ public class ServiceLocator
     public void ProvideService(StunSystem stunSystem)
     {
         _stunSystem = stunSystem;
+    }
+    public void ProvideService(MenuManager menuManager)
+    {
+        _menuManager = menuManager;
     }
 }
 
@@ -91,10 +100,12 @@ public class GameManager : MonoBehaviour
         if (mechIndex == 0) // if it's the player
         {
             SetState(GameState.VICTORY_RESULTS);
+            serviceLocator.GetMenuManager().OpenYouWin();
         }
         else
         {
             SetState(GameState.DEFEAT_RESULTS);
+            serviceLocator.GetMenuManager().OpenYouLose();
         }
     }
     public void SetState(GameState state)
