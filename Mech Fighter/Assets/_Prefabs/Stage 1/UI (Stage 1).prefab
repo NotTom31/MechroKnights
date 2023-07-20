@@ -2145,6 +2145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthImageRef: {fileID: 8175029095239446351}
   energyImageRef: {fileID: 5655040674847089394}
+  mechStateRef: {fileID: 0}
 --- !u!1 &5092213116718017185
 GameObject:
   m_ObjectHideFlags: 0

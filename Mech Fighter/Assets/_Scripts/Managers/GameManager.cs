@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         if (change > 0)
             return;
-        if (mechIndex == 0) // if it's the player
+        if (mechIndex != 0) // if it's not the player
         {
             SetState(GameState.VICTORY_RESULTS);
             serviceLocator.GetMenuManager().OpenYouWin();
