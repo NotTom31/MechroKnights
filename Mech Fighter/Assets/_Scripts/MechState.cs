@@ -13,6 +13,7 @@ public class MechState : MonoBehaviour
     [SerializeField] [Range(0, 1)] private float energyRegenPercent;
 
     [SerializeField] private PlayerInput playerInputRef;
+    [SerializeField] private BlockModule blockModuleRef;
     private bool isAIControl = false;
 
     public delegate void EnergyChangeHandler(float energy, int mechIndex);
@@ -73,9 +74,12 @@ public class MechState : MonoBehaviour
 
     private void Damage(float damageValue)
     {
-        HP -= damageValue;
+        if (!blockModuleRef.IsBlocking)
+        {
+            HP -= damageValue;
+            OnHPChange?.Invoke(HP, MechIndex);
+        }
         Debug.Log(gameObject.name + " has " + HP + "HP left!");
-        OnHPChange?.Invoke(HP, MechIndex);
     }
     private void ToggleInput()
     {
@@ -102,7 +106,10 @@ public class MechState : MonoBehaviour
     {
         Debug.Log("Trigger Entered!");
         if (other.gameObject.layer != 7)
+        {
+            Debug.Log("Other collider is not hurtbox!");
             return;
+        }
         BulletMover otherBullet = other.gameObject.GetComponentInChildren<BulletMover>() != null
             ? other.gameObject.GetComponentInChildren<BulletMover>() : other.gameObject.GetComponentInParent<BulletMover>();
         MeleeModule otherMeleeModule = other.gameObject.GetComponentInChildren<MeleeModule>() != null
@@ -120,7 +127,7 @@ public class MechState : MonoBehaviour
             OnHitBoxHit?.Invoke(MechIndex, true);
             Damage(otherBullet.GetDamage());
         }
-        else if (!gameObject.CompareTag(otherTag))
+        else if (otherMeleeModule != null && !gameObject.CompareTag(otherTag))
         {
             Debug.Log("Other collider is a melee!");
             OnHitBoxHit?.Invoke(MechIndex, false);

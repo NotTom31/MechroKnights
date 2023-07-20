@@ -1007,6 +1007,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 6209719349087035731, guid: 2db21806bc0e9304d94ae85c4e293979,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209719349087035731, guid: 2db21806bc0e9304d94ae85c4e293979,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6209719349087035742, guid: 2db21806bc0e9304d94ae85c4e293979,
         type: 3}
       propertyPath: m_RootOrder
