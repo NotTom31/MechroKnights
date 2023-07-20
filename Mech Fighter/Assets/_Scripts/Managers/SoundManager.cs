@@ -119,7 +119,10 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayMusic("menuMusic"); // Placeholder
+        if (SceneManager.GetActiveScene().name == "Start")
+        {
+            PlayMusic("menuMusic"); // Placeholder
+        }
     }
 
     public void PlaySound(string name, float volumeScale)
