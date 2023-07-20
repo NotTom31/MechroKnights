@@ -774,12 +774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cae959780e4484f8446b51ecbac23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &1392309850 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8239890989307443381, guid: e1baaee52aab6f0448a630ee66a4ba92,
-    type: 3}
-  m_PrefabInstance: {fileID: 1697342144}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1620982118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1210,6 +1204,6 @@ PrefabInstance:
         type: 3}
       propertyPath: _enemySource
       value: 
-      objectReference: {fileID: 1392309850}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b86ab689a383594493e3ad9b43f5a82, type: 3}

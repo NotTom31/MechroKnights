@@ -82,12 +82,15 @@ public class MenuManager : MonoBehaviour
     }
     public void StartOfScene()
     {
+        //AudioSource enemy = AudioSource.FindObjectOfType("Enemy");
+        //SoundManager.Instance.SetEnemySource();
         InGameSwitch("HUD");
         StartCoroutine(ReadyToFight());
     }
 
     private IEnumerator ReadyToFight()
     {
+        GameManager.instance.SetState(GameState.PLAYING_ACTIVE);
         canPause = false;
         SoundManager.Instance.StopMusic();
         Time.timeScale = 0;
@@ -95,15 +98,17 @@ public class MenuManager : MonoBehaviour
         int startAudio = Random.Range(0, 2);
         Debug.Log(startAudio);
         if(startAudio == 0)
-            SoundManager.Instance.PlaySound("getReady", 1.0f);
+            SoundManager.Instance.PlaySound("getReady", 0.7f);
         else
-            SoundManager.Instance.PlaySound("getReady2", 1.0f);
+            SoundManager.Instance.PlaySound("getReady2", 0.7f);
         yield return new WaitForSecondsRealtime(3.0f);
         ready.SetActive(false);
         go.SetActive(true);
         yield return new WaitForSecondsRealtime(1.0f);
         go.SetActive(false);
         Time.timeScale = 1;
+        SoundManager.Instance.PlaySound("startingBell", 1.0f);
+        yield return new WaitForSecondsRealtime(0.2f);
         SoundManager.Instance.PlayMusic("stage1Music");
         canPause = true;
     }
@@ -175,7 +180,7 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 0;
         InGameSwitch("YouWin");
         yield return new WaitForSecondsRealtime(4.0f);
-        InGameSwitch("HUD");
+        //InGameSwitch("HUD");
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.None;
         SendToMainMenu("Start");
@@ -191,7 +196,7 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 0;
         InGameSwitch("YouLose");
         yield return new WaitForSecondsRealtime(4.0f);
-        InGameSwitch("HUD");
+        //InGameSwitch("HUD");
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.None;
         SendToMainMenu("Start");

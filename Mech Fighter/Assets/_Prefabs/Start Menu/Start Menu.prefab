@@ -3643,7 +3643,7 @@ MonoBehaviour:
 
     Fire - E, Left Trigger
 
-    Block - V,
+    Block - F,
     Left Shoulder
 
     Jump - Space, Bottom Face Button
@@ -4499,7 +4499,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Arius Ulibarri - Programmer\nThomas Mezzie - Programmer\nbryanv7 - Mech
-    Models\nCd Guy - Audio\n\n--------------------------------------------------------------------------------------------------------------------------\n\nAssets
+    Models\nCd - Audio\n\n--------------------------------------------------------------------------------------------------------------------------\n\nAssets
     Used:\nFuture Earth Font: https://www.dafont.com/future-earth.font\r\nTrees:
     https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208\r\n\rCastle:
     https://www.artstation.com/marketplace/p/K5BVO/medieval-voxel-assets\nSkybox:
