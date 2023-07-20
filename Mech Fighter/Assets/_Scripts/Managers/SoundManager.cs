@@ -152,7 +152,7 @@ public class SoundManager : MonoBehaviour
     {
         if (_effectSource == null)
         {
-            Debug.LogError("Effect source is not assigned.");
+            //Debug.LogError("Effect source is not assigned.");
             return;
         }
         if (SoundList.ContainsKey(name))
@@ -188,7 +188,7 @@ public class SoundManager : MonoBehaviour
     {
         if (_effectSource == null)
         {
-            Debug.LogError("Effect source is not assigned.");
+            //Debug.LogError("Effect source is not assigned.");
             return;
         }
         if (SoundList.ContainsKey(name))
