@@ -666,7 +666,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 6
+  m_Radius: 7
   m_Height: 24
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -680,10 +680,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: e5e6043049e9acd4fbd2480ad5cfdbdd, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 6.3
+  m_Radius: 7.2
   m_Height: 20
   m_Direction: 1
-  m_Center: {x: 0, y: 0.15, z: 0}
+  m_Center: {x: 0, y: 2.4, z: 0}
 --- !u!114 &9135001559660980959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,7 +823,7 @@ MonoBehaviour:
   blockVolume: {fileID: 2244647505114831730}
   meshRenderer: {fileID: 2244647503885503736}
   animatorRef: {fileID: 1668044013632864357}
-  energyCostPercent: 0.03
+  energyCostPercent: 0.1
 --- !u!114 &5505117393881444152
 MonoBehaviour:
   m_ObjectHideFlags: 0
