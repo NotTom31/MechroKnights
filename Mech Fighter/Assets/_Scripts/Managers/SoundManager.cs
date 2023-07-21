@@ -150,7 +150,8 @@ public class SoundManager : MonoBehaviour
 
     public void PlayEnemySound(string name)
     {
-        if (_effectSource == null)
+        PlaySound(name);
+        /*if (_effectSource == null)
         {
             //Debug.LogError("Effect source is not assigned.");
             return;
@@ -163,12 +164,13 @@ public class SoundManager : MonoBehaviour
         else
         {
             Debug.LogError("Sound not found: " + name);
-        }
+        }*/
     }
 
     public void PlayEnemySound(string name, float volumeScale)
     {
-        if (_effectSource == null)
+        PlaySound(name, volumeScale);
+/*        if (_effectSource == null)
         {
             Debug.LogError("Effect source is not assigned.");
             return;
@@ -181,7 +183,7 @@ public class SoundManager : MonoBehaviour
         else
         {
             Debug.LogError("Sound not found: " + name);
-        }
+        }*/
     }
 
     public void PlaySound(string name)
