@@ -1189,10 +1189,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers (Has GameManager Component)
       objectReference: {fileID: 0}
-    - target: {fileID: 8877758516027546630, guid: 8b86ab689a383594493e3ad9b43f5a82,
-        type: 3}
-      propertyPath: _enemySource
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b86ab689a383594493e3ad9b43f5a82, type: 3}

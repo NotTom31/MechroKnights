@@ -9,6 +9,7 @@ public class BlockModule : MonoBehaviour
     [SerializeField] private Collider blockVolume;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Animator animatorRef;
+    [Tooltip("Energy cost applied per second.")]
     [SerializeField] [Range(0, 1)] private float energyCostPercent;
     public bool IsBlocking { get; private set; }
     private bool isAIControl = false;

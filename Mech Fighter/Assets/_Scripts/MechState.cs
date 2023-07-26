@@ -35,6 +35,7 @@ public class MechState : MonoBehaviour
     private void Awake()
     {
         BlockModule.OnEnergyChange += ChangeEnergy;
+        FireModule.OnProjectileFired += ChangeEnergy;
         GameManager.OnStateChange += StateChangeHandler;
         // subscribe to fire module energy change event
 
@@ -72,6 +73,12 @@ public class MechState : MonoBehaviour
     {
         if (index != MechIndex)
             return;
+        if (Energy >= maxEnergy && change > 0) 
+        {
+            Mathf.Clamp(Energy, 0, maxEnergy);
+            return;
+        }
+
         Energy += change;
         OnEnergyChange?.Invoke(Energy, MechIndex);
         OnUIEnergyChange?.Invoke(Energy, maxEnergy, MechIndex);
@@ -139,5 +146,12 @@ public class MechState : MonoBehaviour
             OnHitBoxHit?.Invoke(MechIndex, false);
             Damage(otherMeleeModule.GetDamage());
         }
+    }
+
+    private void OnDestroy()
+    {
+        BlockModule.OnEnergyChange -= ChangeEnergy;
+        FireModule.OnProjectileFired -= ChangeEnergy;
+        GameManager.OnStateChange -= StateChangeHandler;
     }
 }
