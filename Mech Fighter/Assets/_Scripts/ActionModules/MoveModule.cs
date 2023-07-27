@@ -9,11 +9,13 @@ public class MoveModule : MonoBehaviour
     [SerializeField] [Range(1, 100)] private float maxVelocity = 15f;
     private Vector3 heading;
     private bool isAiControl = false;
+    private float dynFriction;
 
     [SerializeField] private StunSystem stunSystemRef;
     [SerializeField] private JumpModule jumpModuleRef;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Animator animatorRef;
+    [SerializeField] private Collider moveColliderRef;
     [SerializeField] private GameObject playerRef;
     [SerializeField] private GameObject fakeCamera;
 
@@ -23,9 +25,20 @@ public class MoveModule : MonoBehaviour
             isAiControl = true;
         stunSystemRef = GameManager.serviceLocator.GetStunSystem();
         rb.freezeRotation = true;
+        dynFriction = moveColliderRef.material.dynamicFriction;
     }
     private void FixedUpdate()
     {
+        if (heading.sqrMagnitude == 0f)
+        {
+            Debug.Log($"Set friction to default");
+            moveColliderRef.material.dynamicFriction = dynFriction;
+            return;
+        }
+        Debug.Log($"Set friction to zero.");
+        moveColliderRef.material.dynamicFriction = 0f;
+
+
         Vector3 forward;
         Vector3 right;
         if (!isAiControl)
