@@ -452,7 +452,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2912653069969735048}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6d23d079fa1c3c0418d909b106ba18f0, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 7
@@ -646,6 +646,7 @@ MonoBehaviour:
   jumpModuleRef: {fileID: 345750374}
   rb: {fileID: 2139204553}
   animatorRef: {fileID: 6467432577593256939}
+  moveColliderRef: {fileID: 2139204552}
   playerRef: {fileID: 318369990450457387}
   fakeCamera: {fileID: 0}
 --- !u!114 &345750372

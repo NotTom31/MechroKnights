@@ -747,6 +747,7 @@ MonoBehaviour:
   jumpModuleRef: {fileID: 5505117393281800234}
   rb: {fileID: 5505117395044845701}
   animatorRef: {fileID: 1668044013632864357}
+  moveColliderRef: {fileID: 5505117395044845700}
   playerRef: {fileID: 5372206431497896101}
   fakeCamera: {fileID: 280498588}
 --- !u!114 &5505117393281800232
