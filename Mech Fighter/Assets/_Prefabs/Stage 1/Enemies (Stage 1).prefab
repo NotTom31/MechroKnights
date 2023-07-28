@@ -823,7 +823,7 @@ MonoBehaviour:
   blockVolume: {fileID: 2244647505114831730}
   meshRenderer: {fileID: 2244647503885503736}
   animatorRef: {fileID: 1668044013632864357}
-  energyCostPercent: 0.1
+  energyCostPercent: 0.08
 --- !u!114 &5505117393881444152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,12 +836,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e773667ef2368ce498fb970d8bb87689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mechStateRef: {fileID: 5505117393301773967}
+  blockModuleRef: {fileID: 5505117393301773960}
   spawnpoint: {fileID: 914026316373269685}
   projectilePrefab: {fileID: 2454379120962250430, guid: c62634ee42de7ac4cb008a3f36ea049c,
     type: 3}
   fakeCamera: {fileID: 280498588}
   projectilePool: {fileID: 0}
   projectileOffset: {x: 0, y: 0, z: 0}
+  energyCostPercent: 0.1
 --- !u!82 &8239890989307443381
 AudioSource:
   m_ObjectHideFlags: 0
