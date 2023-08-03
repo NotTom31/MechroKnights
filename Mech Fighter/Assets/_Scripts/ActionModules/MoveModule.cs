@@ -21,7 +21,7 @@ public class MoveModule : MonoBehaviour
     {
         if (gameObject.GetComponent<PlayerInput>() == null && gameObject.GetComponentInChildren<PlayerInput>() == null)
             isAiControl = true;
-        stunSystemRef = GameManager.serviceLocator.GetStunSystem();
+        stunSystemRef = ServiceLocator.GetStunSystem();
         rb.freezeRotation = true;
     }
     private void FixedUpdate()
@@ -88,10 +88,10 @@ public class MoveModule : MonoBehaviour
 
         inputHeadingIn3D *= moveForce;
         if (stunSystemRef == null)
-            stunSystemRef = GameManager.serviceLocator.GetStunSystem();
+            stunSystemRef = ServiceLocator.GetStunSystem();
         if (stunSystemRef.IsStunned)
         {
-            inputHeadingIn3D *= stunSystemRef.StunScale;
+            inputHeadingIn3D *= stunSystemRef.StunScale();
         }
         if (!jumpModuleRef.IsGrounded)
         {
