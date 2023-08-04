@@ -32,8 +32,10 @@ public class StunSystem : MonoBehaviour
         {
             currentStunValue += stunDataRef.bulletStun;
         }
-        //else if () // <--- CONTINUE HERE
-
+        else // need more conditions/tests for whether it's a heavy attack
+        {
+            currentStunValue += stunDataRef.lightStun;
+        }
     }
 
     public float MoveScale()
