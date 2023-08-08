@@ -104,7 +104,7 @@ public class MoveModule : MonoBehaviour
             stunSystemRef = ServiceLocator.GetStunSystem();
         if (stunSystemRef.IsStunned)
         {
-            inputHeadingIn3D *= stunSystemRef.StunScale();
+            inputHeadingIn3D *= stunSystemRef.MoveScale();
         }
         if (!jumpModuleRef.IsGrounded)
         {
