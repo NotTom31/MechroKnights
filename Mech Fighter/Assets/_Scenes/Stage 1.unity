@@ -1084,6 +1084,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1404247143, guid: 8b86ab689a383594493e3ad9b43f5a82, type: 3}
+      propertyPath: mechStateRef
+      value: 
+      objectReference: {fileID: 1369886814}
     - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
       propertyPath: go
