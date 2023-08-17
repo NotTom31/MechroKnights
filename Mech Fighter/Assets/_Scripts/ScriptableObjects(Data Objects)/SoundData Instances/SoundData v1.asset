@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e366b227815c5d4fb8faf8e582bef3f, type: 3}
+  m_Name: SoundData v1
+  m_EditorClassIdentifier: 
+  menuMusic: {fileID: 0}
+  characterSelect: {fileID: 0}
+  stage1: {fileID: 0}
+  getReady: {fileID: 0}
+  getReady2: {fileID: 0}
+  startingBell: {fileID: 0}
+  bigHit: {fileID: 0}
+  hit1: {fileID: 0}
+  hit2: {fileID: 0}
+  impactA: {fileID: 0}
+  impactB: {fileID: 0}
+  impactC: {fileID: 0}
+  impactD: {fileID: 0}
+  stun: {fileID: 0}
+  alarm1: {fileID: 0}
+  enemyExplosion: {fileID: 0}
+  explosion: {fileID: 0}
+  explosion2: {fileID: 0}
+  ReelingA: {fileID: 0}
+  heavyCannon: {fileID: 0}
+  heavyCannon2: {fileID: 0}
+  midCannon: {fileID: 0}
+  menuNext: {fileID: 0}
+  menuSelection: {fileID: 0}
+  gameStart: {fileID: 0}
+  menuBack: {fileID: 0}
+  menuPause: {fileID: 0}

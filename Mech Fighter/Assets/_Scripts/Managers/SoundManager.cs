@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource _musicSource, _effectSource, _enemySource;
 
-    
+    [SerializeField] private SoundData soundDataRef;
 
     [Header("SFX")]
     [SerializeField] AudioClip alarm1;
