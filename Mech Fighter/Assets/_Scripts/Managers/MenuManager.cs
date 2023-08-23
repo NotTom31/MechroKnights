@@ -315,32 +315,32 @@ public class MenuManager : MonoBehaviour
     public void OpenCredits()
     {
         MenuSwitch("Credits");
-        creditsPrimary.Select();
+        //creditsPrimary.Select();
     }
 
     public void OpenControls()
     {
         MenuSwitch("Controls");
-        controlsPrimary.Select();
+        //controlsPrimary.Select();
     }
 
     public void BackToMainMenu()
     {
         MenuSwitch("Main Menu");
-        mainMenuPrimary.Select();
+        //mainMenuPrimary.Select();
     }
 
     public void OpenSettings()
     {
         MenuSwitch("Settings");
-        settingsPrimary.Select();
+        //settingsPrimary.Select();
     }
 
     public void OpenCharSelect()
     {
         SoundManager.Instance.PlayMusic("characterSelect");
         MenuSwitch("CharSelect");
-        charSelectPrimary.Select();
+        //charSelectPrimary.Select();
     }
 
     public void CloseCharSelect()

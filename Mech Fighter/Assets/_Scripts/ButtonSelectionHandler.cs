@@ -12,7 +12,14 @@ public class ButtonSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPoin
     private Vector3 _startPos;
     private Vector3 _startScale;
 
+    [SerializeField] ButtonSelectionManager buttonSelectionManager;
+
     public void OnDeselect(BaseEventData eventData)
+    {
+        StartCoroutine(MoveButton(false));
+    }
+
+    public void OnDeselect()
     {
         StartCoroutine(MoveButton(false));
     }
@@ -30,7 +37,17 @@ public class ButtonSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPoin
     public void OnSelect(BaseEventData eventData)
     {
         StartCoroutine(MoveButton(true));
+        buttonSelectionManager.LastSelected = gameObject;
         SoundManager.Instance.PlaySound("menuSelection");
+        //find the index
+        for (int i = 0; i < buttonSelectionManager.Buttons.Length; i++)
+        {
+            if(buttonSelectionManager.Buttons[i] == gameObject)
+            {
+                buttonSelectionManager.LastSelectIndex = i;
+                return;
+            }
+        }
     }
 
     private void Start()
