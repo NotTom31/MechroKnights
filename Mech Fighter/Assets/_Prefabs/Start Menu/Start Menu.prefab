@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 29.3242, y: 0}
+  m_SizeDelta: {x: -58.6483, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1195460072
 CanvasRenderer:
@@ -172,15 +172,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
+  m_fontSize: 72
   m_fontSizeBase: 34
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 1592001364}
   - component: {fileID: 1592001363}
   - component: {fileID: 1592001362}
-  - component: {fileID: 1194549760}
+  - component: {fileID: 1342741477}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -377,7 +377,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592001360}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -388,8 +388,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -400}
-  m_SizeDelta: {x: 300, y: 80}
+  m_AnchoredPosition: {x: -588.53894, y: -225.95871}
+  m_SizeDelta: {x: 746.9221, y: 78.1643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1592001364
 CanvasRenderer:
@@ -497,7 +497,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1194549760
+--- !u!114 &1342741477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -506,26 +506,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1592001360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &1993939021
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +736,7 @@ GameObject:
   - component: {fileID: 7068575764013137695}
   - component: {fileID: 8544686565979391021}
   - component: {fileID: 6737106116719662630}
-  - component: {fileID: 1621523050}
+  - component: {fileID: 1517306185}
   m_Layer: 0
   m_Name: Start Button
   m_TagString: Untagged
@@ -885,7 +871,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1621523050
+--- !u!114 &1517306185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,26 +880,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 441975390652764216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &515046518610982857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,8 +1133,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 29.3242, y: 0}
+  m_SizeDelta: {x: -58.6483, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &601871612160495660
 CanvasRenderer:
@@ -1220,15 +1192,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
+  m_fontSize: 72
   m_fontSizeBase: 34
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1350,7 +1322,7 @@ GameObject:
   - component: {fileID: 3156424809716773165}
   - component: {fileID: 4645523346608090419}
   - component: {fileID: 2571061307536723810}
-  - component: {fileID: 1426578242}
+  - component: {fileID: 566592881}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged
@@ -1376,8 +1348,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -180}
-  m_SizeDelta: {x: 300, y: 80}
+  m_AnchoredPosition: {x: -588.5389, y: -17.5205}
+  m_SizeDelta: {x: 746.9221, y: 78.1643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3156424809716773165
 CanvasRenderer:
@@ -1485,7 +1457,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1426578242
+--- !u!114 &566592881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1494,26 +1466,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2450268658642638815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &3122185802639643757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,8 +1729,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 367}
-  m_SizeDelta: {x: 1367.81, y: 50}
+  m_AnchoredPosition: {x: 0, y: 388.42923}
+  m_SizeDelta: {x: 1700, y: 92.8584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3122185804387695605
 CanvasRenderer:
@@ -1964,7 +1922,7 @@ GameObject:
   - component: {fileID: 3122185804571462272}
   - component: {fileID: 3122185804571462275}
   - component: {fileID: 3122185804571462274}
-  - component: {fileID: 1765356780}
+  - component: {fileID: 1765356785}
   m_Layer: 0
   m_Name: Start Button
   m_TagString: Untagged
@@ -1990,8 +1948,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 60}
-  m_SizeDelta: {x: 400, y: 120}
+  m_AnchoredPosition: {x: -588.53894, y: 190.91785}
+  m_SizeDelta: {x: 746.9221, y: 78.1643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3122185804571462272
 CanvasRenderer:
@@ -2099,7 +2057,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1765356780
+--- !u!114 &1765356785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2108,26 +2066,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3122185804571462276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &3122185804594605136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,8 +2107,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 29.3242, y: 0}
+  m_SizeDelta: {x: -58.6483, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3122185804594605487
 CanvasRenderer:
@@ -2229,8 +2173,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2550,7 +2494,7 @@ GameObject:
   - component: {fileID: 6037900715213733398}
   - component: {fileID: 8290482854151545405}
   - component: {fileID: 2778896392942420417}
-  - component: {fileID: 382384544}
+  - component: {fileID: 728669479}
   m_Layer: 0
   m_Name: Back Button
   m_TagString: Untagged
@@ -2685,7 +2629,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &382384544
+--- !u!114 &728669479
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2694,26 +2638,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4344335380320591914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &4614098874727090677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,7 +2656,7 @@ GameObject:
   - component: {fileID: 8764492527625943460}
   - component: {fileID: 694133190523776111}
   - component: {fileID: 8355191676425692620}
-  - component: {fileID: 2023628527}
+  - component: {fileID: 1668614435}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -2752,8 +2682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70}
-  m_SizeDelta: {x: 300, y: 80}
+  m_AnchoredPosition: {x: -588.53894, y: 86.698746}
+  m_SizeDelta: {x: 746.9221, y: 78.1643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8764492527625943460
 CanvasRenderer:
@@ -2861,7 +2791,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2023628527
+--- !u!114 &1668614435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2870,26 +2800,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4614098874727090677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &5111315007315020877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2925,8 +2841,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 29.3242, y: 0}
+  m_SizeDelta: {x: -58.6483, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2853358682545035968
 CanvasRenderer:
@@ -2986,15 +2902,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
+  m_fontSize: 72
   m_fontSizeBase: 34
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3409,7 +3325,7 @@ GameObject:
   - component: {fileID: 7608478377688782615}
   - component: {fileID: 1140136324032579143}
   - component: {fileID: 8198721461900516731}
-  - component: {fileID: 966474372}
+  - component: {fileID: 700406043}
   m_Layer: 0
   m_Name: Back Button
   m_TagString: Untagged
@@ -3544,7 +3460,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &966474372
+--- !u!114 &700406043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3553,26 +3469,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5782813361621333373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &5834136950576336377
 GameObject:
   m_ObjectHideFlags: 0
@@ -4607,7 +4509,7 @@ GameObject:
   - component: {fileID: 2220213086224734126}
   - component: {fileID: 369133433719623546}
   - component: {fileID: 1691979077738532711}
-  - component: {fileID: 1487518635}
+  - component: {fileID: 902762785}
   m_Layer: 0
   m_Name: Back Button
   m_TagString: Untagged
@@ -4742,7 +4644,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1487518635
+--- !u!114 &902762785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4751,26 +4653,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8321489065674587840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &8421915014110197686
 GameObject:
   m_ObjectHideFlags: 0
@@ -4806,8 +4694,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 29.3242, y: 0}
+  m_SizeDelta: {x: -58.6483, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4641680228576865455
 CanvasRenderer:
@@ -4865,15 +4753,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
+  m_fontSize: 72
   m_fontSizeBase: 34
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5033,7 +4921,7 @@ GameObject:
   - component: {fileID: 8124904241225934599}
   - component: {fileID: 5772629807873048751}
   - component: {fileID: 4974834528788496412}
-  - component: {fileID: 438423962}
+  - component: {fileID: 1446204620}
   m_Layer: 0
   m_Name: Start Button (1)
   m_TagString: Untagged
@@ -5168,7 +5056,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &438423962
+--- !u!114 &1446204620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5177,26 +5065,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8846632526371129316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &9004186400502672772
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,7 +5159,7 @@ GameObject:
   - component: {fileID: 7887504007596018029}
   - component: {fileID: 5171271685295334332}
   - component: {fileID: 2514004333325098191}
-  - component: {fileID: 943676051}
+  - component: {fileID: 296894534}
   m_Layer: 0
   m_Name: Controls
   m_TagString: Untagged
@@ -5300,7 +5174,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9031673534467358239}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5311,8 +5185,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -290}
-  m_SizeDelta: {x: 300, y: 80}
+  m_AnchoredPosition: {x: -588.5389, y: -121.73962}
+  m_SizeDelta: {x: 746.9221, y: 78.1643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7887504007596018029
 CanvasRenderer:
@@ -5420,7 +5294,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &943676051
+--- !u!114 &296894534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5429,26 +5303,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9031673534467358239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &9173720882142599278
 GameObject:
   m_ObjectHideFlags: 0
@@ -5894,7 +5754,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1722938935260838905}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1739492641
+--- !u!114 &1334440622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5903,26 +5763,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6416874515639988553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: MenuHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: menuSelection
-            m_BoolArgument: 0
-          m_CallState: 2
+  _horizontalMoveAmount: 10
+  _moveTime: 0.1
+  _scaleAmount: 1.1
 --- !u!1 &8484483814516792440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7086390678560335745, guid: 7ca6770d41447e84f893f15d5d85944f,
