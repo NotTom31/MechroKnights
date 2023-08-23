@@ -21,6 +21,10 @@ public class MenuInputManager : MonoBehaviour
         {
             instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         PlayerInput = GetComponent<PlayerInput>();
         _navigationAction = PlayerInput.actions["Navigate"];
