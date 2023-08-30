@@ -56,10 +56,22 @@ public class ButtonSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPoin
         _startScale = transform.localScale;
     }
 
+    public void UpdatePos()
+    {
+        _startPos = transform.position;
+        _startScale = transform.localScale;
+    }
+
     private IEnumerator MoveButton(bool startingAnimation)
     {
         Vector3 endPosition;
         Vector3 endScale;
+
+        if(startingAnimation)
+        {
+            UpdatePos();
+        }
+            
 
         float elapsedTime = 0f;
 
