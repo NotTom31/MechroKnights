@@ -6467,9 +6467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _horizontalMoveAmount: 20
+  _horizontalMoveAmount: 0
   _moveTime: 0.1
-  _scaleAmount: 1.1
+  _scaleAmount: 1.3
   buttonSelectionManager: {fileID: 444234616}
 --- !u!1 &8680607338998731296 stripped
 GameObject:
@@ -6489,9 +6489,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _horizontalMoveAmount: 20
+  _horizontalMoveAmount: 0
   _moveTime: 0.1
-  _scaleAmount: 1.1
+  _scaleAmount: 1.3
   buttonSelectionManager: {fileID: 444234616}
 --- !u!114 &8680607338998731298 stripped
 MonoBehaviour:
@@ -6523,9 +6523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _horizontalMoveAmount: 20
+  _horizontalMoveAmount: 0
   _moveTime: 0.1
-  _scaleAmount: 1.1
+  _scaleAmount: 1.3
   buttonSelectionManager: {fileID: 444234616}
 --- !u!114 &8680607340098822437 stripped
 MonoBehaviour:
@@ -6588,9 +6588,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _horizontalMoveAmount: 20
+  _horizontalMoveAmount: 0
   _moveTime: 0.1
-  _scaleAmount: 1.1
+  _scaleAmount: 1.3
   buttonSelectionManager: {fileID: 444234616}
 --- !u!1 &8680607340921859801 stripped
 GameObject:
@@ -6610,9 +6610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2025428b9a9bac4580b044e6b936d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _horizontalMoveAmount: 20
+  _horizontalMoveAmount: 0
   _moveTime: 0.1
-  _scaleAmount: 1.1
+  _scaleAmount: 1.3
   buttonSelectionManager: {fileID: 444234616}
 --- !u!114 &8680607340921859803 stripped
 MonoBehaviour:
