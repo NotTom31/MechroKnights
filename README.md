@@ -3,6 +3,8 @@ MechroKnights is a first person mech fighting game with a medieval twist. Board 
 
 Made for Mech Jam IV
 
+Game Design Document: https://docs.google.com/document/d/1xZxqigClkNZBL4RYEz-IKTW1dQKc1uDt-COrWWQzAoI/edit?usp=sharing
+
 Movement - WASD, Left Stick
 
 Fire - E, Left Trigger
