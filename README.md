@@ -7,19 +7,16 @@ Made for Mech Jam IV
 
 [Game Design Document](https://docs.google.com/document/d/1xZxqigClkNZBL4RYEz-IKTW1dQKc1uDt-COrWWQzAoI/edit?usp=sharing)
 
-Movement - WASD, Left Stick
 
-Fire - E, Left Trigger
-
-Block - F, Left Shoulder
-
-Jump - Space, Bottom Face Button
-
-Light Melee - Left Mouse, Right Shoulder
-
-Heavy Melee - Right Mouse, Right Trigger
-
-Pause - Esc, Select
+|Controls|Keyboard |Controller|   
+|:--------|:--------:|:--------:|
+|Movement | WASD| Left Stick|
+|Fire | E| Left Trigger|
+|Block | F| Left Shoulder|
+|Jump | Space| Bottom Face Button|
+|Light Melee | Left Mouse| Right Shoulder|
+|Heavy Melee | Right Mouse| Right Trigger|
+|Pause | Esc| Select|
 
 Credits:
 
@@ -27,7 +24,7 @@ Thomas Mezzie - Programmer
 
 Arius Ulibarri - Programmer
 
-bryanv7 - 3D Art
+Bryanv7 - 3D Art
 
 CDplaya - Audio
 
