@@ -18,7 +18,7 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.7
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -59,10 +59,10 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 400
+    m_Value: 800
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 800
+    m_Value: 1000
   gaussianMaxRadius:
     m_OverrideState: 0
     m_Value: 1
@@ -102,7 +102,7 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.45
   contrast:
     m_OverrideState: 1
     m_Value: -7
