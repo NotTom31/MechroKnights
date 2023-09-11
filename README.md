@@ -5,7 +5,9 @@ Made for Mech Jam IV
 
 # **[Play Our Game!](https://tommezzie.itch.io/mechroknights)**
 
-[Game Design Document](https://docs.google.com/document/d/1xZxqigClkNZBL4RYEz-IKTW1dQKc1uDt-COrWWQzAoI/edit?usp=sharing)
+**[Game Design Document](https://docs.google.com/document/d/1xZxqigClkNZBL4RYEz-IKTW1dQKc1uDt-COrWWQzAoI/edit?usp=sharing)**
+
+**[Trello](https://trello.com/b/2JGkogzK/mechroknight-tasks)**
 
 <img src="https://github.com/NotTom31/MechroKnights/assets/99389013/a46140f0-49f1-464c-9165-d87026bce377" width=70% height=70%>
 
@@ -19,17 +21,21 @@ Made for Mech Jam IV
 |Heavy Melee | Right Mouse| Right Trigger|
 |Pause | Esc| Select|
 
-Credits:
+# Credits:
 
-Thomas Mezzie - Programmer
+**_Thomas Mezzie_** - Programmer
 
-Arius Ulibarri - Programmer
+**_Arius Ulibarri_** - Programmer
 
-Bryanv7 - 3D Art
+**_Bryanv7_** - 3D Art
 
-CDplaya - Audio
+**_CDplaya_** - Audio
 
-Asset Credits:
+# WBS (Work Breakdown Structure)
+
+![Task_Breakdown drawio](https://github.com/NotTom31/MechroKnights/assets/99389013/ae53c5b6-7ccb-4fbb-ad69-c5450af9f94c)
+
+# Asset Credits:
 
 [Future Earth Font](https://www.dafont.com/future-earth.font)
 
