@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5238657, g: 0.5617042, b: 0.47704506, a: 1}
+  m_IndirectSpecularColor: {r: 0.8118318, g: 0.87107813, b: 0.7394932, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -546,45 +546,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1572472428706476438, guid: 35d5098271c590648a153470b16248ca,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2108816523912483038, guid: 35d5098271c590648a153470b16248ca,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2284394072945548206, guid: 35d5098271c590648a153470b16248ca,
         type: 3}
       propertyPath: mechStateRef
       value: 
       objectReference: {fileID: 1369886814}
-    - target: {fileID: 3126958967674551030, guid: 35d5098271c590648a153470b16248ca,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4854660763762126586, guid: 35d5098271c590648a153470b16248ca,
         type: 3}
       propertyPath: m_Name
       value: UI (Stage 1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655040674847089394, guid: 35d5098271c590648a153470b16248ca,
-        type: 3}
-      propertyPath: m_Maskable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655040674847089394, guid: 35d5098271c590648a153470b16248ca,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655040674847089394, guid: 35d5098271c590648a153470b16248ca,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5779655883102435816, guid: 35d5098271c590648a153470b16248ca,
         type: 3}
@@ -709,11 +679,6 @@ PrefabInstance:
     - target: {fileID: 7918920990005942691, guid: 35d5098271c590648a153470b16248ca,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8175029095239446351, guid: 35d5098271c590648a153470b16248ca,
-        type: 3}
-      propertyPath: m_PreserveAspect
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
