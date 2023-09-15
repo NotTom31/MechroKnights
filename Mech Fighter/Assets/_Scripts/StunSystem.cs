@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StunSystem : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private MechState mechStateRef;
     [SerializeField] private StunData stunDataRef;
+    [SerializeField] private PlayerInput playerInputRef;
 
     private const float STUN_THRESHOLD = 100f;
     private float currentStunValue = 0f;
@@ -25,8 +27,11 @@ public class StunSystem : MonoBehaviour
 
     private void Update()
     {
-        currentStunValue = Mathf.Clamp(currentStunValue - stunDataRef.decayPerSecond, 0.0f, 100f);
+        if (!IsStunned)
+            currentStunValue = Mathf.Clamp(currentStunValue - stunDataRef.decayPerSecond, 0.0f, 100f);
         currentStunnedSeconds -= Time.deltaTime;
+        StunCheck(currentStunValue, currentStunnedSeconds);
+
     }
 
     private void HandleHit(int mechIndex, bool isBullet)
@@ -42,17 +47,24 @@ public class StunSystem : MonoBehaviour
         {
             currentStunValue = Mathf.Clamp(currentStunValue + stunDataRef.lightStun, 0.0f, 100f);
         }
-
+        Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been hit!\n" +
+                  $"StunValue: {currentStunValue}\n" +
+                  $"Health: {mechStateRef.HP}");
     }
 
     private void StunCheck(float currentStun, float currentTime)
     {
-        if (currentTime <= 0)
+        if (currentTime <= 0f)
+        {
             IsStunned = false;
+            playerInputRef.ActivateInput();
+            currentStunValue = 0f;
+        }
         if (currentStun < STUN_THRESHOLD)
             return;
 
         IsStunned = true;
+        playerInputRef.DeactivateInput();
         currentStunnedSeconds = stunDataRef.stunDurationSeconds;
         OnStunChange?.Invoke(IsStunned, mechStateRef.GetMechIndex(), currentStunValue);
     }
