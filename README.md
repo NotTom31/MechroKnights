@@ -9,7 +9,7 @@ Made for Mech Jam IV
 
 ### **[Trello](https://trello.com/b/2JGkogzK/mechroknight-tasks)**
 
-<img src="https://github.com/NotTom31/MechroKnights/assets/99389013/728cda82-edd5-4b38-b2ed-ec3fa270c040" width=70% height=70%>
+<img src="https://github.com/NotTom31/MechroKnights/assets/99389013/ed87a2f0-ade3-45d3-8b08-6c073ca8644a" width=70% height=70%>
 
 |Controls|Keyboard |Controller|   
 |:--------|:--------:|:--------:|
