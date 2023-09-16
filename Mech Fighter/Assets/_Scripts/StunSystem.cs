@@ -36,7 +36,7 @@ public class StunSystem : MonoBehaviour
 
     private void HandleHit(int mechIndex, bool isBullet)
     {
-        if (mechIndex != mechStateRef.GetMechIndex())
+        if (mechIndex != mechStateRef.GetMechIndex() && !isBullet)
             return;
 
         if (isBullet)
