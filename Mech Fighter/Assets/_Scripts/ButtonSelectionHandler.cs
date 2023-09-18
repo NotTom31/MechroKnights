@@ -52,13 +52,13 @@ public class ButtonSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPoin
 
     private void Start()
     {
-        _startPos = transform.position;
+        _startPos = transform.localPosition;
         _startScale = transform.localScale;
     }
 
     public void UpdatePos()
     {
-        _startPos = transform.position;
+        _startPos = transform.localPosition;
         //_startScale = transform.localScale;
     }
 
@@ -67,10 +67,10 @@ public class ButtonSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPoin
         Vector3 endPosition;
         Vector3 endScale;
 
-        if (startingAnimation)
+/*        if (startingAnimation)
             _startPos = transform.position;
         else
-            endPosition = transform.position;
+            endPosition = transform.position;*/
 
         float elapsedTime = 0f;
 
@@ -89,10 +89,10 @@ public class ButtonSelectionHandler : MonoBehaviour, IPointerEnterHandler, IPoin
                 endScale = _startScale;
             }
 
-            Vector3 lerpedPos = Vector3.Lerp(transform.position, endPosition, (elapsedTime / _moveTime));
+            Vector3 lerpedPos = Vector3.Lerp(transform.localPosition, endPosition, (elapsedTime / _moveTime));
             Vector3 lerpedScale = Vector3.Lerp(transform.localScale, endScale, (elapsedTime / _moveTime)); ;
 
-            transform.position = lerpedPos;
+            transform.localPosition = lerpedPos;
             transform.localScale = lerpedScale;
 
             yield return null;
