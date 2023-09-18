@@ -6676,6 +6676,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.49995
       objectReference: {fileID: 0}
+    - target: {fileID: 8278393807880965449, guid: 7ca6770d41447e84f893f15d5d85944f,
+        type: 3}
+      propertyPath: fullscreenToggle
+      value: 
+      objectReference: {fileID: 8680607338998731298}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ca6770d41447e84f893f15d5d85944f, type: 3}
 --- !u!114 &2819283105524012519 stripped
