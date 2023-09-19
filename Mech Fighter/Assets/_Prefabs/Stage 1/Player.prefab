@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 819580020}
   - component: {fileID: 1369886821}
   - component: {fileID: 2516068933299549149}
+  - component: {fileID: 8698975160036519582}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -854,6 +855,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8698975160036519582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2912653069969735048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21baaf4d195a1cd439664963f9a76a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayersMech: {fileID: 8969485520888435684}
+  EnemyMech: {fileID: 0}
+  HeadlessMech1: {fileID: 8385836491182413749, guid: 767da1678c4fcf64b94c09f2c0be246b,
+    type: 3}
+  HeadlessMech2: {fileID: -153830957423991239, guid: b58c4ae1b417f4b4a89f958b2d9c2702,
+    type: 3}
+  Mech1: {fileID: -5495902117074765545, guid: 0cc3ce444cfc8074797e94dd57e068c2, type: 3}
+  Mech2: {fileID: 8552134717624371188, guid: 94172c37b373a80478d26d0c0f6431b8, type: 3}
+  Mech1Mat: {fileID: -6964914610103450232, guid: 0cc3ce444cfc8074797e94dd57e068c2,
+    type: 3}
+  Mech2Mat: {fileID: -2683325949519466050, guid: e40d9e5e64d3f774597f6c31eb659e4d,
+    type: 3}
 --- !u!1 &4668364801497432057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,6 +1861,12 @@ SphereCollider:
 --- !u!4 &8761008694524661126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1063094714816996356, guid: 0cc3ce444cfc8074797e94dd57e068c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 624445639567906426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8969485520888435684 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8417361359673230750, guid: 0cc3ce444cfc8074797e94dd57e068c2,
     type: 3}
   m_PrefabInstance: {fileID: 624445639567906426}
   m_PrefabAsset: {fileID: 0}

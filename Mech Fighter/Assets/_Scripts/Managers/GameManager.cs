@@ -56,6 +56,17 @@ public class GameManager : MonoBehaviour
     public GameState gameState { get; private set; } = GameState.LOADING;
     public delegate void StateChangeHandler(GameState state);
     public static event StateChangeHandler OnStateChange;
+    private int charSelected = 0;
+
+    public void setCharacter(int character)
+    {
+        charSelected = character;
+    }
+
+    public int getCharacter()
+    {
+        return charSelected;
+    }
 
     private void Awake()
     {
