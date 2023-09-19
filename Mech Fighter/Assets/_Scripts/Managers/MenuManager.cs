@@ -97,7 +97,7 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator ReadyToFight()
     {
-        GameManager.instance.SetState(GameState.PLAYING_ACTIVE);
+        GameManager.instance.SetState(GameState.LOADING);
         canPause = false;
         SoundManager.Instance.StopMusic();
         Time.timeScale = 0;
@@ -118,6 +118,7 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         SoundManager.Instance.PlayMusic("stage1Music");
         canPause = true;
+        GameManager.instance.SetState(GameState.PLAYING_ACTIVE);
     }
 
     public void Pause()
