@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChangeCharacter : MonoBehaviour
 {
@@ -15,40 +16,31 @@ public class ChangeCharacter : MonoBehaviour
     [SerializeField] private Material Mech1Mat;
     [SerializeField] private Material Mech2Mat;
 
-    /*    public void SelectCharacter(int character)
-        {
-            //CurrentMechModel = GetComponent<SkinnedMeshRenderer>();
-            switch (character)
-            {
-                case 0: //spawn first character
-
-                    break;
-                case 1: //spawn 2nd character
-
-                    break;
-                default: //spawn first character as a failsafe
-
-                    break;
-            }
-        }*/
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        if (GameManager.instance.getCharacter() == 0)
+        GameManager.serviceLocator.ProvideService(this);
+    }
+
+    public void SetChar()
+    {
+        Debug.Log("You are character " + GameManager.instance.getCharacter());
+        switch (GameManager.instance.getCharacter())
         {
-            PlayersMech.sharedMesh = HeadlessMech1; //change mesh
-            PlayersMech.sharedMaterial = Mech1Mat;
-            EnemyMech.sharedMesh = Mech2; //change enemy mesh
-            EnemyMech.sharedMaterial = Mech2Mat;
-            //change textures
-        }
-        else if(GameManager.instance.getCharacter() == 1)
-        {
-            PlayersMech.sharedMesh = HeadlessMech2; //change mesh
-            PlayersMech.sharedMaterial = Mech2Mat;
-            EnemyMech.sharedMesh = Mech1; //change enemy mesh
-            EnemyMech.sharedMaterial = Mech1Mat;
-            //change textures
+            case 0:
+                PlayersMech.sharedMesh = HeadlessMech1; //change mesh
+                PlayersMech.sharedMaterial = Mech1Mat;
+                EnemyMech.sharedMesh = Mech2; //change enemy mesh
+                EnemyMech.sharedMaterial = Mech2Mat;
+                break;
+            case 1:
+                PlayersMech.sharedMesh = HeadlessMech2; //change mesh
+                PlayersMech.sharedMaterial = Mech2Mat;
+                EnemyMech.sharedMesh = Mech1; //change enemy mesh
+                EnemyMech.sharedMaterial = Mech1Mat;
+                break;
+            default:
+                Debug.Log("default character");
+                break;
         }
     }
 }

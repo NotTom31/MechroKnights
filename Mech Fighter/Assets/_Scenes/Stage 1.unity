@@ -910,6 +910,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 879058899}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &1747226425 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8969485520888435684, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 345750367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1861156968 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1404247143, guid: 8b86ab689a383594493e3ad9b43f5a82,
@@ -1193,6 +1199,16 @@ PrefabInstance:
       propertyPath: LoadingBarFill
       value: 
       objectReference: {fileID: 360779726}
+    - target: {fileID: 8007633480506709558, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: EnemyMech
+      value: 
+      objectReference: {fileID: 1697342145}
+    - target: {fileID: 8007633480506709558, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: PlayersMech
+      value: 
+      objectReference: {fileID: 1747226425}
     - target: {fileID: 8425868698474417122, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
       propertyPath: m_RootOrder
