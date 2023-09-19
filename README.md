@@ -5,11 +5,11 @@ Made for Mech Jam IV
 
 # **[Play Our Game!](https://tommezzie.itch.io/mechroknights)**
 
-**[Game Design Document](https://docs.google.com/document/d/1xZxqigClkNZBL4RYEz-IKTW1dQKc1uDt-COrWWQzAoI/edit?usp=sharing)**
+### **[Game Design Document](https://docs.google.com/document/d/1xZxqigClkNZBL4RYEz-IKTW1dQKc1uDt-COrWWQzAoI/edit?usp=sharing)**
 
-**[Trello](https://trello.com/b/2JGkogzK/mechroknight-tasks)**
+### **[Trello](https://trello.com/b/2JGkogzK/mechroknight-tasks)**
 
-<img src="https://github.com/NotTom31/MechroKnights/assets/99389013/a46140f0-49f1-464c-9165-d87026bce377" width=70% height=70%>
+<img src="https://github.com/NotTom31/MechroKnights/assets/99389013/ed87a2f0-ade3-45d3-8b08-6c073ca8644a" width=70% height=70%>
 
 |Controls|Keyboard |Controller|   
 |:--------|:--------:|:--------:|
