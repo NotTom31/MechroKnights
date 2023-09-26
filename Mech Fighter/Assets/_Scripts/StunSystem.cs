@@ -43,10 +43,13 @@ public class StunSystem : MonoBehaviour
         {
             currentStunValue = Mathf.Clamp(currentStunValue + stunDataRef.bulletStun, 0.0f, 100f);
         }
-        else // need more conditions/tests for whether it's a heavy attack (reach goal)
+        else // need more conditions/tests for whether it's a heavy attack
         {
             currentStunValue = Mathf.Clamp(currentStunValue + stunDataRef.lightStun, 0.0f, 100f);
         }
+        Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been hit!\n" +
+                  $"StunValue: {currentStunValue}\n" +
+                  $"Health: {mechStateRef.HP}");
     }
 
     private void StunCheck(float currentStun, float currentTime)
