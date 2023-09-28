@@ -16,5 +16,5 @@ MonoBehaviour:
   heavyStun: 30
   lightStun: 15
   decayPerSecond: 2
-  movementScale: 0.5
-  stunDurationSeconds: 0.25
+  movementScale: 0.1
+  stunDurationSeconds: 2
