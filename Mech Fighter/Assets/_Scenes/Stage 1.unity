@@ -311,7 +311,7 @@ PrefabInstance:
     - target: {fileID: 345750373, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
       propertyPath: stunSystemRef
       value: 
-      objectReference: {fileID: 1861156968}
+      objectReference: {fileID: 0}
     - target: {fileID: 819580020, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
       propertyPath: projectilePool
       value: 
@@ -927,18 +927,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 879058899}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1861156968 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1404247143, guid: 8b86ab689a383594493e3ad9b43f5a82,
-    type: 3}
-  m_PrefabInstance: {fileID: 8425868698694537490}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f97594d775ecb994ea0054657ab045b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2096668720787247318
 PrefabInstance:
   m_ObjectHideFlags: 0
