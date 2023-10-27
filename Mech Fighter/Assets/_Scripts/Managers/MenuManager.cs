@@ -16,6 +16,13 @@ public class MenuManager : MonoBehaviour
     public GameObject notAvalable;
     public GameObject fadeOut;
 
+    [Header("Menu Button Primary")]
+    public Button mainMenuPrimary;
+    public Button charSelectPrimary;
+    public Slider settingsPrimary;
+    public Button creditsPrimary;
+    public Button controlsPrimary;
+
     [Header("In Game Menu")]
     public GameObject pauseMenu;
     public GameObject HUD;
@@ -308,33 +315,38 @@ public class MenuManager : MonoBehaviour
     public void OpenCredits()
     {
         MenuSwitch("Credits");
+        //creditsPrimary.Select();
     }
 
     public void OpenControls()
     {
         MenuSwitch("Controls");
+        //controlsPrimary.Select();
     }
 
     public void BackToMainMenu()
     {
         MenuSwitch("Main Menu");
+        //mainMenuPrimary.Select();
     }
 
     public void OpenSettings()
     {
         MenuSwitch("Settings");
+        //settingsPrimary.Select();
     }
 
     public void OpenCharSelect()
     {
         SoundManager.Instance.PlayMusic("characterSelect");
         MenuSwitch("CharSelect");
+        //charSelectPrimary.Select();
     }
 
     public void CloseCharSelect()
     {
         SoundManager.Instance.PlayMusic("menuMusic");
-        MenuSwitch("Main Menu");
+        BackToMainMenu();
     }
 
     public void NotAvalable()
