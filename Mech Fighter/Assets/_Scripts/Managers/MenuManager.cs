@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        ServiceLocator.ProvideService(this);
+        GameManager.serviceLocator.ProvideService(this);
     }
 
     public void MenuNext()
