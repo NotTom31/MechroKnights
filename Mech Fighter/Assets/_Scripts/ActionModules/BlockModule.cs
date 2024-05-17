@@ -68,6 +68,8 @@ public class BlockModule : MonoBehaviour
     }
     void OnBlock(InputValue value)
     {
+        /*if (GameManager.instance.gameState != GameState.PLAYING_ACTIVE) //Prevent attacking when loading, commented out because shielding while loading is fun and harmless
+            return;*/
         if (value.isPressed)
         {
             Debug.Log("Block held!");
