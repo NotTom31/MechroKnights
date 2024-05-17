@@ -403,7 +403,6 @@ GameObject:
   - component: {fileID: 819580020}
   - component: {fileID: 1369886821}
   - component: {fileID: 2516068933299549149}
-  - component: {fileID: 1370864948080759869}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -855,21 +854,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1370864948080759869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2912653069969735048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f97594d775ecb994ea0054657ab045b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mechStateRef: {fileID: 392887747}
-  stunDataRef: {fileID: 11400000, guid: 9963cbe178795b547939c9f35ff1d5e8, type: 2}
-  playerInputRef: {fileID: 345750375}
 --- !u!1 &4668364801497432057
 GameObject:
   m_ObjectHideFlags: 0
