@@ -15,15 +15,15 @@ public enum GameState { LOADING,
 
 public class ServiceLocator
 {
-    public static SoundManager GetSoundManager()
+    public SoundManager GetSoundManager()
     {
         return _soundManager;
     }
-    public static StunSystem GetStunSystem()
+    public StunSystem GetStunSystem()
     {
         return _stunSystem;
     }
-    public static MenuManager GetMenuManager()
+    public MenuManager GetMenuManager()
     {
         return _menuManager;
     }
@@ -37,15 +37,15 @@ public class ServiceLocator
     private static MenuManager _menuManager;
     private static ChangeCharacter _changeCharacter;
 
-    public static void ProvideService(SoundManager soundManager)
+    public void ProvideService(SoundManager soundManager)
     {
         _soundManager = soundManager;
     }
-    public static void ProvideService(StunSystem stunSystem)
+    public void ProvideService(StunSystem stunSystem)
     {
         _stunSystem = stunSystem;
     }
-    public static void ProvideService(MenuManager menuManager)
+    public void ProvideService(MenuManager menuManager)
     {
         _menuManager = menuManager;
     }
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     [Header("Scene Associations")]
 
     public static GameManager instance;
+    public static ServiceLocator serviceLocator;
 
     public GameState gameState { get; private set; } = GameState.LOADING;
     public delegate void StateChangeHandler(GameState state);
@@ -92,6 +93,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
             return; // Not sure if destroying will stop this method, so this is here just in case it doesn't.
+        }
+        if (serviceLocator == null)
+        {
+            serviceLocator = new ServiceLocator();
         }
 
         SceneManager.sceneLoaded += SceneLoaded;
@@ -130,12 +135,12 @@ public class GameManager : MonoBehaviour
         if (mechIndex != 0) // if it's not the player
         {
             SetState(GameState.VICTORY_RESULTS);
-            ServiceLocator.GetMenuManager().OpenYouWin();
+            serviceLocator.GetMenuManager().OpenYouWin();
         }
         else
         {
             SetState(GameState.DEFEAT_RESULTS);
-            ServiceLocator.GetMenuManager().OpenYouLose();
+            serviceLocator.GetMenuManager().OpenYouLose();
         }
     }
     public void SetState(GameState state)

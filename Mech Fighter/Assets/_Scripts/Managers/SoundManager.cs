@@ -108,7 +108,7 @@ public class SoundManager : MonoBehaviour
         _enemySource = _effectSource;
     }*/
 
-    public void PlayHitboxSound(int index, bool isBullet, bool isBlocking)
+    public void PlayHitboxSound(int index, bool isBullet)
     {
         Debug.Log("Play a sound!");
         if (index == 0 && isBullet)
