@@ -21,7 +21,6 @@ public class StunSystem : MonoBehaviour
 
     private void Awake()
     {
-        ServiceLocator.ProvideService(this);
         MechState.OnHitBoxHit += HandleHit;
     }
 
@@ -71,6 +70,7 @@ public class StunSystem : MonoBehaviour
         OnStunChange?.Invoke(IsStunned, mechStateRef.GetMechIndex(), currentStunValue);
         Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been stunned!\nIsStunned: {IsStunned}\n");
     }
+
     public float MoveScale()
     {
         return stunDataRef.movementScale;
