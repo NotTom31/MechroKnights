@@ -69,6 +69,7 @@ public class StunSystem : MonoBehaviour
         playerInputRef.DeactivateInput();
         currentStunnedSeconds = stunDataRef.stunDurationSeconds;
         OnStunChange?.Invoke(IsStunned, mechStateRef.GetMechIndex(), currentStunValue);
+        Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been stunned!\nIsStunned: {IsStunned}\n");
     }
     public float MoveScale()
     {

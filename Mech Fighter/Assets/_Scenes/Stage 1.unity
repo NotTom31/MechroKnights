@@ -920,6 +920,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2069501727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 345750375, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 345750367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2096668720787247318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1138,6 +1150,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1404247143, guid: 8b86ab689a383594493e3ad9b43f5a82, type: 3}
+      propertyPath: stunDataRef
+      value: 
+      objectReference: {fileID: 11400000, guid: 9963cbe178795b547939c9f35ff1d5e8,
+        type: 2}
+    - target: {fileID: 1404247143, guid: 8b86ab689a383594493e3ad9b43f5a82, type: 3}
+      propertyPath: mechStateRef
+      value: 
+      objectReference: {fileID: 1369886814}
+    - target: {fileID: 1404247143, guid: 8b86ab689a383594493e3ad9b43f5a82, type: 3}
+      propertyPath: playerInputRef
+      value: 
+      objectReference: {fileID: 2069501727}
     - target: {fileID: 3995794399321399962, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
       propertyPath: go
