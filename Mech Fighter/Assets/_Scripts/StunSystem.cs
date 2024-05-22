@@ -78,7 +78,7 @@ public class StunSystem : MonoBehaviour
         if (!isBot)
             playerInputRef.DeactivateInput();
         currentStunnedSeconds = stunDataRef.stunDurationSeconds;
-        OnStunChange?.Invoke(IsStunned, mechStateRef.GetMechIndex(), currentStunValue);
+        OnStunChange?.Invoke(IsStunned, mechStateRef.GetMechIndex(), currentStunValue); // may be a deprecated invocation
         Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been stunned!\nIsStunned: {IsStunned}\n");
     }
 
