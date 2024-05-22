@@ -34,11 +34,10 @@ public class StunSystem : MonoBehaviour
 
     private void Update()
     {
-        if (!IsStunned)
-            currentStunValue = Mathf.Clamp(currentStunValue - stunDataRef.decayPerSecond, 0.0f, 100f);
-        currentStunnedSeconds -= Time.deltaTime;
         StunCheck(currentStunValue, currentStunnedSeconds);
-
+        if (!IsStunned)
+            currentStunValue = Mathf.Clamp(currentStunValue - (stunDataRef.decayPerSecond * Time.deltaTime), 0.0f, 100f);
+        currentStunnedSeconds -= Time.deltaTime;
     }
 
     private void HandleHit(int mechIndex, bool isBullet, bool isBlocking)
