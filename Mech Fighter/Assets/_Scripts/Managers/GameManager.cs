@@ -19,26 +19,17 @@ public class ServiceLocator
     {
         return _soundManager;
     }
-    public static StunSystem GetStunSystem()
-    {
-        return _stunSystem;
-    }
     public static MenuManager GetMenuManager()
     {
         return _menuManager;
     }
 
     private static SoundManager _soundManager;
-    private static StunSystem _stunSystem;
     private static MenuManager _menuManager;
 
     public static void ProvideService(SoundManager soundManager)
     {
         _soundManager = soundManager;
-    }
-    public static void ProvideService(StunSystem stunSystem)
-    {
-        _stunSystem = stunSystem;
     }
     public static void ProvideService(MenuManager menuManager)
     {

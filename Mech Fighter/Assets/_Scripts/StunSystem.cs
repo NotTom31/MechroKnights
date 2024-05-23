@@ -9,10 +9,12 @@ public class StunSystem : MonoBehaviour
     [SerializeField] private MechState mechStateRef;
     [SerializeField] private StunData stunDataRef;
     [SerializeField] private PlayerInput playerInputRef;
+    private AICharacter aiCharacterRef;
 
     private const float STUN_THRESHOLD = 100f;
     private float currentStunValue = 0f;
     private float currentStunnedSeconds = 0f;
+    private bool isBot = false;
     
     public bool IsStunned { get; private set; } = false;
 
@@ -21,24 +23,30 @@ public class StunSystem : MonoBehaviour
 
     private void Awake()
     {
-        ServiceLocator.ProvideService(this);
         MechState.OnHitBoxHit += HandleHit;
+        if (playerInputRef == null)
+        {
+            aiCharacterRef = gameObject.GetComponent<AICharacter>();
+            isBot = true;
+        }
+
     }
 
     private void Update()
     {
-        if (!IsStunned)
-            currentStunValue = Mathf.Clamp(currentStunValue - stunDataRef.decayPerSecond, 0.0f, 100f);
         currentStunnedSeconds -= Time.deltaTime;
-        StunCheck(currentStunValue, currentStunnedSeconds);
-
+        StunCheck();
+        if (!IsStunned)
+            currentStunValue = Mathf.Clamp(currentStunValue - (stunDataRef.decayPerSecond * Time.deltaTime), 0.0f, 100f);
     }
 
     private void HandleHit(int mechIndex, bool isBullet, bool isBlocking)
     {
-        if (mechIndex != mechStateRef.GetMechIndex() && !isBullet)
+        if (mechIndex != mechStateRef.GetMechIndex())
             return;
         if (isBlocking)
+            return;
+        if (IsStunned)
             return;
 
         if (isBullet)
@@ -54,22 +62,33 @@ public class StunSystem : MonoBehaviour
                   $"Health: {mechStateRef.HP}");
     }
 
-    private void StunCheck(float currentStun, float currentTime)
+    private void StunCheck()
     {
-        if (currentTime <= 0f)
+        if (currentStunnedSeconds <= 0f && IsStunned) // De-stun
         {
             IsStunned = false;
-            playerInputRef.ActivateInput();
+            if (!isBot)
+                playerInputRef.ActivateInput(); 
             currentStunValue = 0f;
-        }
-        if (currentStun < STUN_THRESHOLD)
+            Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been de-stunned!\nIsStunned: {IsStunned}\n");
             return;
+        }
 
-        IsStunned = true;
-        playerInputRef.DeactivateInput();
-        currentStunnedSeconds = stunDataRef.stunDurationSeconds;
-        OnStunChange?.Invoke(IsStunned, mechStateRef.GetMechIndex(), currentStunValue);
+        if (currentStunValue >= STUN_THRESHOLD && !IsStunned) // Stun
+        {
+            IsStunned = true;
+            if (!isBot)
+                playerInputRef.DeactivateInput();
+            currentStunnedSeconds = stunDataRef.stunDurationSeconds;
+            OnStunChange?.Invoke(IsStunned, mechStateRef.GetMechIndex(), currentStunValue); // for the UI
+            Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been stunned!\nIsStunned: {IsStunned}\n");
+            return;
+        }
+
+
+
     }
+
     public float MoveScale()
     {
         return stunDataRef.movementScale;
