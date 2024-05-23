@@ -34,10 +34,10 @@ public class StunSystem : MonoBehaviour
 
     private void Update()
     {
-        StunCheck(currentStunValue, currentStunnedSeconds);
+        currentStunnedSeconds -= Time.deltaTime;
+        StunCheck();
         if (!IsStunned)
             currentStunValue = Mathf.Clamp(currentStunValue - (stunDataRef.decayPerSecond * Time.deltaTime), 0.0f, 100f);
-        currentStunnedSeconds -= Time.deltaTime;
     }
 
     private void HandleHit(int mechIndex, bool isBullet, bool isBlocking)
@@ -62,24 +62,31 @@ public class StunSystem : MonoBehaviour
                   $"Health: {mechStateRef.HP}");
     }
 
-    private void StunCheck(float currentStun, float currentTime)
+    private void StunCheck()
     {
-        if (currentTime <= 0f)
+        if (currentStunnedSeconds <= 0f && IsStunned) // De-stun
         {
             IsStunned = false;
             if (!isBot)
-                playerInputRef.ActivateInput();
+                playerInputRef.ActivateInput(); 
             currentStunValue = 0f;
-        }
-        if (currentStun < STUN_THRESHOLD)
+            Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been de-stunned!\nIsStunned: {IsStunned}\n");
             return;
+        }
 
-        IsStunned = true;
-        if (!isBot)
-            playerInputRef.DeactivateInput();
-        currentStunnedSeconds = stunDataRef.stunDurationSeconds;
-        OnStunChange?.Invoke(IsStunned, mechStateRef.GetMechIndex(), currentStunValue); // may be a deprecated invocation
-        Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been stunned!\nIsStunned: {IsStunned}\n");
+        if (currentStunValue >= STUN_THRESHOLD && !IsStunned) // Stun
+        {
+            IsStunned = true;
+            if (!isBot)
+                playerInputRef.DeactivateInput();
+            currentStunnedSeconds = stunDataRef.stunDurationSeconds;
+            OnStunChange?.Invoke(IsStunned, mechStateRef.GetMechIndex(), currentStunValue); // for the UI
+            Debug.Log($"Mech {mechStateRef.GetMechIndex()} has been stunned!\nIsStunned: {IsStunned}\n");
+            return;
+        }
+
+
+
     }
 
     public float MoveScale()
