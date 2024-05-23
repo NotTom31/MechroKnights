@@ -23,9 +23,14 @@ public class ServiceLocator
     {
         return _menuManager;
     }
+    public ChangeCharacter GetChangeCharacter()
+    {
+        return _changeCharacter;
+    }
 
     private static SoundManager _soundManager;
     private static MenuManager _menuManager;
+    private static ChangeCharacter _changeCharacter;
 
     public static void ProvideService(SoundManager soundManager)
     {
@@ -34,6 +39,10 @@ public class ServiceLocator
     public static void ProvideService(MenuManager menuManager)
     {
         _menuManager = menuManager;
+    }
+    public void ProvideService(ChangeCharacter changeCharacter)
+    {
+        _changeCharacter = changeCharacter;
     }
 }
 
@@ -46,6 +55,22 @@ public class GameManager : MonoBehaviour
     public GameState gameState { get; private set; } = GameState.LOADING;
     public delegate void StateChangeHandler(GameState state);
     public static event StateChangeHandler OnStateChange;
+    private int charSelected;
+
+    public void setCharacter(int character)
+    {
+        charSelected = character;
+    }
+
+    public void SetCharModel()
+    {
+        serviceLocator.GetChangeCharacter().SetChar();
+    }
+
+    public int getCharacter()
+    {
+        return charSelected;
+    }
 
     private void Awake()
     {
@@ -77,6 +102,7 @@ public class GameManager : MonoBehaviour
         {
             MechState.OnHPChange += HPChangeHandler;
             SetState(GameState.PLAYING_ACTIVE);
+            GameManager.instance.SetCharModel();
         }
     }
     void SceneUnloaded(Scene scene)
