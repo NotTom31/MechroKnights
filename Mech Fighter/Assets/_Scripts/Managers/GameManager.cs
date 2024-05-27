@@ -18,10 +18,27 @@ public class GameManager : MonoBehaviour
     [Header("Scene Associations")]
 
     public static GameManager instance;
+    public static ServiceLocator serviceLocator;
 
     public GameState gameState { get; private set; } = GameState.LOADING;
     public delegate void StateChangeHandler(GameState state);
     public static event StateChangeHandler OnStateChange;
+    private int charSelected;
+
+    public void setCharacter(int character)
+    {
+        charSelected = character;
+    }
+
+    public void SetCharModel()
+    {
+        serviceLocator.GetChangeCharacter().SetChar();
+    }
+
+    public int getCharacter()
+    {
+        return charSelected;
+    }
 
     private void Awake()
     {
@@ -34,6 +51,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
             return; // Not sure if destroying will stop this method, so this is here just in case it doesn't.
+        }
+        if (serviceLocator == null)
+        {
+            serviceLocator = new ServiceLocator();
         }
 
         SceneManager.sceneLoaded += SceneLoaded;
@@ -53,6 +74,7 @@ public class GameManager : MonoBehaviour
         {
             MechState.OnHPChange += HPChangeHandler;
             SetState(GameState.PLAYING_ACTIVE);
+            GameManager.instance.SetCharModel();
         }
     }
     void SceneUnloaded(Scene scene)
@@ -71,12 +93,12 @@ public class GameManager : MonoBehaviour
         if (mechIndex != 0) // if it's not the player
         {
             SetState(GameState.VICTORY_RESULTS);
-            ServiceLocator.GetMenuManager().OpenYouWin();
+            serviceLocator.GetMenuManager().OpenYouWin();
         }
         else
         {
             SetState(GameState.DEFEAT_RESULTS);
-            ServiceLocator.GetMenuManager().OpenYouLose();
+            serviceLocator.GetMenuManager().OpenYouLose();
         }
     }
     public void SetState(GameState state)

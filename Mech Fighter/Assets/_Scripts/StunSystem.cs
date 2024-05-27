@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class StunSystem : MonoBehaviour
 {
@@ -17,9 +16,6 @@ public class StunSystem : MonoBehaviour
     private bool isBot = false;
     
     public bool IsStunned { get; private set; } = false;
-
-    public delegate void StunChangeHandler(bool status, int mechIndex, float currentStunVal);
-    public static event StunChangeHandler OnStunChange;
 
     private void Awake()
     {

@@ -311,7 +311,7 @@ PrefabInstance:
     - target: {fileID: 345750373, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
       propertyPath: stunSystemRef
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1861156968}
     - target: {fileID: 819580020, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
       propertyPath: projectilePool
       value: 
@@ -320,10 +320,6 @@ PrefabInstance:
       propertyPath: menuManager
       value: 
       objectReference: {fileID: 204686636}
-    - target: {fileID: 1809689836, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 2912653069969735048, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
         type: 3}
       propertyPath: m_Name
@@ -384,6 +380,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8698975160036519582, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
+        type: 3}
+      propertyPath: EnemyMech
+      value: 
+      objectReference: {fileID: 1697342145}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 477f4a9a1e6a6124fbf79e9562543f1a, type: 3}
 --- !u!114 &360779726 stripped
@@ -815,11 +816,6 @@ PrefabInstance:
       propertyPath: healthImageRef
       value: 
       objectReference: {fileID: 2036666716}
-    - target: {fileID: 2244647505114831733, guid: e1baaee52aab6f0448a630ee66a4ba92,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 2961338771162606748, guid: e1baaee52aab6f0448a630ee66a4ba92,
         type: 3}
       propertyPath: m_Name
@@ -903,12 +899,36 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6654490258327153333, guid: e1baaee52aab6f0448a630ee66a4ba92, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e1baaee52aab6f0448a630ee66a4ba92, type: 3}
+--- !u!137 &1697342145 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7709686199443038113, guid: e1baaee52aab6f0448a630ee66a4ba92,
+    type: 3}
+  m_PrefabInstance: {fileID: 1697342144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1719772924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 325823187479187113, guid: 35d5098271c590648a153470b16248ca,
     type: 3}
   m_PrefabInstance: {fileID: 879058899}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &1747226425 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8969485520888435684, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 345750367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1861156968 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1404247143, guid: 8b86ab689a383594493e3ad9b43f5a82,
+    type: 3}
+  m_PrefabInstance: {fileID: 8425868698694537490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97594d775ecb994ea0054657ab045b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2036666716 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1572472428706476438, guid: 35d5098271c590648a153470b16248ca,
@@ -1209,6 +1229,16 @@ PrefabInstance:
       propertyPath: LoadingBarFill
       value: 
       objectReference: {fileID: 360779726}
+    - target: {fileID: 8007633480506709558, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: EnemyMech
+      value: 
+      objectReference: {fileID: 1697342145}
+    - target: {fileID: 8007633480506709558, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: PlayersMech
+      value: 
+      objectReference: {fileID: 1747226425}
     - target: {fileID: 8425868698474417122, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
       propertyPath: m_RootOrder
