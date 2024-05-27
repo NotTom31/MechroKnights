@@ -13,30 +13,6 @@ public enum GameState { LOADING,
                         PAUSED }
 
 
-public class ServiceLocator
-{
-    public static SoundManager GetSoundManager()
-    {
-        return _soundManager;
-    }
-    public static MenuManager GetMenuManager()
-    {
-        return _menuManager;
-    }
-
-    private static SoundManager _soundManager;
-    private static MenuManager _menuManager;
-
-    public static void ProvideService(SoundManager soundManager)
-    {
-        _soundManager = soundManager;
-    }
-    public static void ProvideService(MenuManager menuManager)
-    {
-        _menuManager = menuManager;
-    }
-}
-
 public class GameManager : MonoBehaviour
 {
     [Header("Scene Associations")]
