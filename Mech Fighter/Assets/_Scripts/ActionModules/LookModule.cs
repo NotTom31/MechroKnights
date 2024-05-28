@@ -38,8 +38,6 @@ public class LookModule : MonoBehaviour
     }
     void OnLook(InputValue value)
     {
-        if (GameManager.instance.gameState != GameState.PLAYING_ACTIVE)
-            return;
         //Debug.Log("OnLook Reached!");
     }
 }

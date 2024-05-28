@@ -33,8 +33,6 @@ public class FireModule : MonoBehaviour
     }
     public void OnFire()
     {
-        if (GameManager.instance.gameState != GameState.PLAYING_ACTIVE) //Prevent attacking when loading
-            return;
         if (mechStateRef.Energy < energyCostPercent)
         {
             // play low energy sound?

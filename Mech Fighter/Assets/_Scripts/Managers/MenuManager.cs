@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.serviceLocator.ProvideService(this);
+        ServiceLocator.ProvideService(this);
     }
 
     public void MenuNext()
@@ -97,7 +97,7 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator ReadyToFight()
     {
-        GameManager.instance.SetState(GameState.LOADING);
+        GameManager.instance.SetState(GameState.PLAYING_ACTIVE);
         canPause = false;
         SoundManager.Instance.StopMusic();
         Time.timeScale = 0;
@@ -118,7 +118,6 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         SoundManager.Instance.PlayMusic("stage1Music");
         canPause = true;
-        GameManager.instance.SetState(GameState.PLAYING_ACTIVE);
     }
 
     public void Pause()
@@ -285,19 +284,7 @@ public class MenuManager : MonoBehaviour
         MoveToScene(SceneName);
     }
 
-    public void PlayChar1()
-    {
-        GameManager.instance.setCharacter(0);
-        NewGame("Stage 1");
-    }
-
-    public void PlayChar2()
-    {
-        GameManager.instance.setCharacter(1);
-        NewGame("Stage 1");
-    }
-
-    private void NewGame(string SceneName)
+    public void NewGame(string SceneName)
     {
         Debug.Log("Starting new game!");
         StartCoroutine(NewGameFade(SceneName));

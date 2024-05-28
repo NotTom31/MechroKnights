@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer mixer;
-    public Toggle fullscreenToggle;
 
     const string MIXER_MUSIC = "MusicVolume";
     const string MIXER_SFX = "SFXVolume";
@@ -39,8 +38,6 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-
-        fullscreenToggle.isOn = Screen.fullScreen;
     }
 
     public void SetResolution(int resolutionIndex)

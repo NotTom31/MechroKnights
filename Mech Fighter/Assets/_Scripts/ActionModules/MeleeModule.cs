@@ -46,8 +46,6 @@ public class MeleeModule : MonoBehaviour
     }
     public void OnMeleeLight()
     {
-        if (GameManager.instance.gameState != GameState.PLAYING_ACTIVE) //Prevent attacking when loading
-            return;
         if (isAiControl)
         {
             SoundManager.Instance.PlayEnemySound("swing");
@@ -68,8 +66,6 @@ public class MeleeModule : MonoBehaviour
     }
     public void OnMeleeHeavy()
     {
-        if (GameManager.instance.gameState != GameState.PLAYING_ACTIVE) //Prevent attacking when loading
-            return;
         if (isAiControl)
         {
             SoundManager.Instance.PlayEnemySound("reelingATemp");

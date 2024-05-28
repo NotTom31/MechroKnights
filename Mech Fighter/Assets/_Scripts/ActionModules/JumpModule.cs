@@ -34,8 +34,8 @@ public class JumpModule : MonoBehaviour
     }
     void OnJump(InputValue value)
     {
-        if (GameManager.instance.gameState != GameState.PLAYING_ACTIVE) //Prevent attacking when loading
-            return;
+        /*if (menuManager.IsPaused() || menuManager.IsShop() || menuManager.IsDialogue())
+            return;*/
         if (IsGrounded && !isJumping)
         {
             isJumping = true;
