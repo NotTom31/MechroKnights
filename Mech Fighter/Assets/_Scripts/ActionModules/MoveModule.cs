@@ -104,7 +104,7 @@ public class MoveModule : MonoBehaviour
             stunSystemRef = gameObject.GetComponent<StunSystem>();
         if (stunSystemRef.IsStunned)
         {
-            inputHeadingIn3D *= stunSystemRef.MoveScale();
+            inputHeadingIn3D *= stunSystemRef.StunScale;
         }
         if (!jumpModuleRef.IsGrounded)
         {

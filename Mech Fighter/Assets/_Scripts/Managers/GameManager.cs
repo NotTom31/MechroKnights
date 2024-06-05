@@ -22,6 +22,22 @@ public class GameManager : MonoBehaviour
     public GameState gameState { get; private set; } = GameState.LOADING;
     public delegate void StateChangeHandler(GameState state);
     public static event StateChangeHandler OnStateChange;
+    private int charSelected;
+
+    public void setCharacter(int character)
+    {
+        charSelected = character;
+    }
+
+    public void SetCharModel()
+    {
+        serviceLocator.GetChangeCharacter().SetChar();
+    }
+
+    public int getCharacter()
+    {
+        return charSelected;
+    }
 
     private void Awake()
     {
@@ -53,6 +69,7 @@ public class GameManager : MonoBehaviour
         {
             MechState.OnHPChange += HPChangeHandler;
             SetState(GameState.PLAYING_ACTIVE);
+            GameManager.instance.SetCharModel();
         }
     }
     void SceneUnloaded(Scene scene)
