@@ -10,7 +10,11 @@ public static class ServiceLocator
     public static MenuManager GetMenuManager() {return _menuManager;}
     public static void ProvideService(MenuManager menuManagerRef) {_menuManager = menuManagerRef;}
 
+    public static ChangeCharacter GetChangeCharacter() {return _changeCharacter;}
+    public static void ProvideService(ChangeCharacter changeCharacter) {_changeCharacter = changeCharacter;}
+
 
     private static SoundManager _soundManager;
     private static MenuManager _menuManager;
+    private static ChangeCharacter _changeCharacter;
 }

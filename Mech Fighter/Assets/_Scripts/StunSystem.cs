@@ -40,11 +40,9 @@ public class StunSystem : MonoBehaviour
             currentStunValue = Mathf.Clamp(currentStunValue - (stunDataRef.decayPerSecond * Time.deltaTime), 0.0f, 100f);
     }
 
-    private void HandleHit(int mechIndex, bool isBullet, bool isBlocking)
+    private void HandleHit(int mechIndex, bool isBullet)
     {
         if (mechIndex != mechStateRef.GetMechIndex())
-            return;
-        if (isBlocking)
             return;
         if (IsStunned)
             return;

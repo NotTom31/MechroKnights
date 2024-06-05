@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void SetCharModel()
     {
-        serviceLocator.GetChangeCharacter().SetChar();
+        ServiceLocator.GetChangeCharacter().SetChar();
     }
 
     public int getCharacter()

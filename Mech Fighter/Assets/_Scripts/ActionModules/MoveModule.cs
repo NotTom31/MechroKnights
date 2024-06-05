@@ -75,20 +75,20 @@ public class MoveModule : MonoBehaviour
         Vector3 inputHeadingIn3D = inputHeading;
         animatorRef.SetFloat("Input Magnitude", inputHeadingIn3D.magnitude);
 
-        //inputHeadingIn3D *= moveForce;
-/*        if (stunSystemRef == null)
-            stunSystemRef = GameManager.serviceLocator.GetStunSystem();
+        inputHeadingIn3D *= moveForce;
+        if (stunSystemRef == null)
+            stunSystemRef = gameObject.GetComponent<StunSystem>();
         if (stunSystemRef.IsStunned)
         {
-            inputHeadingIn3D *= stunSystemRef.StunScale;
-        }*/
+            inputHeadingIn3D *= stunSystemRef.MoveScale();
+        }
         if (!jumpModuleRef.IsGrounded)
         {
             inputHeadingIn3D *= jumpModuleRef.AirMoveScale;
         }
         heading = inputHeadingIn3D;
     }
-    void OnMove(InputValue value)
+    public void OnMove(InputValue value)
     {
         /*if (menuManager.IsPaused() || menuManager.IsShop() || menuManager.IsDialogue())
         {
@@ -104,7 +104,7 @@ public class MoveModule : MonoBehaviour
             stunSystemRef = gameObject.GetComponent<StunSystem>();
         if (stunSystemRef.IsStunned)
         {
-            inputHeadingIn3D *= stunSystemRef.StunScale;
+            inputHeadingIn3D *= stunSystemRef.MoveScale();
         }
         if (!jumpModuleRef.IsGrounded)
         {
