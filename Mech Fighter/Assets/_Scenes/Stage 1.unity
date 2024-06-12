@@ -527,6 +527,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 879058899}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &609430670 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7709686199443038113, guid: e1baaee52aab6f0448a630ee66a4ba92,
+    type: 3}
+  m_PrefabInstance: {fileID: 1697342144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &740252570 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 330585545, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
@@ -712,6 +718,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3659494373813216713, guid: 35d5098271c590648a153470b16248ca,
     type: 3}
   m_PrefabInstance: {fileID: 879058899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1325038618 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8969485520888435684, guid: 477f4a9a1e6a6124fbf79e9562543f1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 345750367}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1369886814 stripped
 MonoBehaviour:
@@ -1205,6 +1217,16 @@ PrefabInstance:
       propertyPath: LoadingBarFill
       value: 
       objectReference: {fileID: 360779726}
+    - target: {fileID: 8007633480506709558, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: EnemyMech
+      value: 
+      objectReference: {fileID: 609430670}
+    - target: {fileID: 8007633480506709558, guid: 8b86ab689a383594493e3ad9b43f5a82,
+        type: 3}
+      propertyPath: PlayersMech
+      value: 
+      objectReference: {fileID: 1325038618}
     - target: {fileID: 8425868698474417122, guid: 8b86ab689a383594493e3ad9b43f5a82,
         type: 3}
       propertyPath: m_RootOrder
