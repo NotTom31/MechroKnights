@@ -18,7 +18,7 @@ public class ChangeCharacter : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.serviceLocator.ProvideService(this);
+        ServiceLocator.ProvideService(this);
     }
 
     public void SetChar()

@@ -12,7 +12,8 @@ public enum AIState
     Melee,
     Shooting,
     Jumping,
-    Blocking
+    Blocking,
+    Stunned
 }
 
 public enum AIMovement
@@ -50,6 +51,7 @@ public class AICharacter : MonoBehaviour
     private MechState mechStateRef;
     private Animator animatorRef;
     private Rigidbody rb;
+    private StunSystem stunSysRef;
 
     private float distToPlayer;
     private Vector2 movement;
@@ -83,6 +85,7 @@ public class AICharacter : MonoBehaviour
         fireModuleRef = GetComponent<FireModule>();
         mechStateRef = GetComponent<MechState>();
         animatorRef = GetComponentInChildren<Animator>();
+        stunSysRef = GetComponent<StunSystem>();
         rb = GetComponent<Rigidbody>();
 
         stateStack.Push(AIState.Chasing);
@@ -168,6 +171,17 @@ public class AICharacter : MonoBehaviour
             return;
         }*/
 
+        // If mech should be stunned, clear the state stack and push the stunned state
+        // Then peek the state into currentstate and execute it. Early Return.
+        if (ShouldBeStunned())
+        {
+            ClearStateStack();
+            stateStack.Push(AIState.Stunned);
+            currentState = stateStack.Peek();
+            ExecuteStateAction(currentState);
+            return;
+        }
+
         // Randomly decide which action to take based on probabilities.
         float randomValue = Random.value;
         //Debug.Log(randomValue);
@@ -213,6 +227,9 @@ public class AICharacter : MonoBehaviour
                 Block();
                 break;
             case AIState.Idle:
+                break;
+            case AIState.Stunned:
+                // If anything needs to be done for stun to work properly, put it here.
                 break;
         }
     }
@@ -359,6 +376,10 @@ public class AICharacter : MonoBehaviour
         return distToPlayer < chooseRetreatDist;
     }
 
+    private bool ShouldBeStunned()
+    {
+        return stunSysRef.IsStunned;
+    }
     private bool IsStateExcluded(params AIState[] states)
     {
         foreach (AIState state in states)
