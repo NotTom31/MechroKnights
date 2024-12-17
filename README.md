@@ -5,6 +5,8 @@ Made for Mech Jam IV
 
 # **[Play Our Game!](https://tommezzie.itch.io/mechroknights)**
 
+### **[Devlog](https://tommezzie.itch.io/mechroknights/devlog)**
+
 ### **[Game Design Document](https://docs.google.com/document/d/1xZxqigClkNZBL4RYEz-IKTW1dQKc1uDt-COrWWQzAoI/edit?usp=sharing)**
 
 ### **[Trello](https://trello.com/b/2JGkogzK/mechroknight-tasks)**
